@@ -6,3 +6,7 @@
 部分代码由ChatGPT、fitten、豆包、Kimi、DeepSeek生成，并更改。
 
 不一定最新，请访问 [小猫头鹰](http://www.youngowl.asia/) ，或联系作者获得最新源代码。
+
+# 注意
+
+文件大小大于**25MB**的文件暂不能上传到我的github，作者正在尽量完成上传。
