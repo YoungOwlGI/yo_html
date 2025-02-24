@@ -1,0 +1,77 @@
+/* 基本重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* 标题样式 */
+h1 {
+    text-align: center;
+    color: #ff5500;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #4CAF50;
+    margin-top: 20px;
+}
+
+/* 段落样式 */
+p {
+    margin: 10px 0;
+}
+
+/* 链接样式 */
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 列表项样式 */
+ul {
+    margin-left: 2em; /* 设置 ul 的左边距 */
+}
+
+ul li {
+    margin-bottom: 5px; /* 在 li 之间添加一些空间 */
+}
+
+ol {
+    margin-left: 2em; /* 设置 ol 的左边距 */
+}
+
+/* 如果希望 ol 内的 li 有不同颜色 */
+ol li{
+    color: #ff557f;
+}
+
+ul li{
+    color: #ff557f;
+}
+
+ul ul, ul ol, ol ul, ol ol {
+    margin-left: 2em; /* 对于所有嵌套列表，增加额外的左边距 */
+}
+
+/* 其他样式 */
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
