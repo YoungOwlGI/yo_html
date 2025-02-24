@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="Young Owl - HTML5">
+    <meta name="theme-color" content="#E4EBF8">
+    <link rel="manifest" href="manifest.json">
+    <title>Young Owl</title>
+    <link rel="icon" href="./favicon.png" type="image/png">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript" src="./js/link.js"></script>
+    <script type="text/javascript" src="404.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <a id="top"></a>
+    <header>
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo" style="font-weight: normal;"><img src="./favicon.png" alt="Logo">Young Owl</div>
+            <!-- Navigation Bar -->
+            <nav>
+                <ul>
+                    <li><a href="#top">Home</a></li>
+                    <li><a href="./htm/search.html">Search</a></li>
+                    <li>Display Results▼<div class="item-children">
+                            <ul class="children-list">
+                                <li><a href="./htm/htm_index/htm_index.html">Common Page Index</a></li>
+                                <li><a href="./htm/htm_index/htm/Genshin_Impact_Illustrations.html">Genshin Impact Illustrations</a></li>
+                                <li><a href="./htm/genshin.html">Genshin Impact Single Image</a></li>
+                                <li><a href="./htm/experiment/translate.html">Real-time Translation Example</a></li>
+                                <li><a href="./htm/games/Snake.html">Snake Game</a></li>
+                                <li><a href="./file/Genshin_Impact_Encyclopedia_2.6.9-2.xlsx">Genshin Impact Encyclopedia</a></li>
+                                <li><a href="./file/Fake_ATM_Program.py">Fake ATM Program</a></li>
+                                <li><a href="./htm/Play_Genshin.html">Genshin Impact Source Code</a></li>
+                                <li><a href="./htm/Activation_Methods_for_All_Software.html">Activation Methods for All Software</a></li>
+                                <li><a href="./htm/Windows_10_Product_Keys.html">Windows 10 Product Keys</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>Library Computer Information▼<div class="item-children">
+                        <ul class="children-list">
+                            <li><a href="./htm/library_computer_info/Floor2_Computer1.html">Computer 1</a></li>
+                            <li><a href="./htm/library_computer_info/Floor2_Computer2.html">Computer 2</a></li>
+                            <li><a href="./htm/library_computer_info/Floor2_Computer3.html">Computer 3</a></li>
+                            <li><a href="./htm/library_computer_info/Floor2_Computer5.html">Computer 5</a></li>
+                            <li><a href="./htm/library_computer_info/Floor2_Computer7.html">Computer 7</a></li>
+                            Below are still pending
+                            <li><a href="./htm/library_computer_info/Floor2_Computers4-6-8.html">Computers 4-6-8</a></li>
+                            <li><a href="./htm/library_computer_info/Floor3_Computer9.html">Computer 9</a></li>
+                            <li><a href="./htm/library_computer_info/Floor3_Computer10.html">Computer 10</a></li>
+                            <li><a href="./htm/library_computer_info/Floor3_Computer11.html">Computer 11</a></li>
+                            <li><a href="./htm/library_computer_info/Floor3_Computer12.html">Computer 12</a></li>
+                            <li><a href="./htm/library_computer_info/Floor3_Computer13.html">Computer 13</a></li>
+                            <li><a href="./htm/library_computer_info/Floor3_Computer14.html">Computer 14</a></li>
+                            <li><a href="./htm/library_computer_info/Floor3_Computer15.html">Computer 15</a></li>
+                            <li><a href="./htm/library_computer_info/Floor3_Computer16.html">Computer 16</a></li>
+                        </ul>
+                    </div>
+                    </li>
+                    <li>Feedback▼<div class="item-children">
+                        <ul class="children-list">
+                          <li><a href="./submit/say.html">Comment Section</a></li>
+                          <li><a href="./submit/say1.html">Feedback</a></li>
+                          <li><a href="./submit/say2.html">Feedback II</a></li>
+                          <li><a href="./submit/forms.html">Feedback?</a></li>
+                        </ul>
+                    </div>
+                    </li>
+                    <li>Reservation▼<div class="item-children">
+                        <ul class="children-list">
+                          <li><a href="https://nte.perfectworld.com/cn/index.html">Yi Huan</a></li>
+                          <li><a href="https://azurpromilia.manjuu.com/home/">Azur Promilia: Journey</a></li>
+                        </ul>
+                    </div>
+                    </li>
+                    <li>Experiment▼<div class="item-children">
+                            <ul class="children-list">
+                              <li><a href="./htm/experiment/exp.html">Main Experiment</a></li>
+                              <li><a href="./htm/experiment/experiment.html">Auxiliary Experiment</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>Select Language▼<div class="item-children">
+                            <ul class="children-list">
+                                <li><a href="index.html" onclick="changeLanguage('zh')">Chinese</a></li>
+                                <li><a href="index_en.html" onclick="changeLanguage('en')">English</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="./htm/contact_information.html">Contact Information</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<script>
+    // Get all submenus
+    const itemChildren = document.querySelectorAll('.item-children');
+    // Calculate the best width for each submenu
+    itemChildren.forEach(menu => {
+        const parentLi = menu.parentElement;
+        const childList = menu.querySelector('.children-list');
+        const childItems = childList.querySelectorAll('li');
+        // Calculate the total width of the submenu content
+        let totalWidth = 0;
+        childItems.forEach(item => {
+            totalWidth += item.offsetWidth + 15; // Add the width of each submenu item and spacing
+        });
+        // Set the best width for the submenu
+        menu.style.width = Math.min(totalWidth, 600) + 'px'; // Ensure it does not exceed the maximum width
+    });
+</script>
+<h1>Important content is mainly in the <u>Navigation Bar</u></h1>
+<h4>Best Resolution：<u>2160*1440</u></h4>
+<div style="text-align: center; margin: 20px 0;"><hr style="width: 600px; margin: auto;"/></div>
+<script>
+  setInterval(function(){
+      var now = new Date();
+      var year = now.getFullYear();
+      var month = now.getMonth() + 1; // Month starts from 0, so add 1
+      var day = now.getDate();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+      var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      var dayOfWeek = daysOfWeek[now.getDay()];
+      // Ensure month and day are two digits
+      month = month < 10 ? '0' + month : month;
+      day = day < 10 ? '0' + day : day;
+      // Ensure hours, minutes, and seconds are two digits
+      hours = hours < 10 ? '0' + hours : hours;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+      var formattedTime = "Current Time: " + year + " year " + month + " month " + day + " day " + dayOfWeek + " " + hours + ":" + minutes + ":" + seconds;
+      document.getElementById("time").innerHTML = formattedTime;
+  }, 1000);
+</script>
+<h2 id="time">Young Owl</h2>
+<div class="container" style="display: flex; justify-content: center;">
+  <div class="column" style="text-align: center;">
+    <button style="text-align: center; display: inline-block; margin: 0 10px;"><a href="http://10.0.0.3" target="_blank" style="text-decoration: none; color: inherit;">Enter ZXEDU Campus Network</a></button>
+    <button style="text-align: center; display: inline-block; margin: 0 10px;"><a href="https://www.gushiwen.cn/shiwenv.aspx?id=db7aadccd579" target="_blank" style="text-decoration: none; color: inherit;">Mysterious Link</a></button>
+    <button style="text-align: center; display: inline-block; margin: 0 10px;"><a href="https://www.msn.cn/zh-cn/weather/forecast" target="_blank" style="text-decoration: none; color: inherit;">MSN Weather</a></button>
+    <button style="text-align: center; display: inline-block; margin: 0 10px;"><a href="https://xiaomty.fkguest.com/" target="_blank" style="text-decoration: none; color: inherit;">Enter Fanke Personal Website</a></button>
+  </div>
+</div>
+<div class="container">
+  <div class="left-column">
+    <fieldset>
+      <legend style="color:#7200ff" >Huawei Big Data Technology Dual High Class 1 Class Schedule</legend>
+      <img style="width: 100%" src="./img/Curriculum_bigdata1.png" alt="Huawei Big Data Dual High Class 1 Class Schedule" title="Huawei Big Data Dual High Class 1 Class Schedule">
+    </fieldset>
+  </div>
+  <div class="right-column">
+    <fieldset>
+      <legend style="color:#7200ff" >Huawei Big Data Technology Dual High Class 2 Class Schedule</legend>
+      <img style="width: 100%" src="./img/Curriculum_bigdata2.png" alt="Huawei Big Data Dual High Class 2 Class Schedule" title="Huawei Big Data Dual High Class 2 Class Schedule">
+    </fieldset>
+  </div>
+</div>
+<div class="container">
+  <div class="left-column">
+    <fieldset>
+      <legend style="color:#00bbff" >MiHoYo MiYuki</legend>
+      <img style="width: 100%" src="./img/mys.png" alt="MiYuki">
+    </fieldset>
+  </div>
+  <div class="right-column">
+    <fieldset>
+      <legend style="color:#00bbff" >Yunli Cat Face PV Frame 2048</legend>
+      <img style="width: 100%" src="./img/frame_2048.jpg" alt="Yunli Cat Face PV Frame 2048" title="Yunli Cat Face PV Frame 2048">
+    </fieldset>
+  </div>
+</div>
+<!-- -----------------------------备案号----------------------------- -->
+<div class="foot-wrap" id="footer">
+    <div class="footer-nav">
+        <a href="#top" class="scroll-to-top">Back to Top</a>
+        <a href="http://www.youngowl.asia" target="_blank" class="scroll-to-top">Official Website</a>
+    </div>
+    <div class="footer width1180 clearfix">
+        <div class="footer-list">
+          <h3>Contact Us</h3>
+            <p>Phone Number: 195 6132 1158</p>
+            <!-- The following line of commented code causes slow page loading, so it is temporarily not used -->
+            <!-- <p>Communication QQ Group：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=ibDJR0qohZm0cfAq2MVjvddCcK76ddF_&jump_from=webapi&authKey=Y4BcwAYsMwIgtJXkCn5JmrI/YuxULoyALcy1+zEsYXZwr6BzaBBF9/6BPqa9eBsK"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="Starlit Sea Main Group" title="Starlit Sea IT Communication"></a></p> -->
+            <p>Communication QQ Group [Starlit Sea IT Communication]：<a href="https://qm.qq.com/q/oQKxPIxG14" target="_blank">792492587</a></p>
+            <p>Email：<a href="mailto:youngowlgi@outlook.com">youngowlgi@outlook.com</a> (Global)</p>
+        </div>
+        <div class="footer-list">
+          <h3>Website Information</h3>
+            <p>Website：<a href="http://www.youngowl.asia/" target="_blank">http://www.youngowl.asia/</a></p>
+            <p>Website：<a href="http://www.xiaomty.com/" target="_blank">http://www.xiaomty.com/</a></p>
+            <p>Record Number：<a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">YueICP备2024074093</a></p>
+        </div>
+        <div class="footer-list">
+          <h3>Author Information</h3>
+            <p>Author：<a href="http://www.youngowl.asia" target="_blank">Young Owl</a></p>
+            <p>Bilibili：<a href="https://space.bilibili.com/1220237535" target="_blank">Young_Owl</a></p>
+            <p>Gitee：<a href="https://gitee.com/youngowl" target="_blank">Young Owl</a></p>
+        </div>
+    </div>
+    <footer class="footer-bottom">
+        <p>Copyright © 2023-2025 Young Owl All rights reserved.</p>
+    </footer>
+</div>
+
+</body>
+</html>
