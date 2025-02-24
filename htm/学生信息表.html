@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生信息表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>学生信息列表</h1>
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 学生信息将通过JavaScript动态添加 -->
+        </tbody>
+    </table>
+    <button onclick="addStudent()">添加学生信息</button>
+
+    <script>
+        // 定义学生信息数组
+        const students = [
+            { id: 1000, name: "李亮亮", gender: "男", age: 21 },
+            { id: 1001, name: "王小毛", gender: "男", age: 19 },
+            { id: 1002, name: "宋科", gender: "男", age: 20 },
+            { id: 1003, name: "徐小凤", gender: "女", age: 20 }
+        ];
+
+        // 动态加载学生信息到表格
+        function loadStudents() {
+            const tableBody = document.querySelector("#studentTable tbody");
+            students.forEach(student => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    <td>${student.gender}</td>
+                    <td>${student.age}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // 添加新学生信息
+        function addStudent() {
+            const newStudent = { id: 1004, name: "新学生", gender: "女", age: 18 };
+            students.push(newStudent);
+            const tableBody = document.querySelector("#studentTable tbody");
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${newStudent.id}</td>
+                <td>${newStudent.name}</td>
+                <td>${newStudent.gender}</td>
+                <td>${newStudent.age}</td>
+            `;
+            tableBody.appendChild(row);
+            alert("已添加新学生信息！");
+        }
+
+        // 页面加载时执行
+        window.onload = loadStudents;
+    </script>
+</body>
+</html>

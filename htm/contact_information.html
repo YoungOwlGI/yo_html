@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系方式</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script src="./login.js" type="text/javascript"></script>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background-color: #ffffff;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 20px;
+            border-bottom: 2px solid #0073e6;
+            padding-bottom: 5px;
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .contact-column {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 5px;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        li img {
+            width: 28px;
+            height: 28px;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+        a {
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #005bb5;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            margin: 0 auto 30px;
+        }
+        .login-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container"><p></p>
+        这是一个模拟登录页面</br>可以阻拦一些人访问</br>但不能阻拦懂一点HTML的人访问<p></p>
+        <section>
+        <h2>登录</h2>
+        <input type="text" id="username" placeholder="用户名：小猫头鹰_YoungOwl">
+        <input type="password" id="password" placeholder="当前密码字数为1121字，是js上限">
+        <button onclick="login()">登录</button>
+
+    </div>
+
+</section>
+    
+    <div id="content" class="hidden">
+        <h1>联系方式</h1>
+        <section>
+            <h2>社交媒体</h2>
+            <ul>
+                <div class="contact-container">
+                    <div class="contact-column">
+                        <h3>微信</h3>
+                        <ul>
+                        <li><img src="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico" alt="微信">小猫头鹰：XMTY_YoungOwl</li>
+                        <li><img src="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico" alt="微信">Young Owl：wxid_k8huu4ji1fvs22</li>
+                        </ul>
+                    </div>
+                    <div class="contact-column">
+                        <h3>QQ</h3>
+                        <ul>
+                        <li><img src="https://qq-web.cdn-go.cn//im.qq.com_new/7bce6d6d/asset/favicon.ico" alt="QQ">&nbsp;&emsp;小猫头鹰：3339192322</li>
+                        <li><img src="https://qq-web.cdn-go.cn//im.qq.com_new/7bce6d6d/asset/favicon.ico" alt="QQ">Young Owl：2704964856</li>
+                        <li><img src="https://qq-web.cdn-go.cn//im.qq.com_new/7bce6d6d/asset/favicon.ico" alt="QQ">&nbsp;&emsp;&emsp;纳西妲：2681085129</li>
+                        <li><img src="https://qq-web.cdn-go.cn//im.qq.com_new/7bce6d6d/asset/favicon.ico" alt="QQ">&nbsp;&emsp;&emsp;心海酱：422663557</li>
+                        <li><img src="https://qq-web.cdn-go.cn//im.qq.com_new/7bce6d6d/asset/favicon.ico" alt="QQ">&nbsp;&emsp;宵宫姐姐：3039471684</li>
+                        <li><img src="https://qq-web.cdn-go.cn//im.qq.com_new/7bce6d6d/asset/favicon.ico" alt="QQ">&nbsp;&emsp;&emsp;流萤酱：3402063808</li>
+                        <li><img src="https://qq-web.cdn-go.cn//im.qq.com_new/7bce6d6d/asset/favicon.ico" alt="QQ">&nbsp;呜呜伯符玄：2137676891</li>
+                        <li><img src="https://qq-web.cdn-go.cn//im.qq.com_new/7bce6d6d/asset/favicon.ico" alt="QQ">&nbsp;&emsp;&emsp;啦啦啦：3237403836</li>
+                        <li><img src="https://qq-web.cdn-go.cn//im.qq.com_new/7bce6d6d/asset/favicon.ico" alt="QQ">&nbsp;黑曜石奶奶：3833029548</li>
+                        </ul>
+                    </div>
+                </div>
+            </ul>
+        </section>
+        <section>
+            <h2>邮箱</h2>
+            <ul>
+                <li><img src="https://mail.qq.com/zh_CN/htmledition/images/favicon/qqmail_favicon_96h.png" alt="QQ邮箱">QQ邮箱：<a href="mailto:yomihoyo@qq.com">yomihoyo@qq.com</a></li>
+                <li><img src="https://outlook.live.com/mail/favicon.ico" alt="Outlook邮箱">Outlook邮箱：<a href="mailto:youngowlgi@outlook.com">youngowlgi@outlook.com</a></li>
+            </ul>
+        </section>
+        <section>
+            <h2>公众平台</h2>
+            <div class="contact-container">
+                <div class="contact-column">
+                <h3>国内</h3>
+                <ul>
+                    <li><img src="https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*vMxOQIh4KBMAAAAAAAAAAAAADvuFAQ/original" alt="语雀">语雀：<a href="https://www.yuque.com/xmty" target="_blank">点击访问</a></li>
+                    <li><img src="https://i0.hdslb.com/bfs/static/jinkela/long/images/512.png" alt="哔哩哔哩">哔哩哔哩：<a href="https://space.bilibili.com/1220237535" target="_blank">点击访问</a></li>
+                    <li><img src="https://weibo.com/favicon.ico" alt="微博">微博：<a href="https://www.weibo.com/u/6590994177" target="_blank">点击访问</a></li>
+                    <li><img src="https://hk.bdstatic.com/app/favicon.ico" alt="好看视频">好看视频：<a href="https://haokan.baidu.com/author/1720663145909995" target="_blank">点击访问</a></li>
+                </ul>
+                </div>
+                <div class="contact-column">
+                <h3>国际</h3>
+                <ul>
+                    <li><img src="https://abs.twimg.com/responsive-web/client-web/icon-ios.77d25eba.png" alt="X">X（原推特）：<a href="https://x.com/YoungOwlGI" target="_blank">点击访问</a></li>
+                    <li><img src="https://static.xx.fbcdn.net/rsrc.php/yT/r/aGT3gskzWBf.ico" alt="Facebook">Facebook：<a href="https://www.facebook.com/profile.php?id=61556461379162" target="_blank">点击访问</a></li>
+                </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>游戏</h2>
+            <div class="contact-container">
+            <div class="contact-column">
+                <h3>原神</h3>
+                <ul>
+                    <li><img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/09/def1f2abcfc2af0bbe2e5900a60a5ee1_5699547505742166353.png" alt="原神">官服-大号：215887271</li>
+                    <li><img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/09/def1f2abcfc2af0bbe2e5900a60a5ee1_5699547505742166353.png" alt="原神">官服-小号：311617758</li>
+                    <li><img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/09/def1f2abcfc2af0bbe2e5900a60a5ee1_5699547505742166353.png" alt="原神">哔哩哔哩：526546776</li>
+                    <li><img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/09/def1f2abcfc2af0bbe2e5900a60a5ee1_5699547505742166353.png" alt="原神">海外：673903918</li>
+                </ul>
+            </div>
+            <div class="contact-column">
+                <h3>崩坏：星穹铁道</h3>
+                <ul>
+                    <li><img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/09/870472d6104dbbe7ea18b27c13763ccb_5300916022261002498.png" alt="崩坏：星穹铁道">官服-大号：	116671537</li>
+                    <li><img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/09/870472d6104dbbe7ea18b27c13763ccb_5300916022261002498.png" alt="崩坏：星穹铁道">官服-小号：158341091</li>
+                    <li><img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/09/870472d6104dbbe7ea18b27c13763ccb_5300916022261002498.png" alt="崩坏：星穹铁道">海外：834761827</li>
+                </ul>
+            </div>
+                <div class="contact-column">
+                    <h3>崩坏3</h3>
+                    <ul>
+                <li><img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/03/4080f2eb748823d8c38507c3d7b69b36_936817768851375073.png" alt="崩坏3">官服-大号：269406531</li>
+                <li><img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/03/4080f2eb748823d8c38507c3d7b69b36_936817768851375073.png" alt="崩坏3">欢迎填写我的邀请码：269406531GA</li>
+                <li><img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/03/4080f2eb748823d8c38507c3d7b69b36_936817768851375073.png" alt="崩坏3">官服-小号：274781620</li>
+                <li><img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/03/4080f2eb748823d8c38507c3d7b69b36_936817768851375073.png" alt="崩坏3">海外：</li>
+                    </ul>
+                </div>
+                <div class="contact-column">
+                    <h3>绝区零</h3>
+                    <ul>
+                <li><img src="https://webstatic.mihoyo.com/upload/op-public/2022/05/27/3896559583929f643fbe39ec1d6ca1c9_1026345827445617861.png" alt="绝区零">官服：10633154</li>
+                <li><img src="https://webstatic.mihoyo.com/upload/op-public/2022/05/27/3896559583929f643fbe39ec1d6ca1c9_1026345827445617861.png" alt="绝区零">海外：1313189450</li>
+                    </ul>
+                </div>
+                <div class="contact-column">
+                    <h3>闪耀暖暖</h3>
+                        <li><img src="https://nn4cdn.nikkigames.cn/nn4cn/home/images/favicon.ico" alt="闪耀暖暖">116671537</li>
+                </div>
+                <div class="contact-column">
+                    <h3>无限暖暖</h3>
+                        <li><img src="https://assets.nuanpaper.com/nikkiweb/infinitynikki/infinitynikkihomecn/_next/static/media/favicon.0f45254c.ico" alt="无限暖暖">100844510</li>
+                        搭配师与搭配师的相遇是灵感碰撞的开始，很高兴遇见你，期望能与你一起探索奇迹大陆。这是我的伙伴口令：<strong>aBiPz7v</strong>，快快添加我吧~
+                        <p style="text-align: center;">2025-03-07 23:07:46过期</p>
+                    </div>
+                <div class="contact-column">
+                    <h3>崩坏学园2</h3>
+                        <li><img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/11/320a35c423a3d8ca043d7ee14a8c7925_602536019813937911.png" alt="崩坏学园2"></li>
+                </div>
+                <div class="contact-column">
+                    <h3>第五人格</h3>
+                        <li><img src="https://webinput.nie.netease.com/img/id5/icon.png" alt="第五人格">·········</li>
+                </div>
+                <div class="contact-column">
+                    <h3>部落冲突（国内）</h3>
+                    <h4>本人账号</h4>
+                    <ul>
+                        <li><img src="https://supercell.com/favicon.ico" alt="部落冲突（国内）">大号：#P2JL9Y8CC</li>
+                    </ul>
+                    <h4>本人部落</h4>
+                    <ul>
+                        <li><img src="https://supercell.com/favicon.ico" alt="部落冲突（国内）">大号：#2PPVYLP2Y</li>
+                    </ul>
+                </div>
+                <div class="contact-column">
+                    <h3>部落冲突（国际）</h3>
+                    <h4>本人账号</h4>
+                    <ul>
+                        <li><img src="https://supercell.com/favicon.ico" alt="部落冲突（国外）">大号：?</li>
+                    </ul>
+                    <h4>本人部落</h4>
+                    <ul>
+                        <li><img src="https://supercell.com/favicon.ico" alt="部落冲突（国外）">大号：#2PPVYLP2Y</li>
+                    </ul>
+                </div>
+                <!-- ------------------------------------------------------------------------------------------------------- -->
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
