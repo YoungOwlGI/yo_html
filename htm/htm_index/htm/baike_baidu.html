@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百科链接列表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+		h1 {
+			font-size: 33px;
+			text-align: center;
+			margin-top: 0;
+    	}
+        .index {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        .index h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .index a {
+            font-size: 14px;
+            color: #007acc;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .index a:hover {
+            text-decoration: underline;
+        }
+        .section-title {
+            font-size: 20px;
+            color: #333;
+            margin-top: 20px;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 5px;
+        }
+        .link-list {
+            list-style: none;
+            padding: 0;
+        }
+        .link-list li {
+            margin-bottom: 8px;
+        }
+        .link {
+            font-size: 16px;
+            color: #007acc;
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>百科链接列表</h1>
+
+    <!-- 索引部分 -->
+    <div class="index">
+        <h2>索引</h2>
+		<a href="#">主题</a>
+		<a href="#person">人</a>
+		<a href="#">动漫</a>
+		<a href="#school">学校</a>
+		<a href="#games">游戏</a>
+        <a href="#science">科学</a>
+		<a href="#chemistry">化学</a>
+        <a href="#history">历史</a>
+		<a href="#others">其他</a>
+		<a href="#other_web">其他页面</a>
+    </div>
+
+    <!-- 内容部分 -->
+	<div>
+		<h2 id="" class="section-title">主题</h2>
+		<ul class="link-list">
+			<li><a class="link" href="https://baike.baidu.com/museum" target="_blank">博物馆计划</a></li>
+			<li><a class="link" href="https://baike.baidu.com/wikicategory/view?categoryName=%E5%8C%96%E5%AD%A6%E7%99%BE%E7%A7%91" target="_blank">化学百科分类</a></li>
+			<li><a class="link" href="https://baike.baidu.com/vbaike" target="_blank">V百科</a></li>
+			<li><a class="link" href="https://baike.baidu.com/vbaike/%E5%9B%BE%E8%A7%A3%E6%B1%89%E6%9C%8D%E8%BF%9B%E5%8C%96%E5%8F%B2/18329" target="_blank">图解汉服进化史</a></li>
+			<li><a class="link" href="https://baike.baidu.com/tashuo/browse/content?id=60005a46c053746713e12e2c" target="_blank">荒漠猫：唯一一种中国特产猫科，家猫最近的亲族</a></li>
+		</ul>
+	</div>
+	<div>
+		<h2 id="person" class="section-title">人</h2>
+		<ul class="link-list">
+			<li><a class="link" href="https://baike.baidu.com/item/%E6%9D%8E%E5%AD%90%E7%92%87/19895245" target="_blank">李子璇</a> 中国内地女歌手</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E6%9D%A8%E8%B6%85%E8%B6%8A/9686500" target="_blank">杨超越</a>：中国内地影视女演员、歌手</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E8%BF%AA%E4%B8%BD%E7%83%AD%E5%B7%B4/1180418" target="_blank">迪丽热巴</a>：中国内地影视女演员</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%88%98%E4%BA%A6%E8%8F%B2/136156" target="_blank">刘亦菲</a>：华语影视女演员、歌手</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%BC%A0%E6%A1%82%E6%A2%85/1152853?fr=aladdin" target="_blank">张桂梅</a>：全国优秀教师、全国妇联副主席（兼）、丽江华坪女子高级中学校长</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E9%93%83%E6%9C%A8%E7%BE%8E%E5%92%B2/16172002" target="_blank">铃木美咲</a>：日本的女性声优</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E9%9A%8B%E6%96%87%E9%9D%99/3601994" target="_blank">隋文静</a>：中国花样滑冰运动员</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E9%9F%A9%E8%81%AA/4488055" target="_blank">韩聪</a>：中国花样滑冰运动员</li>
+		</ul>
+		<h3>配音演员</h3>
+		<ul class="link-list">
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%AE%8B%E5%AA%9B%E5%AA%9B/58032784" target="_blank">宋媛媛</a>：中国内地女配音演员</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%B1%B1%E6%96%B0/5930367" target="_blank">山新</a>：北斗企鹅工作室配音演员</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E6%96%87%E6%99%93%E4%BE%9D/14678990" target="_blank">文晓依</a>：中国女配音演员，V17声优少女成员</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E7%8E%8B%E6%99%93%E5%BD%A4/59667819" target="_blank">王晓彤</a>：女性配音演员</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%88%98%E9%9B%AF/61742139" target="_blank">刘雯</a>：中国内地女性配音演员</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E6%B2%88%E5%BF%B5%E5%A6%82/52390366" target="_blank">沈念如</a>：中国内地女配音演员</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E9%95%BF%E7%BB%B3%E9%BA%BB%E7%90%86%E4%BA%9A/15414431" target="_blank">长绳麻理亚</a>：日本女性配音演员</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E7%A9%86%E9%9B%AA%E5%A9%B7/55002759" target="_blank">穆雪婷</a>：声优、舞台剧演员</li>
+		</ul>
+		<h3>歌手</h3>
+		<ul class="link-list">
+			<li><a class="link" href="https://baike.baidu.com/item/%E6%9D%8E%E7%8E%9F/333755" target="_blank">李玟</a>：华语流行乐女歌手、影视演员</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%BC%A0%E9%9F%B6%E6%B6%B5/148008" target="_blank">张韶涵</a>：华语流行乐女歌手、影视演员</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E6%B8%A9%E5%A5%95%E5%BF%83/61303742" target="_blank">温奕心</a>：中国内地女歌手</li>
+		</ul>
+	</div>
+	
+	<div>
+		<h2 id="" class="section-title">动漫</h2>
+		<ul class="link-list">
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%88%9D%E9%9F%B3%E6%9C%AA%E6%9D%A5/8231955" target="_blank">初音未来</a>：日本的虚拟偶像歌手</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E9%9B%B7%E5%A7%86/19652918" target="_blank">雷姆</a>：轻小说《Re：从零开始的异世界生活》及其衍生作品中的角色</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E7%BD%97%E5%B0%8F%E9%BB%91%E6%88%98%E8%AE%B0/8383472" target="_blank">罗小黑战记</a>：2011年北京寒木春华动画技术有限公司制作的动画</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E4%BA%AC%E9%83%BD%E5%8A%A8%E7%94%BB/7920941" target="_blank">京都动画</a>：京都动画制作公司</li>
+			<li><a class="link" href="https://baike.baidu.com/item/cosplay/114892" target="_blank">cosplay</a>：艺术活动</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%B0%8F%E6%9E%97%E5%AE%B6%E7%9A%84%E9%BE%99%E5%A5%B3%E4%BB%86/20346406" target="_blank">小林家的龙女仆</a>：酷教信者著作的漫画</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%BA%B7%E5%A8%9C%E5%8D%A1%E5%A7%86%E4%BE%9D/20436065" target="_blank">康娜卡姆依</a>：漫画《小林家的龙女仆》及其衍生作品中角色</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E6%AD%A6%E6%9C%AC%E5%BA%B7%E5%BC%98/8741748" target="_blank">武本康弘</a>：日本动画师、动画演出家、动画导演</li>
+			<li><a class="link" href="https://baike.baidu.com/item/7%C2%B718%E6%97%A5%E6%9C%AC%E4%BA%AC%E9%83%BD%E5%8A%A8%E7%94%BB%E7%BA%B5%E7%81%AB%E6%A1%88/23626388" target="_blank">7·18日本京都动画纵火案</a>：2019年日本京都的一起纵火案</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%A4%B4%E5%A3%B3/65239630" target="_blank">头壳</a>：表演形式</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E7%A6%8F%E7%91%9E/63015870" target="_blank">福瑞</a>：网络流行语</li>
+			<li><a class="link" href="https://baike.baidu.com/item/Re%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%BC%82%E4%B8%96%E7%95%8C%E7%94%9F%E6%B4%BB/18114401" target="_blank">Re：从零开始的异世界生活</a>：WHITE FOX改编的动画片系列</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%85%BD%E8%BF%B7/6249797" target="_blank">兽迷</a>：汉语词语</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E6%B1%89%E6%9C%8D/160368" target="_blank">汉服</a>：汉民族的传统服饰</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E9%BD%90%E8%83%B8%E8%A5%A6%E8%A3%99" target="_blank">齐胸襦裙</a>：汉族襦裙服装形制</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E4%BC%8A%E8%95%BE%E5%A8%9C/22505183" target="_blank">伊蕾娜</a>：日本轻小说《魔女之旅》及其衍生作品中的女主角</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%90%9E%E5%99%AC%E6%98%9F%E7%A9%BA/7752677" target="_blank">吞噬星空</a>：我吃西红柿第六部长篇小说</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%86/22117809" target="_blank">斗罗大陆</a>：企鹅影视、玄机科技联合出品的网络动画</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E7%A5%9E%E5%8D%B0%E7%8E%8B%E5%BA%A7/79190" target="_blank">神印王座</a>：唐家三少创作的长篇异界大陆网络小说</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E6%96%97%E7%A0%B4%E8%8B%8D%E7%A9%B9/54134" target="_blank">斗破苍穹</a>：2009年天蚕土豆创作的玄幻网络小说</li>
+		</ul>
+	</div>
+	
+	<div>
+		<h2 id="school" class="section-title">学校</h2>
+		<ul class="link-list">
+			<li><a class="link"href="https://baike.baidu.com/item/%E9%83%91%E5%B7%9E%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B%E8%81%8C%E4%B8%9A%E5%AD%A6%E9%99%A2" target="_blank">郑州信息工程职业学院</a>：中国河南省郑州市境内民办高校</li>
+			<li><a class="link"href="https://baike.baidu.com/item/%E9%BB%84%E6%B2%B3%E7%A7%91%E6%8A%80%E5%AD%A6%E9%99%A2/403618" target="_blank">黄河科技学院</a>（胡依萌）：中国河南省民办高校</li>
+			<li><a class="link"href="https://baike.baidu.com/item/%E4%B8%AD%E5%8D%97%E5%A4%A7%E5%AD%A6/143850" target="_blank">中南大学</a>：中国湖南省公办高校</li>
+			<li><a class="link"href="https://baike.baidu.com/item/%E4%B8%9C%E5%8C%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6/243055" target="_blank">东北农业大学</a>：中国黑龙江省哈尔滨市境内公办高校</li>
+		</ul>
+	</div>
+	
+	<div>
+		<h2 id="games" class="section-title">游戏</h2>
+		<ul class="link-list">
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%8D%83%E6%81%8B*%E4%B8%87%E8%8A%B1/19447437" target="_blank">千恋*万花</a>：柚子社制作的美少女游戏</li>
+			<li><a class="link" href="https://baike.baidu.com/item/supercell/19452566" target="_blank">supercell</a>：芬兰移动游戏公司</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E9%83%A8%E8%90%BD%E5%86%B2%E7%AA%81/1802644" target="_blank">部落冲突</a>：由Supercell oy所推出的游戏</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E9%83%A8%E8%90%BD%E5%86%B2%E7%AA%81%EF%BC%9A%E7%9A%87%E5%AE%A4%E6%88%98%E4%BA%89/19272002" target="_blank">部落冲突：皇室战争</a>：2016年Supercell开发的一款战争类卡牌游戏</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E6%B5%B7%E5%B2%9B%E5%A5%87%E5%85%B5/13466468" target="_blank">海岛奇兵</a>：一款战斗策略类手机游戏</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E8%8D%92%E9%87%8E%E4%B9%B1%E6%96%97/22072498" target="_blank">荒野乱斗</a>：腾讯旗下芬兰手游公司发行的一款对战手游</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%8D%A1%E9%80%9A%E5%86%9C%E5%9C%BA/9351095" target="_blank">卡通农场</a>：卡通风格模拟经营类游戏</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E7%AC%AC%E4%BA%94%E4%BA%BA%E6%A0%BC/20809402" target="_blank">第五人格</a>：2018年网易游戏出品的非对称性对抗竞技类游戏</li>
+			<li><a class="link" href="https://baike.baidu.com/item/EPIC/13838950" target="_blank">EPIC</a>：认知模型</li>
+		</ul>
+	</div>
+	
+    <div>
+        <h2 id="science" class="section-title">科学</h2>
+        <ul class="link-list">
+            <li><a class="link" href="https://baike.baidu.com/item/%E5%8C%96%E5%AD%A6" target="_blank">化学</a>：自然科学学科</li>
+            <li><a class="link" href="https://baike.baidu.com/item/%E7%89%A9%E7%90%86%E5%AD%A6" target="_blank">物理学</a>：自然科学学科</li>
+            <li><a class="link" href="https://baike.baidu.com/item/%E5%8C%BB%E5%AD%A6" target="_blank">医学</a>：处理生命的各种疾病或病变的一种学科，促进病患恢复健康的一种专业</li>
+        </ul>
+    </div>
+
+	<div>
+        <h2 id="chemistry" class="section-title">化学</h2>
+        <ul class="link-list">
+            <li><a class="link" href="https://baike.baidu.com/item/%E8%81%9A%E4%B9%99%E7%83%AF/274575" target="_blank">聚乙烯</a>：热塑性树脂</li>
+            <li><a class="link" href="https://baike.baidu.com/item/%E8%81%9A%E4%B8%99%E7%83%AF/893850" target="_blank">聚丙烯</a>：聚合物</li>
+            <li><a class="link" href="https://baike.baidu.com/item/%E8%81%9A%E7%A2%B3%E9%85%B8%E9%85%AF/7127305" target="_blank">聚碳酸酯</a>：高分子聚合</li>
+        </ul>
+    </div>
+
+    <div>
+        <h2 id="history" class="section-title">历史</h2>
+        <ul class="link-list">
+            <li><a class="link" href="https://baike.baidu.com/item/%E5%8F%B2%E5%AD%A6" target="_blank">史学</a>：社会科学的一个部门</li>
+            <li><a class="link" href="https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E5%8F%B2" target="_blank">中国古代史</a>：中国历史阶段</li>
+            <li><a class="link" href="https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E5%8F%B2" target="_blank">世界史</a>：根据有人类以来历史的总体，选择人类文明史上的一些重大事件和过程，以及与这些有密切关系的历史现象</li>
+        </ul>
+    </div>
+	
+	<div>
+		<h2 id="others" class="section-title">其他（未分类）</h2>
+		<ul class="link-list">
+			<li><a class="link" href="https://baike.baidu.com/item/%E9%B9%8C%E9%B9%91/1267" target="_blank">鹌鹑</a>：雉科鹌鹑属动物</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E9%83%91%E9%A3%8E%C2%B7%E6%9C%89%E5%A5%B3%E5%90%8C%E8%BD%A6/4866487" target="_blank">郑风·有女同车</a>：《诗经》作品</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E7%A5%82/15407227" target="_blank">祂</a>：汉字</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/284033" target="_blank">中央处理器</a>：超大规模的集成电路</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E4%B8%89%E4%B8%BD%E9%B8%A5/5993303" target="_blank">三丽鸥</a>：文化企业</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E6%AE%B7%E7%B4%AB%E8%90%8D/61925588" target="_blank">殷紫萍</a>：《永劫无间》中的角色</li>
+			<li><a class="link" href="https://baike.baidu.com/item/SE7EN/50109767" target="_blank">SE7EN</a>：华硕玩家国度虚拟形象</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E9%9B%86%E5%8E%9F%E7%BE%8E/55093746" target="_blank">集原美</a>：《集原美的幻想世界》中的角色</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E8%BD%AF%E7%A3%81%E6%9D%90%E6%96%99/564806" target="_blank">软磁材料</a>：具有低矫顽力和高磁导率的磁性材料</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E4%BC%8A%E5%8D%A1%E6%B4%9B%E6%96%AF/7304" target="_blank">伊卡洛斯</a>：神话人物</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%85%AC%E4%B8%BB%E6%8A%B1/1489894" target="_blank">公主抱</a>：拥抱方式</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E4%B8%83%E6%9C%88%E6%B5%81%E7%81%AB/2565" target="_blank">七月流火</a>：汉语成语</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E8%82%AF%E5%BE%B7%E5%9F%BA/323305" target="_blank">肯德基</a>：美国跨国连锁餐厅</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E7%BD%97%E8%AF%89%E9%9F%A6%E5%BE%B7%E6%A1%88/1799684" target="_blank">罗诉韦德案</a>：美国司法案件</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E5%A0%95%E8%83%8E/4374024" target="_blank">堕胎</a>：西医学名</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E6%B3%8A%E8%88%B9%E7%93%9C%E6%B4%B2/4461450" target="_blank">泊船瓜洲</a>：王安石创作的一首七言绝句</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E8%B4%B8%E6%98%93%E7%BB%84%E7%BB%87/150837" target="_blank">世界贸易组织</a>：独立于联合国的永久性国际组织</li>
+			<li><a class="link" href="https://baike.baidu.com/item/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%94%9F%E6%88%90%E5%86%85%E5%AE%B9/65200497" target="_blank">人工智能生成内容</a>：人工智能生成内容(AIGC)</li>
+		</ul>
+	</div>
+	<div>
+		<h2 id="others" class="section-title">其他页面</h2>
+		<ul class="link-list">
+
+			<li><a class="link" href="https://mzh.moegirl.org.cn/%E6%95%B0%E5%AD%97%E6%A2%97" target="_blank">数字梗</a>：（萌娘百科，万物皆可萌的百科全书！转载请标注来源页面的网页链接，并声明引自萌娘百科。内容不可商用。）</li>
+		</ul>
+	</div>
+</body>
+</html>

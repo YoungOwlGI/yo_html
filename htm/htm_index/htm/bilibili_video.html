@@ -1,0 +1,478 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哔哩哔哩视频列表</title><link rel="icon" href="../../../favicon.ico" type="image/x-icon">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    h1 {
+        font-size: 33px;
+        text-align: center;
+        margin-top: 0;
+    }
+    .index {
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+    .index h2 {
+        font-size: 18px;
+        margin-bottom: 10px; 
+    }
+    .index a {
+        font-size: 14px;
+        color: #007acc;
+        text-decoration: none;
+        margin-right: 15px;
+    }
+    .index a:hover {
+        text-decoration: underline;
+    }
+    .section-title {
+        font-size: 20px;
+        color: #333;
+        margin-top: 20px;
+        border-bottom: 2px solid #007acc;
+        padding-bottom: 5px;
+    }
+    .link-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 10px;
+    }
+    .link-list li {
+        margin-bottom: 8px;
+    }
+    .link {
+        font-size: 16px;
+        color: #007acc;
+        text-decoration: none;
+    }
+    .link:hover {
+        text-decoration: underline;
+    }
+    h3 {
+        font-size: 18px;
+        color: #555;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+    }
+    button {
+        font-size: 16px;
+        text-align: center;
+        background-color: #007acc;
+        color: #fff;
+        padding: 10px 20px; /* 增加内边距以使按钮更宽高 */
+        border: none; /* 去掉边框 */
+        border-radius: 5px; /* 添加圆角 */
+        cursor: pointer; /* 改变鼠标悬停时的光标形状 */
+        transition: background-color 0.3s ease; /* 添加过渡效果 */
+    }
+    button:hover {
+        background-color: #005fa3; /* 鼠标悬停时背景颜色变深 */
+    }
+    .container {
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+    .section {
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .left-column, .right-column {
+        width: 48%;
+        margin-right: 4%;
+    }
+    .right-column {
+        margin-right: 0;
+    }
+    .section-title {
+        margin-top: 0;
+    }
+    .section .link-list {
+        margin-top: 10px;
+    }
+    .section .link-list li {
+        margin-bottom: 8px;
+    } 
+    .section .link-list .link {
+        font-size: 16px;
+        color: #007acc;
+        text-decoration: none;
+    }
+    .section .link-list .link:hover {
+        text-decoration: underline;
+    }
+    span {
+        color: #000000;
+        font-size: 12px;
+        display:inline-flexbox;
+        margin-left: 5px;
+    }
+    .popup {
+        display: none; /* 默认隐藏 */
+        position: fixed;
+        left: 50%;  
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.5); /* 设置背景颜色为半透明白色 */
+        padding: 25px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000; 
+        max-width: 95%; /* 修改最大宽度 */
+        overflow-y: auto;
+        max-height: 80vh; /* 设置最大高度为视口高度的80% */
+    }
+    .overlay {
+        display: none; /* 默认隐藏 */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            linear-gradient(rgba(255, 255, 255, 0.5), 
+            rgba(255, 255, 255, 0.5)), 
+            url("../../../img/Carousel_image/8.png");
+        background-size: cover; /* 使背景图片覆盖整个元素 */
+        background-position: center; /* 使背景图片居中 */
+        z-index: 999;
+    }
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>哔哩哔哩视频列表</h1>
+        <h3 style="text-align: center;">手机用户请在PC端打开</h3>
+        <a class="link" href="./bilibili_up.html" target="_blank">进入up主列表</a>
+        <!-- 索引部分 -->
+        <div class="index">
+            <h2>索引</h2>
+            <a href="#new_year">新春会</a>
+            <a href="#new_year_s">新春会（短片/预告片）</a>
+            <a href="#Fan_Special_Program">同人特别节目</a>
+            <a href="#birthday">生日会</a>
+            <a href="#music">音乐会</a>
+            <a href="#secure">安全</a>
+            <a href="#otherl">其他</a>
+            <a href="#otherlong">其他（标题过长）</a>
+        </div>
+
+        <!-- 内容部分 -->
+        <div class="section">
+            <div class="left-column">
+                <h2 id="new_year" class="section-title">新春会</h2>
+                <ul class="link-list">
+                    <h3>2021年</h3>
+                    <li><a class="link" href="https://www.bilibili.com/video/BV1FV411i7ok/" target="_blank">2021年原神拜年纪</a></li>
+                    <li><a class="link" href="https://www.bilibili.com/video/BV1Gp4y1s79x/" target="_blank">明日方舟拜年纪2021【皎星示岁】</a></li>
+                    <h3>2022年</h3>
+                    <div class="section" style="text-align:center;">
+                        <div class="left-column"><button class="video-btn">官方 num = 1</button><div class="popup">
+                            <li><a class="link" href="https://www.bilibili.com/festival/genshin2022" target="_blank">2022原神新春会</a> | <span>官方</span></li>
+                            <button class="close-btn">关闭</button>
+                        </div></div>  
+                        <div class="right-column"><button class="video-btn">非官方 num = 2</button><div class="popup">
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1uP4y1N7cq" target="_blank">2022原神拜年纪</a></li>
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1cF411W75Q/" target="_blank">2022崩坏3新春会 ·「"年"接一切」</a></li>
+                            <button class="close-btn">关闭</button>
+                        </div></div>
+                    </div>
+                    <h3>2023年</h3>
+                    <div class="section" style="text-align:center;">
+                        <div class="left-column"><button class="video-btn">官方 num = 1</button><div class="popup">
+                            <li><a class="link" href="https://www.bilibili.com/festival/genshin2023" target="_blank">2023原神新春会</a> | <span>官方</span></li>
+                            <button class="close-btn">关闭</button>
+                        </div></div>  
+                        <div class="right-column"><button class="video-btn">非官方 num = 4</button><div class="popup">
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1fM41147sV" target="_blank">2023原神新春会「添箸迎春」</a></li>
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1zd4y157Tp/" target="_blank">2023少女前线系列新春会-瑞月流光</a></li>
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1V14y1g7hv/" target="_blank">战双2023新春会：岁雪同行</a></li>
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1Gv4y1C7wP/" target="_blank">2023无期迷途新春会「一期相逢长相伴」</a></li>
+                            <button class="close-btn">关闭</button>
+                        </div></div>
+                    </div>
+                    <h3>2024年</h3>
+                    <div class="section" style="text-align:center;">
+                        <div class="left-column"><button class="video-btn">官方 num = 2</button><div class="popup">
+                            <li><a class="link" href="https://www.bilibili.com/festival/genshin2024" target="_blank">2024原神新春会</a> | <span>官方</span></li>
+                            <li><a class="link" href="https://www.bilibili.com/festival/honkaistarrail2024spring" target="_blank">2024崩坏星穹铁道新春会</a> | <span>官方</span></li>
+                            <button class="close-btn">关闭</button>
+                        </div></div>  
+                        <div class="right-column"><button class="video-btn">非官方 num = 4</button><div class="popup">
+                            <li><a class="link" href="https://www.bilibili.com/festival/2024cfwl1999" target="_blank">2024重返未来1999新春会</a></li>
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1W64y1A77u" target="_blank">【第五人格2024新春会】五龙迎春</a></li>
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1m44y1F7Ej/" target="_blank">战双2024新春会：时光印迹</a></li>
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1ic411v7m1/" target="_blank">【无期迷途2024新春会】迎春纳福金狄斯</a></li>
+                            <button class="close-btn">关闭</button>
+                        </div></div>
+                    </div>
+                    <h3>2025年（年初排序）</h3>
+                    <div class="section" style="text-align:center;">
+                        <button class="video-btn" style="width: 45%; margin: 4px;">官方主题页 num = 8+1</button><div class="popup">
+                            <li><a class="link" href="https://www.bilibili.com/blackboard/era/2025GameSFG.html" target="_blank">2025游戏新春会</a> | <span>2025年2月16日前整合</span></li>
+                            <li>哔哩哔哩：<a class="link" href="https://www.bilibili.com/festival/bnj2025" target="_blank">2025哔哩哔哩拜年纪</a></li>
+                            <li>崩坏：星穹铁道：<a class="link" href="https://www.bilibili.com/festival/HSRSF2025" target="_blank">2025崩坏：星穹铁道新春会</a></li>
+                            <li>虚拟歌手：<a class="link" href="https://www.bilibili.com/festival/VSF2025live" target="_blank">2025虚拟歌手贺岁纪</a></li>
+                            <li>战双帕弥什：<a class="link" href="https://www.bilibili.com/festival/2025PGR" target="_blank">战双2025新春会</a></li>
+                            <li>迦勒底新春会：<a class="link" href="https://www.bilibili.com/festival/fgo2025" target="_blank">FGO新春会</a></li>
+                            <li>鸣潮：<a class="link" href="https://www.bilibili.com/festival/2025wuwa" target="_blankw">2025鸣潮新春会</a></li>
+                            <li>碧蓝航线：<a class="link" href="https://www.bilibili.com/festival/2025azurlane" target="_blank">2025《碧蓝航线》新春会</a></li>
+                            <li>明日方舟：<a class="link" href="https://www.bilibili.com/festival/2025arknights" target="_blank">明日方舟</a></li>
+                            <button class="close-btn">关闭</button>
+                        </div>
+                        <button class="video-btn" style="width: 45%; margin: 4px;">官方专题页 num = 11</button><div class="popup">
+                            <li>DNF手游：<a class="link" href="https://live.bilibili.com/blackboard/era/uAV7ZVcHR1yMeIy1.html" target="_blank">DNF手游2025新春会</a></li>
+                            <li>穿越火线手游：<a class="link" href="https://live.bilibili.com/blackboard/era/zOMjVSUbZaD193i4.html" target="_blank">2025年CFM新春会</a></li>
+                            <li>DNF：<a class="link" href="https://live.bilibili.com/blackboard/era/wjSgXXRM1DILrO9N.html" target="_blank">2025年DNF新春会</a></li>
+                            <li>物华弥新：<a class="link" href="https://live.bilibili.com/blackboard/era/FWtNn6LRq84z85P4.html" target="_blank">2025物华弥新新春会-「吉岁归年」</a></li>
+                            <li>重返未来：1999：<a class="link" href="https://live.bilibili.com/blackboard/era/t0eZaAIsuk7FtcKg.html" target="_blank">2025《重返未来：1999》新春会</a></li>
+                            <li>使命召唤手游：<a class="link" href="https://live.bilibili.com/blackboard/era/3XLpKq4JO3AytJQV.html" target="_blank">使命召唤手游2025新春会</a></li>
+                            <li>无期迷途：<a class="link" href="https://live.bilibili.com/blackboard/era/eY8uwGl2PcBDhVxs.html" target="_blank">2025无期迷途新春会</a></li>
+                            <li>少女前线系列：<a class="link" href="https://live.bilibili.com/blackboard/era/0KVqpNXhZu3iAwn0.html" target="_blank">2025少女前线系列新春会</a></li>
+                            <li>卡拉彼丘：<a class="link" href="https://live.bilibili.com/blackboard/era/eTUQMv8J9hfPplOl.html" target="_blank">沐春迎新-卡拉彼丘新春会</a></li>
+                            <li>王者荣耀：<a class="link" href="https://www.bilibili.com/blackboard/era/zgskKeezfzC1qc83.html" target="_blank">王者荣耀新春会</a></li>
+                            <li>三国：谋定天下：<a class="link" href="https://game.bilibili.com/nslg/2025xc/" target="_blank">《三国：谋定天下》新春会</a> | <span>子域名为game</span></li>
+                        
+                            <button class="close-btn">关闭</button>
+                        </div>
+                        <button class="video-btn" style="width: 45%; margin: 4px;">官方原页面 num = 30</button><div class="popup">
+                            <li>米哈游游戏：<a class="link" href="https://www.bilibili.com/video/BV1AAfSYwEB5/" target="_blank">【米游新春会】「新岁共团圆」正片</a></li>
+                            <li>第五人格：<a class="link" href="https://www.bilibili.com/video/BV1xqfbY7Ex9/" target="_blank">【第五人格2025新春会】蛇五新春</a></li>
+                            <li>穿越火线：<a class="link" href="https://www.bilibili.com/video/BV1uxwVenEfu/" target="_blank">【穿越火线2025新春会】你醒啦？现在是2008年！</a></li>
+                            <li>公主连结：<a class="link" href="https://www.bilibili.com/video/BV1YzwGeQERM/" target="_blank">2025公主连结新春会</a></li>
+                            <li>恋与深空：<a class="link" href="https://www.bilibili.com/video/BV1LHcRe3ES5/" target="_blank">「临空热炽夜」2025恋与深空同人新春会 ｜ 完整正片</a></li>
+                            <li>航海王壮志雄心：<a class="link" href="https://www.bilibili.com/video/BV1itfdYMEDu/" target="_blank">2025 航海王壮志雄心新春会正式开演！</a></li>
+                            <li>女神异闻录系列：<a class="link" href="https://www.bilibili.com/video/BV1CdfGYFEoa/" target="_blank">2025女神异闻录系列新春会</a></li>
+                            <li>新月同行：<a class="link" href="https://www.bilibili.com/video/BV1rcfLYeEp3/" target="_blank">「年年同行2025」新月同行新春会 | 正片</a></li>
+                            <li>三角洲行动：<a class="link" href="https://www.bilibili.com/video/BV1q3fLYoEQr/" target="_blank">2025三角洲行动新春会「新年正当红」</a></li>
+                            <li>尘白禁区：<a class="link" href="https://www.bilibili.com/video/BV1PYfsYeEtA/" target="_blank">2025尘白禁区新春会 「巳岁启新朔，祥光焕锦程」</a></li>
+                            <li>猫和老鼠手游：<a class="link" href="https://www.bilibili.com/video/BV1jQfmYSEfE/" target="_blank">猫和老鼠手游「2025新春会」</a></li>
+                            <li>决战!平安京：<a class="link" href="https://www.bilibili.com/video/BV1Fuf6YKE2C/" target="_blank">2025年「决战！平安京新春会」</a></li>
+                            <li>QQ飞车：<a class="link" href="https://www.bilibili.com/video/BV1sZfzYCE43/" target="_blank">2025年「QQ飞车新春会」蛇来运转漂移过年</a></li>  
+                            <li>魂圈：<a class="link" href="https://www.bilibili.com/video/BV1NVFneREzX/" target="_blank">【2025新春会】</a></li>  
+                            <li>蔚蓝档案：<a class="link" href="https://www.bilibili.com/video/BV1gNfDYUEh3/" target="_blank">2025蔚蓝档案新春会</a></li>  
+                            <li>宝可梦大集结：<a class="link" href="https://www.bilibili.com/video/BV1JXFxeYEW2/" target="_blank">2025宝可梦大集结新春会「蜕变升级 好梦团圆」</a></li>  
+                            <li>偶像梦幻祭2：<a class="link" href="https://www.bilibili.com/video/BV1TcFje7EMw/" target="_blank">2025偶像梦幻祭2新春会</a></li>  
+                            <li>赛马娘PrettyDerby：<a class="link" href="https://www.bilibili.com/video/BV1UcfWYiE9L/" target="_blank">2025赛马娘新春会</a></li>  
+                            <li>东方project：<a class="link" href="https://www.bilibili.com/video/BV1d2FbePEg1/" target="_blank">【2025东方新春宴•星祈雅风】</a></li>  
+                            <li>荒野乱斗：<a class="link" href="https://www.bilibili.com/video/BV1ZafUYHEgs/" target="_blank">2025荒野乱斗蛇年新春会正片｜大过年的，“斗”来俩把！</a></li>  
+                            <li>BanG Dream：<a class="link" href="https://www.bilibili.com/video/BV1APFxeTE4f/" target="_blank">2025 BanG Dream! 新春会「心随星动，梦响十年」</a></li>  
+                            <li>Minecraft：<a class="link" href="https://www.bilibili.com/video/BV18qPXeAEhY/" target="_blank">2025Minecraft新春会</a></li>  
+                            <li>Lovelive SIF：<a class="link" href="https://www.bilibili.com/video/BV1cUf6YzE65/" target="_blank">2025 LoveliveSIF新春会</a></li>  
+                            <li>最终幻想14：<a class="link" href="https://www.bilibili.com/video/BV1KKf2YaERt/" target="_blank">【2025最终幻想14新春会】正片</a></li>  
+                            <li>任饭：<a class="link" href="https://www.bilibili.com/video/BV1iGFdeGEvV/" target="_blank">任饭新春会2025</a></li>  
+                            <li>传说之下：<a class="link" href="https://www.bilibili.com/video/BV16jNPejEgS/" target="_blank">2025传说之下新春会正片</a></li>  
+                            <li>月亮计划系列：<a class="link" href="https://www.bilibili.com/video/BV17mfpYjE3e/" target="_blank">【2025月亮计划新春会：Gamer！GAME STAR！】</a></li>  
+                            <li>逆转裁判：<a class="link" href="https://www.bilibili.com/video/BV1DUNdeLES9/" target="_blank">2025 逆转裁判蛇年新春会——烟火绘永誓</a></li>  
+                            <li>泰拉瑞亚：<a class="link" href="https://www.bilibili.com/video/BV1boFBeEEoR/" target="_blank">2025「Terraria新春会」</a></li>  
+                            <li>植物大战僵尸：<a class="link" href="https://www.bilibili.com/video/BV1WfFeehEnp/" target="_blank">2025《植物大战僵尸》新春会【正片】</a></li>  
+                        <button class="close-btn">关闭</button>
+                        </div>
+                        <button class="video-btn" style="width: 45%; margin: 4px;">非官方 num = 7</button><div class="popup">
+                            <li><a class="link" href="https://www.bilibili.com/video/BV19f6nYsEwY" target="_blank">【官方中字】诡丽幻潭 | 2025新年HoYoFair星穹铁道同人特别节目完整版</a></li>
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1BdfbYNEDT/" target="_blank">2025少女前线系列新春会-巳蛇承岁</a></li>
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1aBfZYuEe7" target="_blank">首届大学生春晚2025</a></li>
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1iWfJYNEgn/" target="_blankw">我们星铁也要有自己的赛博春晚 .exe</a> | <span>此前视频合集</span></li>
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1g3fXYpEvn/" target="_blank">2025原神新春会-「共聚此时」：让我们共同欢庆这美好的时刻！</a></li>
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1Zpcoe7ELd/" target="_blank">「相逢会佳期」——2025重返未来新春会 ｜ 完整正片</a></li>
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1eafWYLErq/" target="_blank">崩 坏 星 穹 铁 道 赛 博 春 晚.exe</a> | <span>玩梗抽象合集</span></li>
+                            <button class="close-btn">关闭</button>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="right-column">
+                <h2 id="birthday" class="section-title">生日会</h2>
+                <ul class="link-list">
+                    <div class="section" style="text-align: center;">
+                    <button class="video-btn">一周年 num = 1</button><div class="popup">
+                        <li><a class="link" href="https://www.bilibili.com/video/BV1df4y1w7Z1/" target="_blank">2021年生日会</a></li>
+                    <button class="close-btn">关闭</button>
+                    </div>
+                    <button class="video-btn">二周年 num = 3</button><div class="popup">
+                        <li><a class="link" href="https://www.bilibili.com/festival/genshin2nd" target="_blank">原神2周年生日会</a> | <span>官方</span></li>
+                        <li><a class="link" href="https://www.bilibili.com/video/BV1ae4y1r7FS/" target="_blank">2022原神生日庆典</a></li>
+                        <li><a class="link" href="https://www.bilibili.com/video/BV1Xw4m1v7hr/" target="_blank">【蛋仔派对生日会】来参加世纪圆舞会！</a></li>
+                    <button class="close-btn">关闭</button>
+                    </div>
+                    <button class="video-btn">三周年 num = 1</button><div class="popup">
+                        <li><a class="link" href="https://www.bilibili.com/festival/genshin3rd" target="_blank">原神3周年生日会</a> | <span>官方</span></li>
+                        <button class="close-btn">关闭</button>
+                    </div>
+                    </div>
+                    <div class="section" style="text-align: center;">
+                    <button class="video-btn">四周年 num = 2</button><div class="popup">
+                        <li><a class="link" href="https://www.bilibili.com/festival/birthday" target="_blank">原神生日会</a> | <span>官方</span></li>
+                        <li><a class="link" href="https://www.bilibili.com/festival/yuanyuzhou" target="_blank">原宇宙放映节</a> | <span>官方</span></li>
+                        <button class="close-btn">关闭</button>
+                    </div>
+                    <button class="video-btn">五周年 num = 0</button><div class="popup">
+                        <button class="close-btn">关闭</button>
+                    </div>
+                    <button class="video-btn">六周年 num = 1</button><div class="popup">
+                        <li><a class="link" href="https://www.bilibili.com/festival/azurlane6th" target="_blank">碧蓝航线6周年狂欢纪</a> | <span>官方</span></li>
+                        <button class="close-btn">关闭</button>
+                    </div>
+                    </div>
+                </ul>
+                <h2 id="new_year_s" class="section-title">新春会（短片/预告片）</h2>
+                <ul class="link-list">
+                    <h3>2025年</h3>
+                    <li><a class="link" href="https://www.bilibili.com/video/BV1f4421A7pN/" target="_blank">绝区零！突袭春节档！</a></li>
+                </ul>
+                <h2 id="Fan_Special_Program" class="section-title">同人特别节目</h2>
+                <ul class="link-list">
+                    <h3>2023年</h3>
+                    <li><a class="link" href="https://www.bilibili.com/video/BV1cm4y1L7Nk/" target="_blank">HoYoFair2023原神同人特别节目「超骇之旅：数据之渊」</a></li>
+                </ul>
+                <h2 id="music" class="section-title">音乐会</h2>
+                <ul class="link-list">
+                    <h3>2023年</h3>
+                    <li><a class="link" href="https://www.bilibili.com/video/BV1cb4y137M4/" target="_blank">2023原神「夏日回响」二创音乐会</a></li>
+                </ul>
+                <h3></h3>
+                尚未播出：“吉”字3-16</br>
+                原神你为什么不做官方2025新春会？！
+            </div>
+        </div>
+        <div class="section">
+            <div class="section" style="text-align: center;">
+            <button class="video-btn">安全</button><div class="popup">
+            <div class="section"><div class="left-column">
+                <h2 id="secure" class="section-title">安全（左）</h2>
+                <ul class="link-list">
+                    <li><a class="link" href="https://www.bilibili.com/video/BV1Gu4y1m76S/" target="_blank">50%抑郁症患者为在校学生 ︳为何年轻人越来越脆弱？</a></li>
+                    <li><a class="link" href="https://www.bilibili.com/video/BV1xq4meKE16/" target="_blank">“身体注入了奇怪的东西…”——【整型惊奇实录】</a></li>
+                    <li><a class="link" href="https://www.bilibili.com/video/BV1bZ421y7og/" target="_blank">清远市洲心街第一中学坠楼事件</a></li>
+                </li>
+            </div><div class="right-column">
+                <h2 class="section-title" style="text-align: right;">安全（右）</h2>
+                <ul class="link-list">
+                    <li><a class="link" href="https://www.bilibili.com/video/BV19N411r7Ny/" target="_blank">酒后被“捡尸”的女生，到底会经历什么？</a>
+                    <li><a class="link" href="https://www.bilibili.com/video/BV18V4y1Y7EJ/" target="_blank">朋友口中的缅北（诈骗）VS 现实中的缅北（诈骗）2.0</a>
+                    <li><a class="link" href="https://www.bilibili.com/video/BV14Z421q78i/" target="_blank">真实事件改编！被拐卖的儿童究竟有多惨？这游戏结局让人泪崩！</a>
+                </ul>
+            </div></div><button class="close-btn">关闭</button>
+        </div>
+        </div>
+        </div>
+        <div class="section">
+        <div class="left-column">
+            <h2 id="other" class="section-title">其他（左）</h2>
+            <ul class="link-list">
+                <li><a class="link" href="https://www.bilibili.com/video/BV12Xx4ekEvm/" target="_blank">【苏星河】被我们误解最深的软件？学习强国的正确用法！</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1Gi421i7mJ/" target="_blank">【万字解析】我们为什么对考试这么痴狂？内卷的本质与破局</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1zi421D7Z9/" target="_blank">“哦，他是学新闻学的”</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1H44y1w7cK/" target="_blank">歌手“舞台事故”有多吓人？有的差点走光，有的差点直接去世！</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1Wm411Q7vL/" target="_blank">感谢国家！第五个网站我天天在用！！【旁门左道PPT】</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1cj421U7Cx/" target="_blank">【细思极恐】英国一科学家用实验来证明我们的世界是虚拟的，他成功了吗？</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1nW421N7KA/" target="_blank">为什么年轻人恋爱难？真相超乎你想象</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1Dw4m1a7yk/" target="_blank">美国史上最炸裂的总统辩论</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV13X4y1P7z7/" target="_blank">2021届清华美院动画毕设 |《万华镜》——百年党庆，献礼中华五十六个民族</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1n441127jG/" target="_blank">史诗！10分钟从上古之战到溥仪退位，中国历史年表超燃影视化混剪！</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1Ss411D7PP/" target="_blank">一次性看完中国历史 非官方历史向【中国宣传片】“礼仪之邦”</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1kBtKeJEDC/" target="_blank">【黑暗森林31】起底“探花”产业链：狙击外围女性，偷拍一部9000块？</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1RHmPYcEhg/" target="_blank">33亿票房，豆瓣7.2分，《抓娃娃》真是“低质强碱性搞笑片”吗？</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1iEz8YSE2S/" target="_blank">彩礼简史：爹味重的不是胖东来，而是某些历史没学好的小编【毒舌的南瓜】</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1ut421N7qf/" target="_blank">真是越看越心酸，为了不让这幕发生在你我身上，钱学森早有预见</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1yZ421Y7o9/" target="_blank">客人..没毛的地方不可以摸哦【动态壁纸】</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1fF4m1K7MA/" target="_blank">不是，这些文件都是什么来头啊？</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1Cf421e7Sr/" target="_blank">啥也不会还年薪大几十万？扫清你对产品、运营岗的全部误解…</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1BMUQYuEZ9/" target="_blank">我虽然坐拥千万粉丝，但却险些饿死，只因我是一名丧葬店主，被我关注的主播都会离奇死亡</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1ERztYEEdu/" target="_blank">台湾网军（下）：1450成为网络公害，舆论的威力到底有多大？</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1qW4y1a7fU/" target="_blank">黑马程序员python教程，8天python从入门到精通，学python看这套就够了</a></li>
+
+            </ul>
+        </div>
+        <div class="right-column">
+            <h2 class="section-title" style="text-align: right;">其他（右）【前两个是番剧】</h2>
+            <ul class="link-list">
+                <li><a class="link" href="https://www.bilibili.com/bangumi/media/md5800/" target="_blank">小林家的龙女仆</a></li>
+                <li><a class="link" href="https://www.bilibili.com/bangumi/media/md28234520" target="_blank">超级演说家·正青春</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1jy421i7zo/" target="_blank">烛宝哒 动态壁纸 猫猫的夏天</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1pm411z7BA/" target="_blank">人死之后会再社死一次吗？你在网上的秘密守得住吗？【柴知道：人生大题】</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1iw4m1y7vs/" target="_blank">文心一言4.0 VS GPT4.0，百度吹的牛实现了吗？【深度测评】</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1vZ421e7xe/" target="_blank">成为老实人后，才理解为什么大爷爱骂营业厅了。</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1BD42157xa/" target="_blank">一键三连娘！（无字幕特效纯享版）（欢迎自取使用）</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV12F4m1F781/" target="_blank">黑客工具合集 | 手机上就能使用的黑客工具（附安装包）</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1rM4m1D7ZV/" target="_blank">看好了，这么仙的内搭可不多见～</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1qF4m1N7JN/" target="_blank">历经30年，为啥这个文件夹越来越没存在感</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV12z421o74i/" target="_blank">最新最全！吊打付费！这13款才是真正的电脑必装软件！</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1AM4m1d7yd/" target="_blank">电脑设置这些选项，Edge浏览器用着更顺手</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1Gz421177a/" target="_blank">活了20多年，第一次知道鼠标还能这么用...</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1pt421t75Z/" target="_blank">“不是女王女神节，是38劳动妇女节！”</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1Js421A74m/" target="_blank">【基德】人类怀孕是一种寄生吗？一定要看完！</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1fj411R7yN/" target="_blank">如果你今天不开心 请把这个视频看完「老人半夜骂车 次日大孙子腿被打折」</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1kB4y1g7mD/" target="_blank">中学不让“早恋”，大学毕业催婚，为什么只有中国人的恋爱才这么难！【迟毓凯】</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1Xe4y1s7WZ/" target="_blank">【半佛】恋爱不趁早，可能成祸害</a></li>
+                <li><a class="link" href="https://www.bilibili.com/video/BV1V14y1E7Bh/" target="_blank">那些男生不知道的女生“黑话”...</a></li>
+                <h3>科学</h3>
+                <li><a class="link" href="https://www.bilibili.com/video/BV15z421Q7jm/" target="_blank">被禁止的科济列夫镜实验！打开时空裂缝时，发现有生物在一直观察人类</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <ul class="link-list">
+            <h2 id="otherlong" class="section-title">其他（标题太长）</h2>
+            <li><a class="link" href="https://www.bilibili.com/video/BV1je4y1W7eG/" target="_blank">『Heaven Burns Red』麻枝准×やなぎなぎ「Love Song from the Water」[限定生産盤]</a></li>
+            <li><a class="link" href="https://www.bilibili.com/video/BV1dG4y177FT/" target="_blank">“富二代”奸杀16岁少女，监控录像丢失，校方出具违证，遗物不翼而飞，二审被判无期徒刑，赔偿150万。</a></li>
+            <li><a class="link" href="https://www.bilibili.com/video/BV1t541187Ju/" target="_blank">【食物语一周年】《一载百味》排骨教主/三无Marblue/KBShinya/音频怪物/Lao乾媽/奇然/王胖子/五音Jw/泥鳅Niko</a></li>
+            <li><a class="link" href="https://www.bilibili.com/video/BV1pm42177BU/" target="_blank">【ACG周讯】政治正确入侵日本？涩涩惨遭和谐！雌小鬼都不放过，海外资本重拳出击DLsite！</a></li>
+            <li><a class="link" href="https://www.bilibili.com/video/BV1hJ4m1M7ob/" target="_blank">可这普普通通的二本也是我努力得来的啊！这8.3万人点赞的评论，让我狠狠破防！</a></li>
+            <li><a class="link" href="https://www.bilibili.com/video/BV1Z64y1M7Gt/" target="_blank">心脏手术后胸口无法愈合，科学家为何在老人胸腔注射病毒？走出科学之38亿年前的“纳米机器人”</a></li>
+            <li><a class="link" href="https://www.bilibili.com/video/BV19E41197Kc/" target="_blank">【盛世中华】超燃！数百位8KRAW摄影师联合摄制，10分钟带你看绝美祖国大好河山！</a></li>
+            <li><a class="link" href="https://www.bilibili.com/video/BV1SV4y1U7Wk/" target="_blank">程序员的数量增加，而就业岗位减少！大形势何时才能变好？目前该如何应对？马士兵老师带你深入剖析没有面试机会的根本原因！论程序员职业规划的重要性！</a></li>
+            <li><a class="link" href="https://www.bilibili.com/video/BV1Ve4y1r77b/" target="_blank">【3DMAX教程】米哈游大佬花一周讲完的3DMax建模教程，3dmax从入门到精通，包括基础教程、案例教学、进阶学习和全流程实战，整整400集，熟练掌握并运用！</a></li>
+            </ul>
+    </div>
+        <!-- 弹窗背景 -->
+        <div class="overlay"></div>
+
+        <script>
+            const buttons = document.querySelectorAll('.video-btn');
+            const overlays = document.querySelector('.overlay');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const popup = this.nextElementSibling; // 获取紧随按钮的弹窗
+                    popup.style.display = 'block'; // 显示弹窗
+                    overlays.style.display = 'block'; // 显示背景
+                });
+            });
+            // 关闭按钮
+            const closeBtns = document.querySelectorAll('.close-btn');
+            closeBtns.forEach(closeBtn => {
+                closeBtn.addEventListener('click', function() {
+                    const popup = this.parentElement; // 获取父元素，即弹窗
+                    popup.style.display = 'none'; // 隐藏弹窗
+                    overlays.style.display = 'none'; // 隐藏背景
+                });
+            });
+            // 点击背景关闭弹窗
+            overlays.addEventListener('click', function() {
+                this.style.display = 'none';
+                const popups = document.querySelectorAll('.popup');
+                popups.forEach(popup => {
+                    popup.style.display = 'none';
+                });
+            });
+        </script>
+<ul><li><p>联系邮箱：<a class="link" href="mailto:youngowlgi@outlook.com">youngowlgi@outlook.com</a> | 如有哪个视频链接失效，请联系我，我会及时更正。</p></li><li><p>本站所有视频均来自B站，如不想被引用请联系本站删除。</p><hr /><p style="text-align: center;">end_num - start_num + 1 = num</p></li></ul>
+</div></body></html>

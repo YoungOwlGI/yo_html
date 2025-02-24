@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用链接</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .column {
+            width: 48%;
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 10px;
+        }
+        
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ff00ff; /* 添加底部边框，颜色为粉色 */
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 30px; /* 根据实际情况调整Logo图片大小 */
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            display: inline-block; /* 让列表项在一行显示 */
+            margin: 0 10px; /* 根据需要设置间距 */
+        }
+
+        nav ul li a {
+            color: #0000ff; /* 链接文字颜色改为蓝色 */
+            text-decoration: none;
+            font-weight: normal; /* 根据需要调整字体粗细 */
+            font-size: 16px; /* 根据需要调整字体大小 */
+        }
+
+        .item-children {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff; /* 子菜单背景颜色 */
+            border: 1px solid #ccc; /* 子菜单边框 */
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .item-children ul.children-list {
+            display: flex; /* 使用 flex 布局 */
+            flex-wrap: wrap; /* 允许换行 */
+            padding: 0;
+            margin: 0;
+        }
+
+        .item-children ul.children-list li {
+            margin: 5px; /* 根据需要设置间距 */
+        }
+
+        .item-children ul.children-list li a {
+            color: #333; /* 子菜单链接文字颜色 */
+            text-decoration: none;
+        }
+
+        nav ul li:hover.item-children {
+            display: block; /* 鼠标悬停时显示子菜单 */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        li {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        a {
+            color: #007acc;
+            text-decoration: none;
+            margin: 8px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>常用链接</h1>
+    <script src="../../js/time.js"></script>
+    <h3 id="time">小猫头鹰——Young Owl</h3>  
+    <div style="display: flex; justify-content: space-between; width: 100%;">
+        <div class="column">
+            <h2>按平台分类</h2>
+            <ul>
+                <li>
+                    百度百科：<a href="https://baike.baidu.com" target="_blank">进入官网</a>
+                    <a href="./htm/baike_baidu.html" target="_blank">相关内容</a>
+                </li>
+                <li>
+                    哔哩哔哩：<a href="https://www.bilibili.com" target="_blank">进入官网</a>
+                    <a href="./htm/bilibili_up.html" target="_blank">up主</a>
+                    <a href="./htm/bilibili_video.html" target="_blank">视频</a>
+                    <a href="https://xiaoyi.vc/ewlybewly.html" target="_blank">插件</a>
+                    <a href="https://bcut.bilibili.cn/" target="_blank">必剪</a>
+                    <a href="https://game.bilibili.com/" target="_blank">游戏</a>
+                    <a href="https://wiki.biligame.com/wiki/%E9%A6%96%E9%A1%B5" target="_blank">WIKI</a>
+                    <a href="https://xiaoyi.vc/ewlybewly.html" target="_blank">插件</a>
+                    <a href="https://link.bilibili.com/p/help/index#/anchor-san" target="_blank">帮助</a>
+                    <a href="https://www.bilibili.com/blackboard/era/3TeoI6zXHWdlgRW0.html" target="_blank">鸿蒙花园探索之旅</a>
+                </li>
+                <li>
+                    知乎：<a href="https://www.zhihu.com/" target="_blank">进入官网</a>
+                    <a href="./htm/zhihu.html" target="_blank">相关内容</a>
+                </li>
+                <li>
+                    微博：<a href="https://weibo.com" target="_blank">进入官网</a>
+                    <a href="./htm/weibo.html" target="_blank">相关内容</a>
+                </li>
+                <li>
+                    好看视频：<a href="https://haokan.baidu.com/" target="_blank">进入官网</a>
+                    <a href="./htm/haokan.html" target="_blank">相关内容</a>
+                </li>
+                <li>
+                    萌娘百科：<a href="https://mzh.moegirl.org.cn/Mainpage#/desktop/index" target="_blank">进入官网</a>
+                </li>
+                <li>
+                    MBA智库百科：<a href="https://wiki.mbalib.com/wiki/%E9%A6%96%E9%A1%B5" target="_blank">进入官网</a>
+                </li>
+                <li>
+                    快懂百科：<a href="https://www.baike.com/" target="_blank">进入官网</a>
+                </li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>按方向分类</h2>
+            <ul>
+                <li>
+                    程序下载：<a href="./htm/programs.html" target="_blank">相关内容</a>
+                </li>
+                <li>
+                    游戏：<a href="./htm/games.html" target="_blank">相关内容</a>
+                </li>
+                <li>
+                    官方网站：<a href="./htm/Official_website.html" target="_blank">相关内容</a>
+                </li>
+                <li>
+                    网盘：<a href="./htm/cloud_disk.html" target="_blank">相关内容</a>
+                </li>
+                <li>
+                    精选反诈：<a href="./htm/Anti-fraud.html" target="_blank">相关内容</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏链接索引</title>
+    <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .company-section {
+            margin: 30px 0;
+            border-top: 3px solid #4CAF50;
+        }
+        .company-title {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            border-radius: 8px 8px 0 0;
+        }
+        /* 导航栏样式 */
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            padding: 8px 20px;
+            text-decoration: none;
+            margin-right: 10px;
+            border-radius: 4px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .game-index {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .game-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        .game-item:hover {
+            transform: translateY(-5px);
+        }
+        .game-item h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #333;
+        }
+        .game-item a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .game-item a:hover {
+            text-decoration: underline;
+        }
+        .game-links {
+            margin-top: 10px;
+        }
+        .game-links a {
+            display: block;
+            padding: 6px 0;
+            color: #444;
+            font-size: 16px;
+        }
+        .game-links a:hover {
+            color: #4CAF50;
+        }
+        .link-icons {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        /* 弹窗样式 */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1000;
+        }
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 1001;
+            width: 60%;
+            max-width: 600px;
+            animation: slideIn 0.3s ease-out;
+            max-height: 80vh; /* 设置最大高度为视口高度的80% */
+            overflow-y: auto; /* 内容超过最大高度时出现垂直滚动条 */
+        }
+
+        /* 弹窗关闭按钮样式 */
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .popup-header h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        #close-popup {
+            cursor: pointer;
+            font-size: 28px;
+            color: #f44336;
+            font-weight: bold;
+            border: none;
+            background: none;
+            transition: color 0.3s ease;
+        }
+
+        #close-popup:hover {
+            color: #d32f2f;
+        }
+
+        .popup-links {
+            margin-top: 10px;
+        }
+
+        .popup-links a {
+            display: block;
+            padding: 8px 0;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .popup-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* 弹窗动画 */
+        @keyframes slideIn {
+            0% {
+                transform: translate(-50%, -60%);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <!-- Logo -->
+        <div class="logo" style="font-weight: normal;"><img src="../../../favicon.png" alt="Logo">小猫头鹰</div>
+        <!-- 导航栏 -->
+        <nav>
+            <ul>
+                <li><a style="color: #9dff00;" href="http://www.youngowl.asia/">首页</a></li>
+                <li><a style="color: #9dff00;" href="../../../htm/search.html">搜索</a></li>
+                <li>成果展示▼<div class="item-children">
+                        <ul class="children-list">
+                            <li><a href="../htm_index.html">常用页面索引</a></li>
+                            <li><a href="./原神立绘.html">原神立绘</a></li>
+                            <li><a href="../../../htm/genshin.html">原神单图</a></li>
+                            <li><a href="../../../htm/experiment/translate.html">实时翻译示例</a></li>
+                            <li><a href="../../../htm/games/贪吃蛇.html">贪吃蛇</a></li>
+                            <li><a href="../../../file/鸱鸺的原神笔记2.6.9-2.xlsx">原神百科</a></li>
+                            <li><a href="../../../file/ATM_tea.py">伪ATM程序</a></li>
+                            <li><a href="../../../htm/来玩原神.html">来玩原神源代码</a></li>
+                            <li><a href="../../../htm/各大软件激活办法.html">各大软件激活办法</a></li>
+                            <li><a href="../../../htm/Windows%20密钥.html">Windows 10 密钥大全</a></li>
+                        </ul>
+                    </div>
+                </li>
+              <li>图书馆电脑说明▼<div class="item-children">
+                  <ul class="children-list">
+                    <li><a href="../../../htm/图书馆电脑说明/二楼1号电脑.html">1号</a></li>
+                    <li><a href="../../../htm/图书馆电脑说明/二楼2号电脑.html">2号</a></li>
+                    <li><a href="../../../htm/图书馆电脑说明/二楼3号电脑.html">3号</a></li>
+                    <li><a href="../../../htm/图书馆电脑说明/二楼5号电脑.html">5号</a></li>
+                    <li><a href="../../../htm/图书馆电脑说明/二楼7号电脑.html">7号</a></li>
+                    （4、6、8、9-16暂无）
+                  </ul>
+                </div>
+              </li>
+                <li>意见反馈▼<div class="item-children">
+                        <ul class="children-list">
+                          <li><a href="../../experiment/submit/say.html">评论区</a></li>
+                          <li><a href="../../experiment/submit/say1.html">意见反馈</a></li>
+                          <li><a href="../../experiment/submit/say2.html">意见反馈之二</a></li>
+                          <li><a href="../../experiment/submit/forms.html">意见反馈?</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>预约▼<div class="item-children">
+                    <ul class="children-list">
+                      <li><a href="https://nte.perfectworld.com/cn/index.html"">异环</a></li>
+                      <li><a href="https://azurpromilia.manjuu.com/home/"">蓝色星原：旅遥</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>实验▼<div class="item-children">
+                        <ul class="children-list">
+                          <li><a href="../../experiment/exp.html">实验主</a></li>|
+                          <li><a href="../../experiment/experiment.html">实验辅</a></li>
+                        </ul>
+                    </div>
+                <li><a style="color: #9dff00;" href="./htm/contact_information.html">联系方式</a></li>
+            </ul>
+        </nav>
+    </div>
+    <h1 style="color: #f9f9f9; margin: 0; font-size: 42px; text-shadow: 2px 2px 2px #444;">游戏链接索引</h1>
+    <nav id="main-nav"></nav>
+</header>
+
+<!-- 自动生成多个公司及其游戏 -->
+<div id="company-container"></div>
+
+<!-- 弹窗容器 -->
+<div id="popup-overlay" class="popup-overlay"></div>
+<div id="popup" class="popup">
+    <div class="popup-header">
+        <h2 id="popup-title"></h2> <!-- 添加标题元素 -->
+        <button id="close-popup" class="close-popup">╳</button>
+    </div>
+    <div id="popup-links" class="popup-links"></div>
+</div>
+
+<script>
+const companies = [
+    {
+        companyName: '米哈游',
+        games: [
+            {
+                name: '米哈游',
+                id: 'section0',
+                links: [
+                    {
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false, // 不再使用下拉菜单
+                        subLinks: [
+                            { type: '米哈游-TECH OTAKUS SAVE THE WORLD', url: 'https://www.mihoyo.com/', icon: '🌐' },    
+                            { type: '米哈游启动器-miHoYo一站式游戏平台', url: 'https://launcher.mihoyo.com/', icon: '🌐' },
+                            { type: '首页 | HoYoverse', url: 'https://www.hoyoverse.com/zh-cn/', icon: '🌐' }
+                        ]
+                    },{
+                        type: '通行证',
+                        icon: '🎗️',
+                        isDropdown: false, // 不再使用下拉菜单
+                        subLinks: [
+                            { type: '米哈游通行证', url: 'https://user.mihoyo.com/#/account/home', icon: '🎗️' },    
+                            { type: 'HoYoverse Account Center', url: 'https://user.mihoyo.com/#/account/home', icon: '🎗️' }
+                        ]
+                    },{
+                        type: ' 云游戏',
+                        icon: '☁',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '米哈游云游戏官网', url: 'https://mhyy.mihoyo.com/', icon: '☁' },
+                            { type: '云·原神', url: 'https://ys.mihoyo.com/cloud/#/', icon: '☁' },
+                            { type: '云·星穹铁道', url: './warming/star_rail_impact_cloud.html', icon: '☁' },
+                            { type: '云·绝区零', url: 'https://zzz.mihoyo.com/cloud-feat/#/', icon: '☁' }
+                            ]
+                    },{
+                        type: '其他平台官网', 
+                        icon: '📖', 
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '哔哩哔哩', url: 'https://space.bilibili.com/318432901', icon: '📖' },
+                            { type: 'MiHoYo Wiki | Fandom', url: 'https://mihoyo.fandom.com/wiki/MiHoYo_Wiki', icon: '📖' }
+                        ]
+                    },{
+                        type: '大伟哥相关',
+                        icon: '🎇',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '时隔4年，大伟哥谈起2019年原神节奏，真的是感慨万千。。。', url: 'https://www.bilibili.com/video/BV15z4y1g7wJ/', icon: '🎇' },
+                            { type: '这是大伟哥的十年变化！ （2014-2024）', url: 'https://www.bilibili.com/video/BV1Nr421p7N3/', icon: '🎇' }
+                        ]
+                    },{
+                        type: '逆熵AI相关',
+                        icon: '💿',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '逆熵科技', url: 'http://event.mihoyo.com/e/hakase_theme/#/', icon: '💿' }, 
+                            { type: 'Artificial Intelligence Institute 2019 | MiHoYo Wiki | Fandom', url: 'https://mihoyo.fandom.com/wiki/Artificial_Intelligence_Institute_2019', icon: '💿' },    
+                            { type: '揭秘米哈游Metaverse布局：组建AI“逆熵”团队，自研Avatar，探索脑机接口', url: 'https://zhuanlan.zhihu.com/p/378662483', icon: '💿' },
+                            { type: '如何看待米哈游逆熵科技AI生成的鹿鸣声音?', url: 'https://www.zhihu.com/question/443323895', icon: '💿' }
+                        ]
+                    },{
+                        type: '相关up主',
+                        icon: '🔎',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '覆雪之下--', url: 'https://space.bilibili.com/281172076', icon: '🔎' },
+                            { type: '愚人戏社', url: 'https://space.bilibili.com/1011627201', icon: '🔎' },
+                            { type: '円学', url: 'https://space.bilibili.com/3493075468946379', icon: '🔎' },
+                            { type: '一棵平衡树', url: 'https://space.bilibili.com/6165300', icon: '🔎' },
+                            { type: '多洛塔塔', url: 'https://space.bilibili.com/1903716905', icon: '🔎' }
+                    ]
+                    }
+                ]
+            },{
+                name: '原神', 
+                id: 'section1', 
+                links: [
+                    {
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false, // 不再使用下拉菜单
+                        subLinks: [
+                            { type: '官网', url: 'https://ys.mihoyo.com/main/', icon: '🌐' },    
+                            { type: '官网（导视页）', url: 'https://www.yuanshen.com', icon: '🌐' },
+                            { type: '官网（下载页）', url: 'https://ys.mihoyo.com/', icon: '🌐' },
+                            { type: '官网（国外）', url: 'https://genshin.hoyoverse.com/en', icon: '🌐' }
+                        ]
+                    },
+                    {
+                        type: '其他平台官网', 
+                        icon: '📖', 
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '米游社', url: 'https://www.miyoushe.com/ys/', icon: '📖' },
+                            { type: '哔哩哔哩', url: 'https://space.bilibili.com/401742377', icon: '📖' },
+                            { type: '模之屋', url: 'https://www.aplaybox.com/u/680828836', icon: '📖' },
+                            { type: '微博', url: 'https://weibo.com/ysmihoyo', icon: '📖' },
+                            { type: '抖音', url: 'https://www.douyin.com/user/MS4wLjABAAAAw6_Jq4rDqlUKujFUvw0mjwTE8Y4uYuqJoKIQWO43oBYTd5_FlhU3qZ-PbOS7MP35?showTab=post', icon: '📖' },
+                            { type: '好看视频', url: 'https://haokan.baidu.com/author/1638028130712090', icon: '📖' },
+                            { type: '西瓜视频', url: 'https://www.ixigua.com/home/21205220330/', icon: '📖' },
+                            { type: '知乎', url: 'https://www.zhihu.com/org/yuan-shen-98-24', icon: '📖' }
+                        ]
+                    },
+                    {
+                        type: '辅助网站', 
+                        icon: '🔗',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '旅行者创作平台-观测枢-原神wiki-观测·攻略', url: 'https://bbs.mihoyo.com/ys/strategy/?bbs_presentation_style=no_header', icon: '🔗' },
+                            { type: '旅行者创作平台-观测枢-原神wiki-观测·Wiki', url: 'https://bbs.mihoyo.com/ys/obc/?bbs_presentation_style=no_header', icon: '🔗' },
+                            { type: '《原神》官方社区内容展示页', url: 'https://act.mihoyo.com/ys/event/community-content-collection/index.html#/home', icon: '🔗' },
+                            { type: '原神版本页（5.2版本）', url: 'https://webstatic.mihoyo.com/ys/event/blue-post/index.html?page_sn=d9458eba50ab41b4&bbs_presentation_style=fullscreen&utm_source=game&utm_medium=ys&utm_campaign=bt#/index', icon: '🔗' },
+                            { type: '提瓦特大地图', url: 'https://act.mihoyo.com/ys/app/interactive-map/index.html', icon: '🔗' },
+                            { type: '【原神】「千音雅集」交流平台', url: 'https://act.miyoushe.com/ys/event/ugc-music-stable/index.html#/', icon: '🔗' },
+                            { type: '原神WIKI_BWIKI_哔哩哔哩', url: 'https://wiki.biligame.com/ys/%E9%A6%96%E9%A1%B5', icon: '🔗' },
+                            { type: 'Genshin Damage Calculator & Visualizer', url: 'https://genshin.yunlu18.net/#/', icon: '🔗' },
+                            { type: 'Project Amber | Project Amber — Your brand new Genshin Impact Wiki Database', url: 'https://gi.yatta.moe/chs', icon: '🔗' },
+                            { type: '原神地图-v3', url: 'https://v3.yuanshen.site/', icon: '🔗' },
+                            { type: '深渊数据库', url: 'https://spiralabyss.org/zh', icon: '🔗' }
+                        ]
+                    },{
+                        type: '其他工具', 
+                        icon: '🔮',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: 'BetterGI·更好的原神', url: 'https://bgi.huiyadan.com/', icon: '🔮' }
+                        ]
+                    },{
+                        type: '哔哩哔哩',
+                        icon: '🐳',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '「原神OST🎵」音乐合集（320K）', url: 'https://www.bilibili.com/video/BV1nS4y1x7Ao/', icon: '🐳' },
+                            { type: '原神空荧酒馆视频专辑-原神空荧酒馆视频合集-哔哩哔哩视频', url: 'https://space.bilibili.com/518076785/lists', icon: '🐳' },
+                            { type: '愚人戏社视频专辑-愚人戏社视频合集-哔哩哔哩视频', url: 'https://space.bilibili.com/1011627201/lists', icon: '🐳' },
+                            { type: '画师推荐（119）——torino', url: 'https://www.bilibili.com/opus/625987755366926821', icon: '🐳' },
+                            { type: '从“紧急优化”到“赛博忏悔室”，原神舆论怎么就突然逆转了？？', url: 'https://www.bilibili.com/video/BV1dm421K7r9/', icon: '🐳' },
+                            { type: '热爱105℃的⚡应急食品⚡', url: 'https://www.bilibili.com/video/BV1Hy4y1M7tq/', icon: '🐳' },
+                            { type: '⚡️热爱105°C的可莉⚡️原创填词版', url: 'https://www.bilibili.com/video/BV1Yf4y1t7U3/', icon: '🐳' },
+                            { type: '柚子味的猫猫视频专辑-柚子味的猫猫视频合集-哔哩哔哩视频', url: 'https://space.bilibili.com/441998179/lists', icon: '🐳' },
+                            { type: '乐评原神4.7前瞻 最好的竞争手段就是“做好自己！”', url: 'https://www.bilibili.com/video/BV1qz421a7J8/', icon: '🐳' },
+                            { type: '【原神】可莉导航是吧？左转！为什么不左转！', url: 'https://www.bilibili.com/video/BV19R4y1M7K3/', icon: '🐳' },
+                            { type: '【原神三周年】七十二位歌手与原神全七十二位角色共谱一首《百战成诗》', url: 'https://www.bilibili.com/video/BV1Fw411C7zr/', icon: '🐳' },
+                            { type: '【原神】全角色初次相遇全纪录，你还记得与她们初次相遇的场景吗？', url: 'https://www.bilibili.com/video/BV1WC4y137uN/', icon: '🐳' },
+                            { type: '【5.3深渊】你是说你有次数盾？那我共鸣大王来了你不就炸了吗！', url: 'https://www.bilibili.com/video/BV1txw3ekELr/', icon: '🐳' },
+                            { type: '【原神】英配英字主线剧情合集(已更新5.0纳塔主线。荧妹视角) Genshin Impact Archon & Story Quests', url: 'https://www.bilibili.com/video/BV1H64y1e7YJ/', icon: '🐳' },
+                            { type: '原神剧情全合集【男主空/4K60FPS】已更新至5.3版本：玛薇卡-纳塔主线、海灯节『包括所有魔神主线、传说、部族纪闻、邀约、活动』', url: 'https://www.bilibili.com/video/BV1UV411q7uN/', icon: '🐳' },
+                            { type: '【原神】【4K】已更新3.5无跑图无战斗超清画质原神主线剧情合集（女主日语版）持续更新中', url: 'https://www.bilibili.com/video/BV1FG4y1R75o/', icon: '🐳' },
+                            { type: '【原神】原神剧情主线合集（已更新！4.7纺坠终久之梦）【4K 60FPS】未完待续 持续更新', url: 'https://www.bilibili.com/video/BV1vK4y1P74F/', icon: '🐳' },
+                            { type: '“大伟哥出现的那一刻，艺术已成”', url: 'https://www.bilibili.com/video/BV15J4m187n4/', icon: '🐳' },
+                            { type: '原神文戏巅峰，做游戏就像做衣服！游戏界最黑暗的一天来了！', url: 'https://www.bilibili.com/video/BV1V2421N74B/', icon: '🐳' },
+                            { type: '五神CV整活大会！原神FES 8.11场配音演员见面会全程记录1', url: 'https://www.bilibili.com/video/BV18p4y1g7wL/', icon: '🐳' },
+                            { type: '《原神》全主线剧情解说合集-上篇（正统剧情）【200P-须弥已完结】【2020-9月番】', url: 'https://www.bilibili.com/video/BV1G54y1m7cm/', icon: '🐳' },
+                            { type: '《原神》全主线剧情解说合集-下篇（正统剧情）【33P-3.7版本更新中】【2023-1月番】', url: 'https://www.bilibili.com/video/BV1CT41127xQ/', icon: '🐳' }
+                    ]
+                    },{
+                        type: 'COSplay',
+                        icon: '🎨',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '我去 初音未来｜原神fes漫展', url: 'https://www.miyoushe.com/ys/article/42370605', icon: '🎨' },
+                            { type: '爆肝400天，真实的璃月终于被我们还原了', url: 'https://www.bilibili.com/video/BV116421f7rM/', icon: '🎨' },
+                            { type: '十年前关注的up主都带着女儿出cos了，时间过得真快', url: 'https://www.bilibili.com/video/BV1Vs421M72E/', icon: '🎨' }
+                    ]
+                    },{
+                        type: 'COSer',
+                        icon: '🎨',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '依川川_的个人空间-依川川_个人主页-哔哩哔哩视频', url: 'https://space.bilibili.com/1527049', icon: '🎨' },
+                            { type: '@依川川_ 的个人主页 - 微博', url: 'https://www.weibo.com/p/1005051762572594', icon: '🎨' },
+                            { type: '依川川_百度百科', url: 'https://baike.baidu.com/item/%E4%BE%9D%E5%B7%9D%E5%B7%9D/62549107', icon: '🎨' }
+                    ]
+                    },{
+                        type: '资料',
+                        icon: '🔖',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '原神立绘', url: './原神立绘.html', icon: '🔖' }
+                    ]
+                    }
+                ]
+            },{
+                name: '崩坏：星穹铁道', 
+                id: 'section2', 
+                links: [
+                    {
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://sr.mihoyo.com/', icon: '🌐' }
+                        ]
+                    },
+                    {
+                        type: '其他平台官网', 
+                        icon: '📖', 
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '米游社', url: 'https://www.miyoushe.com/sr/', icon: '📖' },
+                            { type: '哔哩哔哩【崩坏星穹铁道】', url: 'https://space.bilibili.com/1340190821', icon: '📖' },
+                            { type: '哔哩哔哩【帕姆的收藏夹】', url: 'https://space.bilibili.com/508103429', icon: '📖' },
+                            { type: '哔哩哔哩【星穹铁道小呜呜】', url: 'https://space.bilibili.com/3493120220071960', icon: '📖' },
+                            { type: '模之屋', url: 'https://www.aplaybox.com/u/516827875', icon: '📖' }
+                        ]
+                    },
+                    {
+                        type: '辅助网站', 
+                        icon: '🔗',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '崩坏:星穹铁道WIKI-开拓者笔记-米游社', url: 'https://bbs.mihoyo.com/sr/wiki/?bbs_presentation_style=no_header', icon: '🔗' },
+                            { type: '观景车厢 - 「崩坏：星穹铁道」地图', url: 'https://webstatic.mihoyo.com/sr/app/interactive-map/index.html#/map/327', icon: '🔗' }
+                        ]
+                    },{
+                        type: '流萤', 
+                        icon: '🌟',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '流萤（游戏《崩坏：星穹铁道》及其衍生作品中的角色）_百度百科', url: 'https://baike.baidu.com/item/%E6%B5%81%E8%90%A4/63849747', icon: '🌟' },
+                            { type: '流萤 - 萌娘百科 万物皆可萌的百科全书', url: 'https://mzh.moegirl.org.cn/%E6%B5%81%E8%90%A4', icon: '🌟' },
+                            { type: '宋媛媛 - 萌娘百科 万物皆可萌的百科全书', url: 'https://mzh.moegirl.org.cn/%E5%AE%8B%E5%AA%9B%E5%AA%9B', icon: '🌟' },
+                            { type: '何物朝向死亡 - 萌娘百科 万物皆可萌的百科全书', url: 'https://mzh.moegirl.org.cn/%E4%BD%95%E7%89%A9%E6%9C%9D%E5%90%91%E6%AD%BB%E4%BA%A1', icon: '🌟' },
+                            { type: '流萤 - 崩坏：星穹铁道WIKI_BWIKI_哔哩哔哩', url: 'https://wiki.biligame.com/sr/%E6%B5%81%E8%90%A4', icon: '🌟' },
+                            { type: '我厨的流萤的贴吧', url: 'https://tieba.baidu.com/home/main?id=tb.1.8db45d9b.slednpVp-gZHDmA5a41bqA', icon: '🌟' },
+                            { type: '星穹铁道流萤吧-百度贴吧--崩坏星穹铁道流萤角色贴吧 ', url: 'https://tieba.baidu.com/f?kw=%E6%98%9F%E7%A9%B9%E9%93%81%E9%81%93%E6%B5%81%E8%90%A4&ie=utf-8', icon: '🌟' },
+                            { type: '流萤_流萤的插画 - 插画世界', url: 'https://www.vilipix.com/tags/%E6%B5%81%E8%90%A4/illusts', icon: '🌟' }
+                        ]
+                    },{
+                        type: '资料', 
+                        icon: '🔖',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '全角色高清PNG立绘', url: 'https://www.miyoushe.com/sr/article/44616282', icon: '🔖' }
+                        ]
+                    },{
+                        type: '哔哩哔哩视频',
+                        icon: '📔',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '宇宙碎片指数爆炸 模拟宇宙的终极真理 189位数字的纯美之袍 黄金与机械硬核推演', url: 'https://www.bilibili.com/video/BV1Cw411j7kW', icon: '📔' },
+                            { type: '萤！麻！了！', url: 'https://www.bilibili.com/video/BV12m42137ZH', icon: '🌟' },
+                            { type: '来自全国高校的流萤cos接力！', url: 'https://www.bilibili.com/video/BV1Zs421T7LS', icon: '🌟' },
+                            { type: '特效炸裂！点燃星海！特效小哥大战河野华！', url: 'https://www.bilibili.com/video/BV1t1421r7d1', icon: '🌟' },
+                            { type: '何物朝向死亡猎杀流萤惨遭反杀现场录像【星穹铁道嘉年华】', url: 'https://www.bilibili.com/video/BV1Cw4m1X75e', icon: '🌟' },
+                            { type: '【4K】知更鸟单曲MV | 《使一颗心免于哀伤》', url: 'https://www.bilibili.com/video/BV1Gp421o7j2', icon: '📔' },
+                            { type: '「星穹铁道」NPC离谱对话大赏4.0-在匹诺康尼，倒也正常', url: 'https://www.bilibili.com/video/BV1hH4y1h79e', icon: '📔' },
+                            { type: '啊？匹诺康尼的折纸小鸟原来真的能折出来？', url: 'https://www.bilibili.com/video/BV1aH4y1Y7BE', icon: '📔' },
+                            { type: '【崩铁】最多两个币搞定知更鸟房间黑卡大奖，赌神后续彩蛋', url: 'https://www.bilibili.com/video/BV1dA4m1375q', icon: '📔' },
+                            { type: '继承崩坏意志后的hoyomix星铁项目组，如今都有那些值得关注和期待的音乐星神？', url: 'https://www.bilibili.com/video/BV1YD421L7Ur', icon: '📔' },
+                            { type: '当我变成游戏角色和兄弟逛街，才感受到了真"友谊"', url: 'https://www.bilibili.com/video/BV1CH4y157QT', icon: '📔' },
+                            { type: '《崩坏：星穹铁道》遥远星球之歌VOL.3：我在匹诺康尼听音乐', url: 'https://www.bilibili.com/video/BV1Yw4m197jA', icon: '📔' }
+                    ]
+                    }
+                ]
+            },{
+                name: '崩坏3', 
+                id: 'section3', 
+                links: [
+                {
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://www.bh3.com/', icon: '🌐' }
+                        ]
+                    },{
+                        type: '其他平台官网', 
+                        icon: '📖', 
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '米游社', url: 'https://bbs.mihoyo.com/bh3/', icon: '📖' },
+                            { type: '哔哩哔哩【崩坏3第一偶像爱酱】', url: 'https://space.bilibili.com/27534330', icon: '📖' }
+                        ]
+                    },{
+                        type: '辅助网站', 
+                        icon: '🔗',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '圣芙蕾雅档案馆-崩坏3WIKI圣芙蕾雅档案馆-崩坏3WIKI', url: 'https://bbs.mihoyo.com/bh3/wiki/', icon: '🔗' }
+                        ]
+                    },{
+                        type: '其他资讯',
+                        icon: '📔',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '【崩坏3拜年纪单品】铁拳先生的发明教室', url: 'https://www.bilibili.com/video/BV1sz4y127dB/', icon: '📔' },
+                            { type: '崩坏3历代版本总览，不来看看你是什么时候入坑的吗？（附带全pv链接）', url: 'https://www.bilibili.com/opus/359107927925226859', icon: '📔' },
+                            { type: '《崩坏3》动画短片「成为女子高中生!」', url: 'https://www.bilibili.com/video/BV1x1421r7yZ/', icon: '📔' },
+                            { type: '（格蕾修篇）生日快乐！小格蕾修！', url: 'https://www.miyoushe.com/bh3/article/33321005', icon: '📔' }
+                            ]
+                    }
+                ]
+            },{
+                name: '绝区零', 
+                id: 'section4', 
+                links: [
+                    {
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://zzz.mihoyo.com/main', icon: '🌐' },    
+                            { type: '官网（下载页）', url: 'https://zzz.mihoyo.com/', icon: '🌐' }
+                        ]
+                    },
+                    {
+                        type: '其他平台官网', 
+                        icon: '📖', 
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '米游社', url: 'https://www.miyoushe.com/zzz/', icon: '📖' },
+                            { type: '哔哩哔哩【绝区零】', url: 'https://space.bilibili.com/1636034895', icon: '📖' },
+                            { type: '哔哩哔哩【绝区零第一可爱兔宝】', url: 'https://space.bilibili.com/3546687932991974', icon: '📖' },
+                            { type: '模之屋', url: 'https://www.aplaybox.com/u/352588796', icon: '📖' }
+                        ]
+                    },
+                    {
+                        type: '辅助网站', 
+                        icon: '🔗',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '绳网情报站-绝区零WIKI', url: 'https://baike.mihoyo.com/zzz/wiki/', icon: '🔗' },
+                            { type: '市民指南', url: 'https://act.mihoyo.com/zzz/event/e20240408pgc/index.html', icon: '🔗' }
+                        ]
+                    },{
+                        type: '其他资讯',
+                        icon: '📔',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '《绝区零》新手绳匠补给物资一览', url: 'https://www.miyoushe.com/zzz/article/54564269', icon: '📔' },
+                            { type: '《绝区零》公测PV | 您拨打的用户正在空洞中', url: 'https://www.bilibili.com/video/BV1vy411B7cd/', icon: '📔' }
+                            ]
+                    }
+                ]
+            },{
+                name: '崩坏学园2', 
+                id: 'section5', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://www.benghuai.com/', icon: '🌐' }
+                        ]
+                    },{
+                        type: '其他平台官网',
+                        icon: '📖',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '哔哩哔哩【崩坏学园2-灵依娘desu】', url: 'https://space.bilibili.com/133934', icon: '📖' }
+                        ]
+                    }]
+            },{
+                name: '未定事件簿', 
+                id: 'section6', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://wd.mihoyo.com/', icon: '🌐' }
+                        ]
+                    }]
+            },{
+                name: '人工桌面', 
+                id: 'section7', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://n0va.mihoyo.com/', icon: '🌐' }
+                        ]
+                    },{
+                        type: '其他平台官网',
+                        icon: '📖',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '哔哩哔哩【yoyo鹿鸣_Lumi】', url: 'https://space.bilibili.com/488836173', icon: '📖' },
+                            { type: '微博【人工桌面】', url: 'https://weibo.com/u/7476362936', icon: '📖' },
+                            { type: '微博【yoyo鹿鸣_Lumi】', url: 'https://weibo.com/u/7452107608', icon: '📖' }
+                        ]
+                    }
+                ]
+            },{
+                name: '米游社', 
+                id: 'section8', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://www.miyoushe.com/', icon: '🌐' },
+                            { type: '官网（国外）【不能用国内网络访问】', url: 'https://www.hoyolab.com/home', icon: '🌐' }
+                        ]}]
+            },{
+                name: '米游铺', 
+                id: 'section9', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://www.mihoyogift.com/', icon: '🌐' }
+                        ]
+                    },{
+                        type: '部分商品',
+                        icon: '📔',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '「崩坏3」崩坏3原画集Vol.2 月之始源与终焉', url: 'https://www.mihoyogift.com/goods/2024719078594831224832', icon: '📔' },
+                            { type: '「崩坏3」崩坏3原画集Vol.1 流星的旅途', url: 'https://www.mihoyogift.com/goods/2024459730069875628032', icon: '📔' },
+                            { type: '【原神】心有所喜系列周边 Genshin', url: 'https://www.mihoyogift.com/goods/2021796847125278240768', icon: '📔' },
+                            { type: '【原神】喜遇原神冰变真果杯套装 现货 Genshin', url: 'https://www.mihoyogift.com/goods/2021796876814323565568', icon: '📔' },
+                            { type: '【原神】异世寻味系列 人物徽章亚克力立牌 Genshin', url: 'https://www.mihoyogift.com/goods/202108021724', icon: '📔' },
+                            { type: '「崩坏学园2」崩坏学园2 游戏原设集', url: 'https://www.mihoyogift.com/goods/20231018530353310083472', icon: '📔' }
+                        ]}]
+            }
+        ]
+    },{
+        companyName: '叠纸游戏',
+        games: [
+        {
+                name: '叠纸游戏', 
+                id: 'section0', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://www.papegames.cn/home', icon: '🌐' },
+                            { type: '叠纸账号中心', url: 'https://reg.papegames.cn/home', icon: '🌐' }
+                        ]}]
+            },
+            {
+                name: '暖暖', 
+                id: 'section1', 
+                links: [
+                {
+                        type: '其他平台官网',
+                        icon: '📖',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '哔哩哔哩【Nikki_暖暖】', url: 'https://space.bilibili.com/385804900', icon: '📖' }
+                        ]
+                    }
+                ]
+            },{
+                name: '无限暖暖', 
+                id: 'section2', 
+                links: [
+                {
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://infinitynikki.nuanpaper.com/home', icon: '🌐' }
+                        ]},{
+                        type: '其他平台官网',
+                        icon: '📖',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '百度百科', url: 'https://baike.baidu.com/item/%E6%97%A0%E9%99%90%E6%9A%96%E6%9A%96/62371919', icon: '📖' }
+                        ]
+                    },{
+                        type: '辅助网站', 
+                        icon: '🔗',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '鸭梨没压力', url: 'https://myl.nuanpaper.com/home', icon: '🔗' },
+                            { type: '无限暖暖在线地图', url: 'https://map.nikkimomo.cc/', icon: '🔗' }
+                        ]
+                    },{
+                        type: '其他资讯',
+                        icon: '📔',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '《无限暖暖》首曝PV——无论何时都要盛装登场！', url: 'https://www.bilibili.com/video/BV13K411R7cS/', icon: '📔' },
+                            { type: '【无限暖暖】4K 最高画质 全流程通关攻略 开放世界换装冒险游戏 奇想测试【完结】', url: 'https://www.bilibili.com/video/BV1tz421S7V9/', icon: '📔' }
+                    ]
+                    }
+                ]
+            },{
+                name: '闪耀暖暖', 
+                id: 'section3', 
+                links: [
+                {
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://nikki4.papegames.cn/home', icon: '🌐' }
+                        ]},{
+                        type: '其他平台官网',
+                        icon: '📖',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '闪耀暖暖WIKI_BWIKI_哔哩哔哩', url: 'https://wiki.biligame.com/synn/%E9%A6%96%E9%A1%B5', icon: '📖' },
+                            { type: '百度百科', url: 'https://baike.baidu.com/item/%E9%97%AA%E8%80%80%E6%9A%96%E6%9A%96/22468500', icon: '📖' },
+                            { type: '闪耀暖暖 - bilibili游戏中心', url: 'https://www.biligame.com/detail/?id=101713', icon: '📖' },
+                            { type: '微博', url: 'https://weibo.com/u/6498105282', icon: '📖' }
+                        ]
+                    },{
+                        type: '其他资讯',
+                        icon: '📔',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '《闪耀暖暖》官方网站-与暖暖一起翻开回忆篇章，聆听藏在四季里的温柔旋律-叠纸游戏', url: 'https://nikki4.papegames.cn/news/101665', icon: '📔' },
+                            { type: '【2023暖暖生日会】特别直播回放', url: 'https://www.bilibili.com/video/BV1pM411d7zy/', icon: '📔' },
+                            { type: '暖妈速进！还有人认不全暖暖所有声优歌优？暖暖配音大盘点', url: 'https://www.bilibili.com/video/BV1Mm4y1y7YU/', icon: '📔' },
+                            { type: '闪耀暖暖入坑攻略', url: 'https://zhuanlan.zhihu.com/p/104590649', icon: '📔' }
+                    ]}]
+            }
+        ]
+    },{
+        companyName: 'SUPERCELL',
+        games: [
+        {
+                name: 'SUPERCELL', 
+                id: 'section0', 
+                links: [
+                    {
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://supercell.com/en/', icon: '🌐' }
+                ]}]
+            },{
+                name: '部落冲突', 
+                id: 'section1', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://supercell.com/en/games/clashofclans/', icon: '🌐' }
+                ]},{
+                        type: '辅助网站',
+                        icon: '🔗',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '部落驿站', url: 'https://clashpost.com/', icon: '🔗' },
+                            { type: '仓鼠官网 - 部落冲突仓鼠机器人、作者的博客', url: 'https://www.yzycoc.com/', icon: '🔗' }
+                ]},{
+                        type: '相关up主',
+                        icon: '🔎',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '拥抱鲜花的小羊 ', url: 'https://space.bilibili.com/25815754', icon: '🔎' },
+                            { type: '部落冲突小嗨嗨', url: 'https://space.bilibili.com/455291554', icon: '🔎' }
+                    ]
+                    },{
+                        type: '其他资讯',
+                        icon: '📔',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '仓鼠机器人 工具', url: 'https://www.yuque.com/yzycoc/doc', icon: '📔' },
+                            { type: '晴天阵型收集', url: 'https://www.yuque.com/qingtian-3cspk/coc', icon: '📔' },
+                            { type: 'COC 常用网站（公众号、小程序）集锦', url: 'https://clashpost.com/p/4599', icon: '📔' },
+                            { type: '(已停更) 部落管理工具 v1.10.10：将声明中的网址修改为新版网站', url: 'https://clashpost.com/p/20', icon: '📔' },
+                            { type: '出发吧天问一号！《部落冲突》与中科院京区科协开启“追星之旅”', url: 'http://shouyou.kuai8.com/news/303427.html', icon: '📔' },
+                            { type: '[讨论]关于部落冲突的发展史', url: 'https://tieba.baidu.com/p/6464090932', icon: '📔' },
+                            { type: '仓鼠机器人', url: 'https://yzycoc.com/qq/ts/state', icon: '📔' }
+                    ]
+                    }]
+            },{
+                name: '部落冲突：皇室战争', 
+                id: 'section2', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://supercell.com/en/games/clashroyale/', icon: '🌐' }
+                ]}]
+            },{
+                name: '海岛奇兵', 
+                id: 'section3', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://supercell.com/en/games/boombeach/', icon: '🌐' }
+                ]},{
+                        type: '其他资讯',
+                        icon: '📔',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '海岛奇兵单机图.雕像表.雕像图.镀金表.火炮汇总表.雷达数据表.每日奖励表.能量表.能量汇总表.能量消耗表.任务表.神像表', url: 'http://lsjmqq.com/hdqb/', icon: '📔' }
+                ]}]
+            },{
+                name: '荒野乱斗', 
+                id: 'section4', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://supercell.com/en/games/brawlstars/', icon: '🌐' },
+                            { type: '官网（新闻页）', url: 'https://squadbusters.supercell.com/en/', icon: '🌐' }
+                ]}]
+            },{
+                name: '卡通农场', 
+                id: 'section5', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://supercell.com/en/games/hayday/', icon: '🌐' }
+                ]}]
+            }
+        ]
+    },{
+        companyName: '网易游戏',
+        games: [
+        {
+                name: '网易游戏', 
+                id: 'section0', 
+                links: [
+                    {
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://game.163.com/', icon: '🌐' }
+                ]}]
+            },{
+                name: '第五人格', 
+                id: 'section1', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://id5.163.com/index.html', icon: '🌐' }
+                ]},{
+                        type: '哔哩哔哩视频',
+                        icon: '📔',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '【第五人格】“筠心似君子，自持岁寒姿。” ——新求生者古董商角色故事视频', url: 'https://www.bilibili.com/video/BV1HV4y177gH', icon: '📔' },
+                            { type: '第五人格两大被删特色场景永眠镇再被缩前录屏纪念', url: 'https://www.bilibili.com/video/BV1Up4y1X7BE', icon: '📔' },
+                            { type: '【第五人格动态漫画】第五中学来了！庄园众人回到校园会发生什么呢？', url: 'https://www.bilibili.com/video/BV1KE411v7cU', icon: '📔' }
+                    ]}]
+            },{
+                name: '阴阳师', 
+                id: 'section2', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://yys.163.com/', icon: '🌐' }
+                ]},{
+                        type: '其他平台官网',
+                        icon: '📖',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '哔哩哔哩【网易阴阳师手游】', url: 'https://space.bilibili.com/30973654', icon: '📖' }
+                    ]}]
+            },{
+                name: '魔兽世界', 
+                id: 'section3', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '官网', url: 'https://wow.blizzard.cn/', icon: '🌐' }
+                ]}]
+            }]
+    },{
+        companyName: '腾讯游戏',
+        games: [
+        {
+                name: '腾讯游戏', 
+                id: 'section0', 
+                links: [
+                    {
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '腾讯游戏', url: 'https://game.qq.com/web202212/index.shtml', icon: '🌐' },
+                            { type: '极光计划', url: 'https://jgyx.qq.com/', icon: '🌐' },
+                            { type: '纪念碑谷2', url: 'https://mv2.qq.com/', icon: '🌐' },
+                            { type: '王者荣耀', url: 'https://pvp.qq.com/', icon: '🌐' },
+                            { type: '卡拉彼丘', url: 'https://klbq.qq.com/web202305/index.html', icon: '🌐' }
+                ]}]}]
+    },{
+        companyName: '其他游戏',
+        games: [
+            {
+                name: '官方网站', 
+                id: 'section0', 
+                links: [
+                    {
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '纪念碑谷', url: 'https://mv.uu.cc/', icon: '🌐' },
+                            { type: '物华弥新', url: 'https://wh.cipaishe.com/', icon: '🌐' },
+                            { type: '香肠派对', url: 'https://xc.xd.com/', icon: '🌐' },
+                            { type: '黑神话：悟空', url: 'https://www.heishenhua.com/', icon: '🌐' },
+                            { type: '胡桃日记', url: 'https://hutaodiary.com/', icon: '🌐' },
+                            { type: '千恋＊万花 OFFICIAL WEBSITE｜ゆずソフト', url: 'https://www.yuzu-soft.com/products/senren/index.html', icon: '🌐' },
+                            { type: '球球大作战', url: 'https://www.battleofballs.com/index/', icon: '🌐' },
+                            { type: '保卫萝卜', url: 'https://www.luobo.cn/', icon: '🌐' },
+                            { type: '蓝色星原：旅谣', url: 'https://azurpromilia.manjuu.com/home/', icon: '🌐' },
+                            { type: 'DEAD OR ALIVE Xtreme Venus Vacation', url: 'https://game.doaxvv.com/cn/index.html', icon: '🌐' },
+                            { type: '4399小游戏', url: 'https://www.4399.com/', icon: '🌐' },
+                        ]}]
+            },{
+                name: '云游戏', 
+                id: 'section1', 
+                links: [
+                {
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '网易云游戏', url: 'https://cg.163.com/', icon: '🌐' },
+                            { type: '云游戏 - TapTap', url: 'https://www.taptap.cn/web-cloud-game', icon: '🌐' },
+                            { type: '4399云游戏', url: 'https://y.4399.com/', icon: '🌐' },
+                            { type: 'START云游戏', url: 'https://start.qq.com/', icon: '🌐' },
+                            { type: '腾讯先锋', url: 'https://gamer.qq.com/', icon: '🌐' },
+                            { type: '云即玩云游戏', url: 'https://box3.yunjiwan.com/#/yunGame', icon: '🌐' },
+                            { type: '随乐游云游戏平台', url: 'https://www.suileyoo.com/', icon: '🌐' },
+                            { type: '顺网云电脑', url: 'https://cpc.icloud.cn/', icon: '🌐' },
+                            { type: '天翼云游戏', url: 'https://c.play.cn/', icon: '🌐' },
+                            { type: '咪咕快游', url: 'https://www.migufun.com/middleh5/', icon: '🌐' }
+                        ]},
+                    {
+                        type: '资讯',
+                        icon: '📓',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '【建议收藏】分享8款免费云游戏平台（含云游戏对比测评）【哔哩哔哩】', url: 'https://www.bilibili.com/video/BV1KU4y117Fk', icon: '📓' },
+                            { type: '哪个云游戏平台比较好？【知乎】', url: 'https://www.zhihu.com/question/314703318', icon: '📓' },
+                            { type: '4个简单好用能白嫖的云游戏平台。【哔哩哔哩】', url: 'https://www.bilibili.com/video/BV1Ku411U7SX', icon: '📓' }
+                        ]}
+                ]
+            },{
+                name: '社区', 
+                id: 'section2', 
+                links: [{
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: 'Steam', url: 'https://store.steampowered.com/', icon: '🌐' },
+                            { type: 'Epic游戏商城', url: 'https://store.epicgames.com/zh-CN/', icon: '🌐' },
+                            { type: 'FanBook', url: 'https://fanbook.idreamsky.com/index.html', icon: '🌐' }
+                        ]}]
+            },{
+                name: '其他平台官网', 
+                id: 'section3', 
+                links: [
+                {
+                        type: '哔哩哔哩',
+                        icon: '💎',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '蓝色星原：旅谣 - bilibili游戏中心', url: 'https://www.biligame.com/detail/?id=111392', icon: '💎' }
+                    ]},
+                    {
+                        type: '微博',
+                        icon: '💡',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '香肠派对手游', url: 'https://weibo.com/u/6447868322', icon: '💡' }
+                        ]}
+                ]
+            },{
+                name: '相关网站', 
+                id: 'section4', 
+                links: [
+                {
+                        type: '辅助网站', 
+                        icon: '🔗',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '踩蘑菇互动地图站', url: 'https://map.caimogu.cc/', icon: '🔗' },
+                            { type: '香肠派对漫画【S6赛季  众神降临】', url: 'https://n17x06.xdcdn.net/season-cartoon/v1/sausage/index.html?t=1701530610#6', icon: '🔗' },
+                            { type: '香肠派对动漫【爱奇艺】', url: 'https://www.iqiyi.com/v_19rrbfry0s.html', icon: '🔗' }
+                        ]
+                    }
+                ]
+            },{
+                name: '交易平台', 
+                id: 'section5', 
+                links: [
+                    {
+                        type: '官网',
+                        icon: '🌐',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '氪金兽', url: 'https://www.kejinshou.com/', icon: '🌐' },
+                            { type: '盼之代售', url: 'https://www.pzds.com/', icon: '🌐' },
+                            { type: '螃蟹游戏服务网', url: 'https://www.pxb7.com/', icon: '🌐' },
+                            { type: '戏仔游戏账号交易平台', url: 'https://www.xizai.com/', icon: '🌐' },
+                            { type: '交易游', url: 'https://www.jiaoyiyou.com/', icon: '🌐' },
+                            { type: '5173', url: '0https://www.5173.com/', icon: '🌐' }
+                        ]}
+                ]
+            },{
+                name: '资讯', 
+                id: 'section6', 
+                links: [
+                {
+                        type: '哔哩哔哩',
+                        icon: '💎',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '“可惜你不玩游戏，不理解这视频的意义！”', url: 'https://www.bilibili.com/video/BV1qt421t7fi', icon: '💎' }
+                    ]},{
+                        type: 'up主',
+                        icon: '🔎',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '江湖人称石老怪', url: 'https://space.bilibili.com/303825600', icon: '🔎' }
+                        ]},
+                    {
+                        type: '知乎',
+                        icon: '💡',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '如何看待taptap新评分机制?', url: 'https://www.zhihu.com/question/464564752', icon: '💡' }
+                        ]}
+                ]
+            }
+        ]
+    }
+];
+
+// 生成公司及游戏索引
+const companyContainer = document.getElementById('company-container');
+let companyIndex = 0; // 用于生成唯一的公司 id
+
+// 生成公司索引
+const companyIndexContainer = document.createElement('div');
+companyIndexContainer.classList.add('company-index');
+
+companies.forEach(company => {
+    // 创建公司标题
+    const companySection = document.createElement('div');
+    companySection.classList.add('company-section');
+
+    const companyTitle = document.createElement('div');
+    companyTitle.classList.add('company-title');
+    companyTitle.textContent = company.companyName;
+    companySection.appendChild(companyTitle);
+
+    // 创建导航栏
+    const nav = document.createElement('nav');
+    company.games.forEach(game => {
+        const link = document.createElement('a');
+        link.href = `#${game.id}`;
+        link.textContent = game.name;
+        nav.appendChild(link);
+    });
+    companySection.appendChild(nav);
+
+    // 创建游戏列表
+    const gameIndex = document.createElement('section');
+    gameIndex.classList.add('game-index');
+    company.games.forEach(game => {
+        const gameItem = document.createElement('div');
+        gameItem.id = game.id;
+        gameItem.classList.add('game-item');
+
+        const gameTitle = document.createElement('h3');
+        gameTitle.textContent = game.name;
+        gameItem.appendChild(gameTitle);
+
+        const gameLinks = document.createElement('div');
+        gameLinks.classList.add('game-links');
+        game.links.forEach(link => {
+            const a = document.createElement('a');
+            a.href = link.url;
+            a.target = "_blank";
+            a.innerHTML = `<span class="link-icons">${link.icon}</span>${link.type}`;
+
+            // 处理层级跳转
+            if (link.subLinks && link.subLinks.length > 0) {
+                a.addEventListener('click', (event) => {
+                    event.preventDefault(); // 阻止默认跳转行为
+                    showPopup(link.subLinks, link.type); // 传递父链接的 type 值
+                });
+            }
+
+            gameLinks.appendChild(a);
+        });
+        gameItem.appendChild(gameLinks);
+        gameIndex.appendChild(gameItem);
+    });
+
+    companySection.appendChild(gameIndex);
+    companyContainer.appendChild(companySection);
+});
+
+// 显示弹窗
+function showPopup(links, title) {
+    const popup = document.getElementById('popup');
+    const popupLinks = document.getElementById('popup-links');
+    const popupTitle = document.getElementById('popup-title'); // 获取标题元素
+    
+    popupLinks.innerHTML = ''; // 清空现有内容
+
+    // 设置弹窗标题为父链接的 type 值
+    popupTitle.textContent = title;
+
+    // 添加子链接
+    links.forEach(subLink => {
+        const subLinkElement = document.createElement('a');
+        subLinkElement.href = subLink.url;
+        subLinkElement.target = "_blank";
+        subLinkElement.innerHTML = `<span class="link-icons">${subLink.icon}</span>${subLink.type}`;
+        popupLinks.appendChild(subLinkElement);
+    });
+
+    // 显示弹窗
+    document.getElementById('popup-overlay').style.display = 'block';
+    popup.style.display = 'block';
+}
+
+// 关闭弹窗
+document.getElementById('close-popup').addEventListener('click', () => {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('popup-overlay').style.display = 'none';
+});
+</script>
+</body>
+</html>

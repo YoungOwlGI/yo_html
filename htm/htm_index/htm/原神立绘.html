@@ -1,0 +1,1294 @@
+<!DOCTYPE html><html lang="zh"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原神角色立绘展示</title>
+    <link rel="icon" href="https://webstatic.mihoyo.com/upload/op-public/2021/10/09/def1f2abcfc2af0bbe2e5900a60a5ee1_5699547505742166353.png" type="image/png">
+	<style>
+		/* 基本样式设置 */
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+		}
+
+		header {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+		}
+
+		h2 {
+			margin: 0;
+			font-size: 28px;
+		}
+
+		/* 导航栏样式 */
+		.navigation {
+			margin: 20px 0;
+		}
+
+		.navigation ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: inline-flex;
+			gap: 15px;
+		}
+
+		.navigation a {
+			color: #333;
+			text-decoration: none;
+			font-weight: bold;
+			background-color: #ddd;
+			padding: 10px 15px;
+			border-radius: 5px;
+			transition: background-color 0.3s, color 0.3s;
+		}
+
+		.navigation a:hover {
+			background-color: #007bff;
+			color: #fff;
+		}
+
+		/* 画廊样式 */
+		.country-gallery {
+			padding: 20px;
+		}
+
+		.country {
+			margin-bottom: 40px;
+		}
+
+		.country h3 {
+			font-size: 24px;
+			margin-bottom: 20px;
+			color: #333;
+		}
+
+		.gallery {
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			gap: 15px;
+		}
+
+		.gallery-item {
+			background-color: #fff;
+			border-radius: 15px;
+			overflow: hidden;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			text-align: center;
+			padding: 10px;
+		}
+
+		/* 为第一个和最后一个 gallery-item 设置长方形样式 */
+		.gallery-item:first-child(2),
+		.gallery-item:last-child(2) {
+			width: 200px; /* 根据需要调整宽度 */
+			height: 300px; /* 根据需要调整高度，使其成为长方形 */
+		}
+
+		/* 为中间的 gallery-item 设置正方形样式 */
+		.gallery-item:nth-child {
+			width: 300px; /* 根据需要调整宽度 */
+			height: 300px; /* 与宽度相同，使其成为正方形 */
+		}
+
+		.gallery-item img {
+			width: 100%;
+			height: auto;
+			max-height: 300px;
+			border-radius: 15px;
+			margin-bottom: 10px;
+		}
+
+		.caption {
+			font-size: 16px;
+			color: #333;
+			line-height: 1.2;
+			margin: 5px 0;
+		}
+
+		/* 链接容器样式 */
+		.link-container {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+			margin-top: 10px;
+		}
+
+		.link-container a {
+			font-size: 13px;
+			color: #007bff;
+			text-decoration: none;
+			padding: 5px 10px;
+			border-radius: 5px;
+			background-color: #f9f9f9;
+			transition: background-color 0.3s, color 0.3s;
+		}
+
+		.link-container a:hover {
+			background-color: #007bff;
+			color: #fff;
+		}
+
+		/* 页脚样式 */
+		.footer-bottom {
+			text-align: center;
+			padding-top: 10px;
+			border-top: 1px solid #555;
+			margin-top: 20px;
+			font-size: 14px;
+		}
+
+		.footer-bottom p {
+			margin: 0;
+			color: #aaa;
+		}
+	</style>
+</head>
+<body>
+    <header>
+        <h2>原神角色立绘展示</h2>
+		</br>所有角色顺序为拼音顺序，主角因为立绘比较特殊，所以单图暂不显示。</br>
+		加载本页面可能会消耗210MB流量，请确保你的流量够用。
+		<div style="text-align: center; margin: 20px 0;">
+			<hr style="width: 800px; margin: auto;"/>
+		</div>
+        <nav class="navigation">
+			<ul>
+				<li><a href="#protagonist">主角</a></li>|
+				<li><a href="#mondstadt">蒙德</a></li>
+				<li><a href="#liyue">璃月</a></li>
+				<li><a href="#inazuma">稻妻</a></li>
+				<li><a href="#sumeru">须弥</a></li>
+				<li><a href="#fontaine">枫丹</a></li>
+				<li><a href="#natlan">纳塔</a></li>
+				<li><a href="#snezhnaya">至冬</a></li>|
+				<li><a href="#yijie">异界</a></li>
+			</ul>
+		</nav>
+	</header>
+    <section class="country-gallery">
+		<!-- 主角 -->
+        <div class="country" id="protagonist">
+            <h3>主角</h3>
+            <div style="align-items: center; display: flex; justify-content: center;" class="gallery protagonist-gallery">
+<!--                <div class="gallery-item:first-child(2)">-->
+<!--                    <img src="./立绘/空.png" alt="空">-->
+<!--                    <p class="caption">空</p>-->
+<!--					<div class="link-container">-->
+<!--						<a href="-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;" target="_blank">原文</a>-->
+<!--						<a href="-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;" target="_blank">观测枢</a>-->
+<!--						<a href="-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;" target="_blank">百科</a>-->
+<!--						<a href="-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;" target="_blank">wiki</a>-->
+<!--					</div>-->
+<!--                </div>-->
+                <div style="align-items: center; display: flex; flex-direction: column;" class="gallery-item">
+                    <img src="./立绘/旅行者.jpg" alt="旅行者">
+                    <p class="caption">旅行者</p>
+                </div>
+<!--                <div class="gallery-item:last-child(2)">-->
+<!--                    <img src="./立绘/荧.jpeg" alt="荧">-->
+<!--                    <p class="caption">荧</p>-->
+<!--					<div class="link-container">-->
+<!--						<a href="-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;" target="_blank">原文</a>-->
+<!--						<a href="-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;" target="_blank">观测枢</a>-->
+<!--						<a href="-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;" target="_blank">百科</a>-->
+<!--						<a href="-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;" target="_blank">wiki</a>-->
+<!--					</div>-->
+<!--                </div>-->
+            </div>
+
+        </div>
+
+        <!-- 蒙德 -->
+        <div class="country" id="mondstadt">
+            <h3>蒙德</h3>
+            <div class="gallery">
+              <div class="gallery-item">
+                  <img src="./立绘/蒙德/阿贝多.jpeg" alt="阿贝多">
+                  <p class="caption">阿贝多</p>
+				  <div class="link-container">
+				  	<a href="-----------" target="_blank">原文</a>
+				  	<a href="https://bbs.mihoyo.com/ys/obc/content/1360/detail" target="_blank">观测枢</a>
+				  	<a href="-----------" target="_blank">百科</a>
+				  	<a href="-----------" target="_blank">wiki</a>
+				  </div>
+              </div>
+              <div class="gallery-item">
+                  <img src="./立绘/蒙德/安柏.jpg" alt="安柏">
+                  <p class="caption">安柏</p>
+				  <div class="link-container">
+				  	<a href="-----------" target="_blank">原文</a>
+				  	<a href="https://bbs.mihoyo.com/ys/obc/content/54/detail" target="_blank">观测枢</a>
+				  	<a href="-----------" target="_blank">百科</a>
+				  	<a href="-----------" target="_blank">wiki</a>
+				  </div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/芭芭拉.jpg" alt="芭芭拉">
+                <p class="caption">芭芭拉</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/61/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/班尼特.jpg" alt="班尼特">
+                <p class="caption">班尼特</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/105/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/迪奥娜.jpeg" alt="迪奥娜">
+                <p class="caption">迪奥娜</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/1221/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/迪卢克.jpg" alt="迪卢克">
+                <p class="caption">迪卢克</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/75/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/迪卢克-猫.png" alt="「…喵。喵喵喵。」">
+                <p class="caption">「…喵。喵喵喵。」</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">查看原文</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/菲谢尔.jpg" alt="菲谢尔">
+                <p class="caption">菲谢尔</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/382/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/凯亚.jpg" alt="凯亚">
+                <p class="caption">凯亚</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/76/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/可莉.jpg" alt="可莉">
+                <p class="caption">可莉</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/55/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/雷泽.jpg" alt="雷泽">
+                <p class="caption">雷泽</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/56/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/丽莎.jpg" alt="丽莎">
+                <p class="caption">丽莎</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/92/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/罗莎莉亚.jpg" alt="罗莎莉亚">
+                <p class="caption">罗莎莉亚</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/1744/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/米卡.jpg" alt="米卡">
+                <p class="caption">米卡</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/6285/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/莫娜.jpg" alt="莫娜">
+                <p class="caption">莫娜</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/1057/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/诺艾尔.jpg" alt="诺艾尔">
+                <p class="caption">诺艾尔</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/111/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/琴.jpg" alt="琴">
+                <p class="caption">琴</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/59/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/砂糖.png" alt="砂糖">
+                <p class="caption">砂糖</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/1055/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/温迪.jpeg" alt="温迪">
+                <p class="caption">温迪</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/57/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+              <div class="gallery-item">
+                <img src="./立绘/蒙德/优菈.jpg" alt="优菈">
+                <p class="caption">优菈</p>
+				<div class="link-container">
+					<a href="-----------" target="_blank">原文</a>
+					<a href="https://bbs.mihoyo.com/ys/obc/content/2040/detail" target="_blank">观测枢</a>
+					<a href="-----------" target="_blank">百科</a>
+					<a href="-----------" target="_blank">wiki</a>
+				</div>
+              </div>
+            </div>
+        </div>
+
+        <!-- 璃月 -->
+        <div class="country" id="liyue">
+            <h3>璃月</h3>
+            <div class="gallery">
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/白术.png" alt="白术">
+				    <p class="caption">白术</p>
+					<div class="link-container">
+						<a href="https://www.miyoushe.com/ys/article/36163698" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/6489/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+                <div class="gallery-item">
+                    <img src="./立绘/璃月/北斗.jpg" alt="北斗">
+                    <p class="caption">北斗</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/79/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+                </div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/重云.jpg" alt="重云">
+				    <p class="caption">重云</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/644/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+                <div class="gallery-item">
+                    <img src="./立绘/璃月/甘雨.png" alt="甘雨">
+                    <p class="caption">甘雨</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/1433/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+                </div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/胡桃.jpg" alt="胡桃">
+				    <p class="caption">胡桃</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/1627/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/嘉明.jpg" alt="嘉明">
+				    <p class="caption">嘉明</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/500672/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/刻晴.jpg" alt="刻晴">
+				    <p class="caption">刻晴</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/1058/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/刻晴-猫.jpg" alt="「喵喵喵，喵喵，喵喵！」">
+				    <p class="caption">「喵喵喵，喵喵，喵喵！」</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">查看原文</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/蓝砚.png" alt="蓝砚">
+				    <p class="caption">蓝砚</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/503614/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/凝光.jpg" alt="凝光">
+				    <p class="caption">凝光</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/78/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/七七.jpg" alt="七七">
+				    <p class="caption">七七</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/1056/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/申鹤.jpg" alt="申鹤">
+				    <p class="caption">申鹤</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/3386/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/闲云.jpg" alt="闲云">
+				    <p class="caption">闲云</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/500673/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/香菱.jpg" alt="香菱">
+				    <p class="caption">香菱</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/112/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/魈1.jpg" alt="魈之一">
+				    <p class="caption">魈之一</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">查看原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/1498/detail" target="_blank">米游社 观测枢</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/魈2.jpg" alt="魈之二">
+				    <p class="caption">魈之二</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">百度百科</a>
+						<a href="-----------" target="_blank">哔站wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/辛焱.jpg" alt="辛焱">
+				    <p class="caption">辛焱</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/1291/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/行秋.jpg" alt="行秋">
+				    <p class="caption">行秋</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/241/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/烟绯.jpg" alt="烟绯">
+				    <p class="caption">烟绯</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/1795/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/瑶瑶.jpg" alt="瑶瑶">
+				    <p class="caption">瑶瑶</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/5866/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/夜兰.jpg" alt="夜兰">
+				    <p class="caption">夜兰</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/4081/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/云堇.jpg" alt="云堇">
+				    <p class="caption">云堇</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/3387/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/璃月/钟离.jpg" alt="钟离">
+				    <p class="caption">钟离</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/1290/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <!-- 稻妻 -->
+        <div class="country" id="inazuma">
+            <h3>稻妻</h3>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="./立绘/稻妻/八重神子.jpg" alt="八重神子">
+                    <p class="caption">八重神子</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/3564/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+                </div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/枫原万叶.jpg" alt="枫原万叶">
+				    <p class="caption">枫原万叶</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/2142/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/荒泷一斗.jpg" alt="荒泷一斗">
+				    <p class="caption">荒泷一斗</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/3276/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/九条裟罗.jpg" alt="九条裟罗">
+				    <p class="caption">九条裟罗</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/2402/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/久岐忍.jpg" alt="久岐忍">
+				    <p class="caption">久岐忍</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/4148/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/久岐忍-猫.jpg" alt="「喵，喵。」">
+				    <p class="caption">「喵，喵。」</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">查看原文</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/雷电将军.jpg" alt="雷电将军">
+				    <p class="caption">雷电将军</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/2404/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/鹿野院平藏.jpg" alt="鹿野院平藏">
+				    <p class="caption">鹿野院平藏</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/4197/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/梦见月瑞希.png" alt="梦见月瑞希">
+				    <p class="caption">梦见月瑞希</p>
+					<div class="link-container">
+						<a href="https://www.miyoushe.com/ys/article/60859018" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/绮良良.jpg" alt="绮良良">
+				    <p class="caption">绮良良</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/6594/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/千织.jpg" alt="千织">
+				    <p class="caption">千织（枫丹？）</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/500987/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/珊瑚宫心海.jpg" alt="珊瑚宫心海">
+				    <p class="caption">珊瑚宫心海</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/2403/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/神里绫华.jpg" alt="神里绫华">
+				    <p class="caption">神里绫华</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/2123/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/神里绫人.jpg" alt="神里绫人">
+				    <p class="caption">神里绫人</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/3875/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/托马.jpg" alt="托马">
+				    <p class="caption">托马</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/2606/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/五郎.jpg" alt="五郎">
+				    <p class="caption">五郎</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/3275/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/宵宫.jpg" alt="宵宫">
+				    <p class="caption">宵宫</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/2124/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/稻妻/早柚.jpg" alt="早柚">
+				    <p class="caption">早柚</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/2125/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+            </div>
+        </div>
+
+        <!-- 须弥 -->
+        <div class="country" id="sumeru">
+            <h3>须弥</h3>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="./立绘/须弥/艾尔海森.jpg" alt="艾尔海森">
+                    <p class="caption">艾尔海森</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://baike.mihoyo.com/ys/obc/content/5865/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+                </div>
+				<div class="gallery-item">
+				    <img src="./立绘/须弥/迪希雅.jpg" alt="迪希雅">
+				    <p class="caption">迪希雅</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://baike.mihoyo.com/ys/obc/content/6180/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/须弥/多莉.jpg" alt="多莉">
+				    <p class="caption">多莉</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://baike.mihoyo.com/ys/obc/content/4736/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/须弥/珐露珊.jpg" alt="珐露珊">
+				    <p class="caption">珐露珊</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://baike.mihoyo.com/ys/obc/content/5493/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/须弥/卡维.webp" alt="卡维">
+				    <p class="caption">卡维</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://baike.mihoyo.com/ys/obc/content/6490/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/须弥/坎蒂丝.jpg" alt="坎蒂丝">
+				    <p class="caption">坎蒂丝</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://baike.mihoyo.com/ys/obc/content/6490/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/须弥/柯莱.jpg" alt="柯莱">
+				    <p class="caption">柯莱</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://baike.mihoyo.com/ys/obc/content/4333/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/须弥/莱依拉.jpg" alt="莱依拉">
+				    <p class="caption">莱依拉</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://baike.mihoyo.com/ys/obc/content/5297/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/须弥/流浪者.jpg" alt="流浪者">
+				    <p class="caption">流浪者</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://baike.mihoyo.com/ys/obc/content/5494/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/须弥/流浪者-猫.jpg" alt="「喵？喵。」">
+				    <p class="caption">「喵？喵。」</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">查看原文</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+					<img src="./立绘/须弥/纳西妲.jpg" alt="纳西妲">
+					<p class="caption">纳西妲</p>
+					<div class="link-container">
+						<a href="https://www.miyoushe.com/ys/article/29412888" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/5111/detail" target="_blank">观测枢</a>
+						<a href="https://baike.baidu.com/item/%E7%BA%B3%E8%A5%BF%E5%A6%B2/61673329" target="_blank">百科</a>
+						<a href="https://wiki.biligame.com/ys/%E7%BA%B3%E8%A5%BF%E5%A6%B2/%E6%94%BB%E7%95%A5" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/须弥/妮露.jpg" alt="妮露">
+				    <p class="caption">妮露</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://baike.mihoyo.com/ys/obc/content/5020/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/须弥/赛诺.jpg" alt="赛诺">
+				    <p class="caption">赛诺</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://baike.mihoyo.com/ys/obc/content/4780/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/须弥/赛索斯.jpg" alt="赛索斯">
+				    <p class="caption">赛索斯</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://baike.mihoyo.com/ys/obc/content/501212/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/须弥/提纳里.jpg" alt="提纳里">
+				    <p class="caption">提纳里</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://baike.mihoyo.com/ys/obc/content/4334/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+            </div>
+        </div>
+
+        <!-- 枫丹 -->
+        <div class="country" id="fontaine">
+            <h3>枫丹</h3>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="./立绘/枫丹/阿蕾奇诺.jpg" alt="阿蕾奇诺">
+                    <p class="caption">阿蕾奇诺</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./立绘/枫丹/艾梅莉埃.jpg" alt="艾梅莉埃">
+                    <p class="caption">艾梅莉埃</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+                </div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/菲米尼.jpg" alt="菲米尼">
+				    <p class="caption">菲米尼</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/菲米尼-愚人众.png" alt="菲米尼-壁炉之家">
+				    <p class="caption">菲米尼-壁炉之家</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">查看原文</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/芙宁娜-荒性.jpg" alt="芙宁娜-荒性">
+				    <p class="caption">芙宁娜-荒性</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">查看原文</a>
+						<a href="-----------" target="_blank">米游社 观测枢</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/芙宁娜-芒性.png" alt="芙宁娜-芒性">
+				    <p class="caption">芙宁娜-芒性</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">百度百科</a>
+						<a href="-----------" target="_blank">哔站wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/克洛琳德.jpg" alt="克洛琳德">
+				    <p class="caption">克洛琳德</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/莱欧斯利.jpg" alt="莱欧斯利">
+				    <p class="caption">莱欧斯利</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/林尼.jpg" alt="林尼">
+				    <p class="caption">林尼</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/林尼-愚人众.png" alt="林尼-壁炉之家">
+				    <p class="caption">林尼-壁炉之家</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">查看原文</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/琳妮特.jpg" alt="琳妮特">
+				    <p class="caption">琳妮特</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/琳妮特-愚人众.png" alt="琳妮特-壁炉之家">
+				    <p class="caption">琳妮特-壁炉之家</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">查看原文</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/那维莱特.jpg" alt="那维莱特">
+				    <p class="caption">那维莱特</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/娜维娅.jpg" alt="娜维娅">
+				    <p class="caption">娜维娅</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/希格雯.jpg" alt="希格雯">
+				    <p class="caption">希格雯</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/夏洛蒂.png" alt="夏洛蒂">
+				    <p class="caption">夏洛蒂</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/枫丹/夏沃蕾.jpg" alt="夏沃蕾">
+				    <p class="caption">夏沃蕾</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+            </div>
+        </div>
+
+        <!-- 纳塔 -->
+        <div class="country" id="natlan">
+            <h3>纳塔</h3>
+            <div class="gallery">
+				<div class="gallery-item">
+				    <img src="./立绘/纳塔/基尼奇.jpg" alt="基尼奇">
+				    <p class="caption">基尼奇</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+                <div class="gallery-item">
+                    <img src="./立绘/纳塔/卡齐娜.jpg" alt="卡齐娜">
+                    <p class="caption">卡齐娜</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./立绘/纳塔/玛拉妮.jpg" alt="玛拉妮">
+                    <p class="caption">玛拉妮</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./立绘/纳塔/玛薇卡.png" alt="玛薇卡">
+                    <p class="caption">玛薇卡</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+                </div>
+				<div class="gallery-item">
+				    <img src="./立绘/纳塔/欧洛伦.png" alt="欧洛伦">
+				    <p class="caption">欧洛伦</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/纳塔/恰斯卡.png" alt="恰斯卡">
+				    <p class="caption">恰斯卡</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/纳塔/瓦雷莎.png" alt="瓦雷莎">
+				    <p class="caption">瓦雷莎</p>
+					<div class="link-container">
+						<a href="https://www.miyoushe.com/ys/article/62080282" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/纳塔/茜特菈莉.png" alt="茜特菈莉">
+				    <p class="caption">茜特菈莉</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/纳塔/希诺宁.png" alt="希诺宁">
+				    <p class="caption">希诺宁</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/纳塔/伊安珊.png" alt="伊安珊">
+				    <p class="caption">伊安珊</p>
+					<div class="link-container">
+						<a href="https://www.miyoushe.com/ys/article/62104870" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
+            </div>
+        </div>
+
+        <!-- 至冬 -->
+        <div class="country" id="snezhnaya">
+            <h3>至冬</h3>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="./立绘/至冬/达达利亚.jpg" alt="达达利亚">
+                    <p class="caption">达达利亚</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/1220/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+                </div>
+            </div>
+        </div>
+
+            <!-- 异界 -->
+        <div class="country" id="yijie">
+            <h3>异界</h3>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="./立绘/异界/埃洛伊.jpg" alt="埃洛伊">
+                    <p class="caption">埃洛伊</p>
+					<div class="link-container">
+						<a href="-----------" target="_blank">原文</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/2415/detail" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+	<div class="foot-wrap" id="footer">
+	    <footer class="footer-bottom">
+        	<p>Copyright © 2023-2025 小猫头鹰 All rights reserved.</p>
+	    </footer>
+	</div>
+</body>
+</html>

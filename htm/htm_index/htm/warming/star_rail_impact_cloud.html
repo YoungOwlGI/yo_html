@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云·星穹铁道 警告页面</title>
+    <link rel="icon" href="https://webstatic.mihoyo.com/common/clgm-web-app/sr/ico/favicon.3.0.0.ico">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+     .warning {
+            background-color: #ffcccc;
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            width: 600px; /* 增加宽度 */
+        }
+
+     .warning h1 {
+            color: #ff0000;
+        }
+
+     .links {
+            margin-top: 20px;
+        }
+
+     .links a {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 3px;
+            margin: 0 10px;
+        }
+
+     .links a:hover {
+            background-color: #0056b3;
+        }
+        /* 为图片添加样式 */
+        img {
+            width: 572px; /* 增加宽度 */
+            height: 345px; /* 增加高度 */
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warning">
+        <h1>警告</h1>
+        <p>在运行此页面的游戏时可能会对本机<strong>网络适配器</strong>造成损害，请确认是否继续访问。</p>
+        <img src="./star_rail_impact_cloud.png" alt="警告" width="500" height="300">
+        <div class="links">
+            <a href="../games.html">返回上一页</a>
+            <a href="https://sr.mihoyo.com/cloud/">确认继续访问</a>
+        </div>
+    </div>
+</body>
+
+</html>

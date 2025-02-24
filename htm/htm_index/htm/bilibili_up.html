@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哔哩哔哩UP主列表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .up-list {
+            list-style: none;
+            padding: 0;
+        }
+        .up-name {
+            font-size: 16px;
+            color: #007acc;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .up-name:hover {
+            text-decoration: underline;
+        }
+        .popup {
+            display: none; /* 默认隐藏 */
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            max-width: 90%;
+            overflow-y: auto;
+        }
+        .overlay {
+            display: none; /* 默认隐藏 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>哔哩哔哩UP主列表</h1>
+    <a class="up-name" href="./bilibili_video.html" target="_blank">进入视频列表</a>
+
+    <ul class="up-list">
+    <button class="up-btn">游戏官方</button>
+    <div class="popup">
+        <a class="up-name" href="https://space.bilibili.com/521325931" target="_blank">物华弥新</a><br>
+        <a class="up-name" href="https://space.bilibili.com/285308635" target="_blank">香肠派对手游</a><br>
+        <a class="up-name" href="https://space.bilibili.com/3546569016085336" target="_blank">蓝色星原旅谣</a><br>
+        <a class="up-name" href="https://space.bilibili.com/36258421" target="_blank">Supercell游戏</a><br>
+        <a class="up-name" href="https://space.bilibili.com/510467240" target="_blank">部落冲突ClashofClans</a><br>
+        <a class="up-name" href="https://space.bilibili.com/303469491" target="_blank">闪耀暖暖</a><br>
+        <a class="up-name" href="https://space.bilibili.com/3461576715667734" target="_blank">无限暖暖</a><br>
+        <button class="close-btn">关闭</button>
+    </div>
+    <button class="up-btn">其他官方号</button>
+    <div class="popup">
+        <a class="up-name" href="https://space.bilibili.com/137543719" target="_blank">3DM游戏</a><br>
+        <a class="up-name" href="https://space.bilibili.com/380800207" target="_blank">雷电模拟器</a><br>
+        <a class="up-name" href="https://space.bilibili.com/439478093" target="_blank">中国食品报融媒体</a><br>
+        <a class="up-name" href="https://space.bilibili.com/37090048" target="_blank">哔哩哔哩创作中心</a><br>
+        <a class="up-name" href="https://space.bilibili.com/8047632" target="_blank">哔哩哔哩弹幕网</a><br>
+        <button class="close-btn">关闭</button>
+    </div>
+    <button class="up-btn">动漫</button>
+    <div class="popup">
+        <a class="up-name" href="https://space.bilibili.com/31923628" target="_blank">ACC动漫展</a>
+        <a class="up-name" href="https://space.bilibili.com/20313793" target="_blank">天天背锅崩坏娘</a>
+        <a class="up-name" href="https://space.bilibili.com/1074545099" target="_blank">甜甜叫花鸡</a>
+        <button class="close-btn">关闭</button>
+    </div>
+    <button class="up-btn">科技</button>
+    <div class="popup">
+        <a class="up-name" href="https://space.bilibili.com/67079745" target="_blank">玄离199</a>
+        <button class="close-btn">关闭</button>
+    </div>
+    <button class="up-btn">配音演员</button>
+    <div class="popup">
+        <a class="up-name" href="https://space.bilibili.com/48207005" target="_blank">丰崎爱生Official</a>
+        <button class="close-btn">关闭</button>
+    </div>
+    <button class="up-btn">米哈游相关攻略二创</button>
+    <div class="popup">
+        <a class="up-name" href="https://space.bilibili.com/80304" target="_blank">亚食人</a>
+        <a class="up-name" href="https://space.bilibili.com/492579" target="_blank">彼音星垠</a>
+        <a class="up-name" href="https://space.bilibili.com/192763067" target="_blank">是星璃啦</a>
+        <a class="up-name" href="https://space.bilibili.com/1074545099" target="_blank">甜甜叫花鸡</a>
+        <a class="up-name" href="https://space.bilibili.com/551188239" target="_blank">企鹅带带北极熊</a>
+        <a class="up-name" href="https://space.bilibili.com/23976014" target="_blank">萌宠教主</a>
+        <button class="close-btn">关闭</button>
+    </div>
+    <button class="up-btn">游戏剧情</button>
+    <div class="popup">
+        <a class="up-name" href="https://space.bilibili.com/421005669" target="_blank">星阳希</a>
+        <button class="close-btn">关闭</button>
+    </div>
+    <button class="up-btn">安全</button>
+    <div class="popup">
+        <a class="up-name" href="https://space.bilibili.com/121752611" target="_blank">蜻蜓动漫CG</a>
+        <a class="up-name" href="https://space.bilibili.com/605632944" target="_blank">海口警方</a>
+        <a class="up-name" href="https://space.bilibili.com/698057488" target="_blank">深圳卫健委</a>
+        <a class="up-name" href="https://space.bilibili.com/3493130607265963" target="_blank">为了玲飞护肤纪录片</a>
+        <button class="close-btn">关闭</button>
+    </div>
+    <button class="up-btn">律法</button>
+    <div class="popup">
+        <a class="up-name" href="https://space.bilibili.com/10216010" target="_blank">爬爬猫头是爬律师</a>
+        <button class="close-btn">关闭</button>
+    </div>
+    <button class="up-btn">未分类</button>
+    <div class="popup">
+        <a class="up-name" href="https://space.bilibili.com/176037767" target="_blank">我是郭杰瑞</a>
+        <a class="up-name" href="https://space.bilibili.com/412451562" target="_blank">李子璇_豆子</a>
+        <a class="up-name" href="https://space.bilibili.com/403226287" target="_blank">主持人肖雄</a>
+        <a class="up-name" href="https://space.bilibili.com/287795639" target="_blank">短的发布会</a>
+        <a class="up-name" href="https://space.bilibili.com/174902557" target="_blank">没啥用科技</a>
+        <a class="up-name" href="https://space.bilibili.com/436642180" target="_blank">司文的不思議世界</a>
+        <a class="up-name" href="https://space.bilibili.com/1132553462" target="_blank">烛宝哒</a>
+        <a class="up-name" href="https://space.bilibili.com/442603088" target="_blank">三维地图看世界</a>
+        <a class="up-name" href="https://space.bilibili.com/26798384" target="_blank">柴知道</a>
+        <a class="up-name" href="https://space.bilibili.com/303825600" target="_blank">江湖人称石老怪</a>
+        <a class="up-name" href="https://space.bilibili.com/1295731875" target="_blank">了不起的中国人</a>
+        <a class="up-name" href="https://space.bilibili.com/356798697" target="_blank">游戏X博士</a>
+        <a class="up-name" href="https://space.bilibili.com/21330948" target="_blank">隔壁班的喵会长</a>
+        <a class="up-name" href="https://space.bilibili.com/8969156" target="_blank">小白测评</a>
+        <a class="up-name" href="https://space.bilibili.com/348989367" target="_blank">沫子瞪片</a>
+        <a class="up-name" href="https://space.bilibili.com/824967" target="_blank">孙工普拉斯</a>
+        <a class="up-name" href="https://space.bilibili.com/326427334" target="_blank">星球研究所</a>
+        <a class="up-name" href="https://space.bilibili.com/430426421" target="_blank">燕三嘤嘤嘤</a>
+        <a class="up-name" href="https://space.bilibili.com/429974265" target="_blank">科普妖四五零</a>
+        <a class="up-name" href="https://space.bilibili.com/58282150" target="_blank">耶嘿YeahHey</a>
+        <a class="up-name" href="https://space.bilibili.com/19511137" target="_blank">Terry乄Lee</a>
+        <a class="up-name" href="https://space.bilibili.com/19577966" target="_blank">李子柒</a>
+        <a class="up-name" href="https://space.bilibili.com/431753564" target="_blank">毛茸茸的星球</a>
+        <a class="up-name" href="https://space.bilibili.com/108625274" target="_blank">游戏建模CG</a>
+        <a class="up-name" href="https://space.bilibili.com/13279707" target="_blank">最上川下山</a>
+        <a class="up-name" href="https://space.bilibili.com/477531206" target="_blank">阿特警官</a>
+        <a class="up-name" href="https://space.bilibili.com/40484108" target="_blank">安柏然Andy</a>
+        <a class="up-name" href="https://space.bilibili.com/1385037217" target="_blank">痞仔伯爵</a>
+        <a class="up-name" href="https://space.bilibili.com/438173577" target="_blank">卢克文工作室</a>
+        <button class="close-btn">关闭</button>
+    </div>
+    </ul>
+
+    <!-- 弹窗背景 -->
+    <div class="overlay"></div>
+
+    <script>
+        const buttons = document.querySelectorAll('.up-btn');
+        const overlays = document.querySelector('.overlay');
+        
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                const popup = this.nextElementSibling; // 获取紧随按钮的弹窗
+                popup.style.display = 'block'; // 显示弹窗
+                overlays.style.display = 'block'; // 显示背景
+            });
+        });
+
+        // 关闭按钮
+        const closeBtns = document.querySelectorAll('.close-btn');
+        closeBtns.forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                const popup = this.parentElement; // 获取父元素，即弹窗
+                popup.style.display = 'none'; // 隐藏弹窗
+                overlays.style.display = 'none'; // 隐藏背景
+            });
+        });
+
+        // 点击背景关闭弹窗
+        overlays.addEventListener('click', function() {
+            this.style.display = 'none';
+            const popups = document.querySelectorAll('.popup');
+            popups.forEach(popup => {
+                popup.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>官方网站列表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-top: 0;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        .index {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .index h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .index a {
+            font-size: 16px;
+            color: #007acc;
+            text-decoration: none;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+        .index a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        .section-title {
+            font-size: 24px;
+            color: #333;
+            margin-top: 30px;
+            border-bottom: 3px solid #007acc;
+            padding-bottom: 8px;
+            display: inline-block;
+            width: 100%; /* 让下划线延伸到整个父容器宽度 */
+        }
+        .section-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .category-block {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 25%;
+            min-width: 300px;
+            max-width: 480px;
+        }
+        .category-block h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 5px;
+        }
+        li ul {
+            list-style: none;
+            padding: 0;
+        }
+        .link-list {
+            list-style: none;
+            padding: 0;
+        }
+        .link-list li {
+            margin-bottom: 10px;
+        }
+        .link {
+            font-size: 18px;
+            color: #007acc;
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease;
+            line-height: 1.5;
+        }
+        .link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+                /* 减少 category-block 之间的间距 */
+        .category-block +.category-block {
+            margin-left: 10px;
+        }
+            /* 新增的样式，用于将 ul 列表分为两栏 */
+        .two-column-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .two-column-list li {
+            flex: 0 48%; /* 每列占据大约一半的宽度，留一些间隙 */
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>官方网站列表</h1>
+
+    <!-- 索引部分 -->
+    <div class="index">
+        <h2>索引</h2>
+        <a href="me">个人网站</a>
+        <a href="#search">浏览工具</a>
+        <a href="#convenient">便捷工具</a>
+        <a href="gow">政府网站</a>
+        <a href="#other">其他官方网站</a>
+    </div>
+
+    <!-- 内容部分 -->
+    <div id="me"><h2 class="section-title">个人网站</h2>
+        <div class="section-content">
+            <ul class="two-column-list">
+                <li><a class="link" href="https://xiaomty.icoc.ws/" target="_blank">小猫头鹰首页</a></li>
+                <li><a class="link" href="https://xiaomty.fkguest.com/" target="_blank">小猫头鹰首页</a></li>
+                <li><a class="link" href="http://www.xiaomty.com/" target="_blank">http://www.xiaomty.com/</a></li>
+                <li><a class="link" href="http://www.youngowl.asia/" target="_blank">http://www.youngowl.asia/</a></li>
+                <li><a class="link" href="http://www.youngowl.cn/" target="_blank">http://www.youngowl.cn/</a></li>
+                <li><a class="link" href="http://www.youngowl.top/" target="_blank">http://www.youngowl.top/</a></li>
+                <li><a class="link" href="http://www.youngowl.love/" target="_blank">http://www.youngowl.love/</a></li>
+                <li><a class="link" href="http://www.youngowl.xyz/" target="_blank">http://www.youngowl.xyz/</a></li>
+                <li><a class="link" href="https://xiaomty-2.fkguest.com/" target="_blank">小猫头鹰</a></li>
+                <li><a class="link" href="https://xiaomty-3.fkguest.com/" target="_blank">小猫头鹰</a></li>
+                <li><a class="link" href="https://xiaomty-4.fkguest.com/" target="_blank">小猫头鹰-4</a></li>
+                <li><a class="link" href="https://xiaomty-5.fkguest.com/" target="_blank">小猫头鹰</a></li>
+                <li><a class="link" href="https://xiaomty-6.fkguest.com/" target="_blank">小猫头鹰</a></li>
+                <li><a class="link" href="https://xiaomty-8.fkguest.com/" target="_blank">鸱鸺印务</a></li>
+                <li><a class="link" href="https://youngowl.rth1.xyz/" target="_blank">小猫头鹰</a></li>
+                <li><a class="link" href="https://qc30528390.jzfkw.net/" target="_blank">我的网站</a></li>
+       </ul></div></div>
+    <div id="search"><h2 class="section-title">浏览工具</h2>
+        <div class="section-content">
+            <div class="category-block">
+                <h3>搜索引擎和工具</h3>
+                <ul class="link-list">
+                    <li><a class="link" href="https://cn.bing.com/" target="_blank">搜索 - Microsoft 必应</a></li>
+                    <li><a class="link" href="https://www.baidu.com/" target="_blank">百度一下，你就知道</a></li>
+                    <li><a class="link" href="https://www.so.com/" target="_blank">360搜索，SO靠谱</a></li>
+                </ul>
+            </div>
+            <div class="category-block">
+                <h3>浏览器</h3>
+                <ul class="link-list">
+                    <li><a class="link" href="https://www.microsoft.com/zh-cn/edge" target="_blank">Microsoft Edge</a></li>
+                    <li><a class="link" href="https://www.chrome.net.cn/" target="_blank">Google</a></li>
+                    <li><a class="link" href="https://www.firefox.com.cn/" target="_blank">Firefox</a></li>
+                    <li><a class="link" href="https://browser.qq.com/" target="_blank">QQ浏览器</a></li>
+                    <li><a class="link" href="https://www.twinkstar.com/" target="_blank">星原浏览器</a></li>
+                    <li><a class="link" href="https://www.ccleaner.com/zh-cn/ccleaner/browser" target="_blank">CCleaner</a></li>
+                </ul>
+            </div>
+            <div class="category-block">
+                <h3>搜索页面</h3>
+                <ul class="link-list">
+                    <li><a class="link" href="https://limestart.cn/" target="_blank">青柠起始页</a></li>
+                    <li><a class="link" href="https://www.onll.cn/" target="_blank">嗖的一下，很快啊 - 神秘布偶猫</a></li>
+                    <li><a class="link" href="https://www.hao123.com/" target="_blank">hao123_上网从这里开始</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="convenient"><h2 class="section-title">便捷工具</h2>
+        <div class="section-content">
+                <ul class="link-list">
+                    <li><a class="link" href="https://www.toolhelper.cn/" target="_blank">锤子在线工具网</a></li>
+                    <li><a class="link" href="https://convertfree.com/cn" target="_blank">免费转换 ——在线转换文件服务</a></li>
+                    <li><a class="link" href="https://www.airportal.cn/" target="_blank">AirPortal 空投快传</a></li>
+                    <li><a class="link" href="https://www.yasuotu.com/" target="_blank">在线图片压缩工具_无损压缩90%-压缩图</a></li>
+                    <li><a class="link" href="https://lab.magiconch.com/nbnhhsh/" target="_blank">能不能好好说话？</a></li>
+                    <li><a class="link" href="https://www.wenshushu.cn/" target="_blank">文叔叔 - 传文件，找文叔叔（大文件、永不限速）</a></li>
+                </ul>
+            <div class="category-block">
+                <h3>测速</h3>
+                <ul class="link-list">
+                    <li><a class="link" href="https://www.speedtest.cn/" target="_blank">测速网</a></li>
+                    <li><a class="link" href="https://test.ustc.edu.cn/" target="_blank">中国科学技术大学测速网站</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="gow"><h2 class="section-title">政府网站</h2>
+        <div class="section-content">
+            <ul class="two-column-list">
+                <li><a class="link" href="http://www.gov.cn/" target="_blank">中国政府网_中央人民政府门户网站</a></li>
+                <li><a class="link" href="https://www.spp.gov.cn/" target="_blank">中华人民共和国最高人民检察院 </a></li>
+                <li><a class="link" href="https://www.mps.gov.cn/" target="_blank">中华人民共和国公安部</a></li>
+                <li><a class="link" href="http://www.nhc.gov.cn/" target="_blank">中华人民共和国国家卫生健康委员会</a></li>
+                <li><a class="link" href="https://www.sac.gov.cn/" target="_blank">国家标准化管理委员会</a></li>
+                <li><a class="link" href="https://www.court.gov.cn/index.html" target="_blank">首页 - 中华人民共和国最高人民法院</a></li>
+                <li><a class="link" href="https://www.henan.gov.cn/" target="_blank">河南省人民政府门户网站</a></li>
+                <li><a class="link" href="https://www.nppa.gov.cn/" target="_blank">国家新闻出版署</a></li>
+                <li><a class="link" href="https://www.gfbzb.gov.cn/" target="_blank">全国征兵网</a></li>
+                <li><a class="link" href="http://www.moe.gov.cn/" target="_blank">中华人民共和国教育部政府门户网站</a></li>
+                <li><a class="link" href="https://www.ccdi.gov.cn/" target="_blank">中央纪委国家监委网站</a></li>
+                <li><a class="link" href="https://www.ncac.gov.cn/" target="_blank">国家版权局网</a></li>
+                <li><a class="link" href="http://www.cppcc.gov.cn/" target="_blank">中国政协网</a></li>
+                <li><a class="link" href="https://cyberpolice.mps.gov.cn/#/" target="_blank">网络违法犯罪举报网站</a></li>
+                <li><a class="link" href="http://www.npc.gov.cn/npc/index.html" target="_blank">中国人大网</a></li>
+                <li><a class="link" href="https://www.cma.gov.cn/" target="_blank">中国气象网-中国气象局政府门户网站</a></li>
+                <li><a class="link" href="https://qspfw.moe.gov.cn/index.html" target="_blank">教育部全国青少年普法网</a></li>
+                <li><a class="link" href="https://www.zhengzhou.gov.cn/" target="_blank">郑州市人民政府</a></li>
+       </ul></div>
+    </div>
+    <div id="other"><h2 class="section-title">其他官方网站</h2>
+        <div class="section-content">
+            <ul class="two-column-list">
+                <li><a class="link" href="https://www.wgtn.ac.nz/" target="_blank"> Te Herenga Waka—Victoria University of Wellington</a></li>
+                <li><a class="link" href="https://www.beautyofscience.cn/#/home" target="_blank"> 美丽科学</a></li>
+                <li><a class="link" href="https://cn.58.com/" target="_blank">【58同城 58.com】其他分类信息 - 本地 免费 高效</a></li>
+                <li><a class="link" href="https://china.baixing.com/" target="_blank">【百姓网】 - 免费发布信息 - 中国分类信息网 - 中国百姓网</a></li>
+                <li><a class="link" href="https://www.51.la/" target="_blank">51LA - 领先的数据统计服务商</a></li>
+                <li><a class="link" href="https://www.666php.com/" target="_blank">666资源论坛</a>：这个网站禁止进行F12调试</li>
+                <li><a class="link" href="https://www.adobe.com/cn/" target="_blank">Adobe：创意、营销和文档管理解决方案</a></li>
+                <li><a class="link" href="https://ananova.com/" target="_blank">Ananova Business Web Hosting </a></li>
+                <li><a class="link" href="http://www.crac.org.cn/" target="_blank">CRAC首页-中国无线电协会业余无线电分会</a></li>
+                <li><a class="link" href="https://mh.dp712.com/" target="_blank">DP次元美化:「原创」二次元轻美化交流平台！</a></li>
+                <li><a class="link" href="https://www.filezilla.cn/" target="_blank">FileZilla中文网 - 免费开源的FTP解决方案</a></li>
+                <li><a class="link" href="https://www.flash.cn/" target="_blank">Flash官网-Flash Player下载 _Flash中心_重橙网络</a></li>
+                <li><a class="link" href="https://www.infinityfree.com/" target="_blank">Free Web Hosting with PHP and MySQL - InfinityFree</a></li>
+                <li><a class="link" href="https://www.freenom.com/zh/index.html?lang=zh" target="_blank">Freenom - 人人都熟悉的名字</a></li>
+                <li><a class="link" href="https://www.gamivo.com/" target="_blank">GAMIVO | Video games, gift cards, cd keys at best price</a></li>
+                <li><a class="link" href="https://greasyfork.org/zh-CN" target="_blank">Greasy Fork - 安全且实用的用户脚本站</a></li>
+                <li><a class="link" href="https://china.usembassy-china.org.cn/zh/" target="_blank">Homepage - 美国驻华大使馆和领事馆</a></li>
+                <li><a class="link" href="https://www.keepscreenon.com/" target="_blank">Keep Screen On - A page to prevent your device from sleeping</a></li>
+                <li><a class="link" href="https://global.kfc.com/" target="_blank">KFC - Home | KFC</a></li>
+                <li><a class="link" href="https://www.kinder.com/cn/zh/" target="_blank">Kinder 中国</a></li>
+                <li><a class="link" href="https://www.nature.com/" target="_blank">Nature</a></li>
+                <li><a class="link" href="https://www.lotuspens.com/" target="_blank">Premium Quality Personalized Writing Instruments - Lotus Pens</a></li>
+                <li><a class="link" href="https://transgate.de/" target="_blank">Prevenio® - Die umfassende Software für Ihren Arbeitsschutz.</a></li>
+                <li><a class="link" href="https://www.whitehouse.gov/" target="_blank">The White House</a></li>
+                <li><a class="link" href="https://u.tools/" target="_blank">uTools官网 - 新一代效率工具平台</a></li>
+                <li><a class="link" href="https://www.virustotal.com/gui/home/upload" target="_blank">VirusTotal - Home</a></li>
+                <li><a class="link" href="https://www.wallpaperengine.io/zh-hans" target="_blank">Wallpaper Engine：Windows 系统上的动画壁纸</a></li>
+                <li><a class="link" href="https://www.wto.org/" target="_blank">World Trade Organization - Home page - Global trade</a></li>
+                <li><a class="link" href="https://xmind.cn/" target="_blank">Xmind思维导图 | Xmind中文官方网站</a></li>
+                <li><a class="link" href="https://www.yumchina.com/" target="_blank">百胜中国-YumChina</a></li>
+                <li><a class="link" href="https://www.baobeihuijia.com/bbhj/" target="_blank">宝贝回家  关爱儿童我们共同的责任</a></li>
+                <li><a class="link" href="https://www.cnblogs.com/" target="_blank">博客园 - 开发者的网上家园</a></li>
+                <li><a class="link" href="https://www.shuidichou.com/" target="_blank">筹款就用水滴筹，靠谱的大病救助平台</a></li>
+                <li><a class="link" href="https://www.dewu.com/" target="_blank">得物App-新一代潮流网购社区</a>：这网站居然在F12调试的元素调试中没title标签！</li>
+                <li><a class="link" href="https://api.zzmetro.com/lines/map" target="_blank">地铁线路规划图__郑州地铁运营线路图</a></li>
+                <li><a class="link" href="https://app.diandian.com/" target="_blank">点点数据-App数据查询分析,AppStore排行榜,ASO,ASM优化平台</a></li>
+                <li><a class="link" href="https://www.mvcat.com/" target="_blank">电影推荐 · MVCAT</a>：这网站居然在F12调试的元素调试中没title标签！</li>
+                <li><a class="link" href="https://www.ddooo.com/" target="_blank">多多软件站-提供绿色软件和热门单机游戏下载</a></li>
+                <li><a class="link" href="https://olympics.com/zh/" target="_blank">观看赛事直播和最新消息 | Olympics.com</a></li>
+                <li><a class="link" href="https://www.vpsor.cn/" target="_blank">硅云 - 领先的出海IaaS云计算基础设施服务提供商</a></li>
+                <li><a class="link" href="https://www.gzbl.com/index.html" target="_blank">贵州百灵企业集团制药股份有限公司</a>：这个网站禁止进行F12调试</li>
+                <li><a class="link" href="http://www.rightpaper.com/" target="_blank">湖北双佳纸品有限公司- 湖北双佳纸品有限公司</a></li>
+                <li><a class="link" href="https://www.edrawsoft.cn/" target="_blank">绘制精美的流程图、思维导图、信息图等 - 亿图软件官网</a></li>
+                <li><a class="link" href="https://www.hunliji.com/" target="_blank">婚纱摄影_婚礼策划_婚庆_一站式结婚服务【婚礼纪】</a></li>
+                <li><a class="link" href="http://www.xz7.com/" target="_blank">极光下载站_绿色软件免费下载_手机应用商店</a></li>
+                <li><a class="link" href="https://www.jianshu.com/" target="_blank">简书 - 创作你的创作</a></li>
+                <li><a class="link" href="https://www.juming.com/" target="_blank">聚名网-到期域名查询抢注-域名注册-老域名买卖交易平台</a></li>
+                <li><a class="link" href="https://www.kancloud.cn/" target="_blank">看云 | 现代化文档写作、托管及数字出版</a></li>
+                <li><a class="link" href="https://kodcloud.com/" target="_blank">可道云-私有云存储&协同办公平台_企业网盘_企业云盘_网盘_云盘</a></li>
+                <li><a class="link" href="http://www.lp-jt.com/" target="_blank">蓝漂集团官网_四川蓝漂日用品有限公司</a></li>
+                <li><a class="link" href="https://www.ldmnq.com/" target="_blank">雷电模拟器官网_安卓模拟器_电脑手游模拟器</a></li>
+                <li><a class="link" href="https://lirong.digitalixy.com/" target="_blank">李融博客</a></li>
+                <li><a class="link" href="https://www.ling-shi.com/" target="_blank">灵狮科技-企微SCRM|智能直播|品牌网校搭建|全链路推广平台</a></li>
+                <li><a class="link" href="https://www.linkedin.cn/" target="_blank">领英企业服务</a></li>
+                <li><a class="link" href="https://www.longmenshuju.com/" target="_blank">龙门书局 - 首页</a></li>
+                <li><a class="link" href="https://www.logitech.com/zh-cn" target="_blank">罗技：无线鼠标、键盘、耳机麦克风和视频会议</a></li>
+                <li><a class="link" href="http://www.downcc.com/" target="_blank">绿色资源网-绿色下载站-做最好的免费软件下载网站</a></li>
+                <li><a class="link" href="https://www.antso.cn/" target="_blank">"蚂蚁目录-分类网址目录,精选网站导航,免费网站名录</a>"	</li>
+                <li><a class="link" href="https://www.mairuan.com/" target="_blank">麦软网-专业正版低价软件及软件培训，资讯，素材模版交易平台</a></li>
+                <li><a class="link" href="https://www.moepro.cn/" target="_blank">萌娘资源站 - 动漫头像、手机壁纸、电脑壁纸下载</a></li>
+                <li><a class="link" href="https://www.mianshiya.com/" target="_blank">面试鸭 - 程序员求职面试刷题神器，高频编程题目免费刷</a></li>
+                <li><a class="link" href="https://www.mixchat.xin/" target="_blank">匿信聊天 - 陌生人社交联盟</a></li>
+                <li><a class="link" href="https://www.nongfuspring.com/" target="_blank">农夫山泉|Nongfu Spring|農夫山泉</a></li>
+                <li><a class="link" href="https://www.qikanchina.com/" target="_blank">期刊网</a></li>
+                <li><a class="link" href="https://www.chinaqikan.com/" target="_blank">期刊网</a></li>
+                <li><a class="link" href="https://drivers.mydrivers.com/" target="_blank">驱动之家-值得信赖的专业驱动中文网站</a></li>
+                <li><a class="link" href="https://www.renren.com/" target="_blank">人人网</a></li>
+                <li><a class="link" href="https://www.ryytn.com/" target="_blank">认养一头牛|只为用户养好牛- Adopt A Cow</a></li>
+                <li><a class="link" href="https://www.rili.com.cn/" target="_blank">日历网</a></li>
+                <li><a class="link" href="https://www.shicimingju.com/" target="_blank">诗词名句网-传承唯美的千古绝句</a></li>
+                <li><a class="link" href="https://www.zto.com/index.html" target="_blank">首页 - 中通快递</a></li>
+                <li><a class="link" href="https://www.sohu.com/" target="_blank">搜狐</a></li>
+                <li><a class="link" href="https://www.goodark.com/" target="_blank">苏州固鍀</a></li>
+                <li><a class="link" href="https://www.pconline.com.cn/" target="_blank">太平洋科技_专业IT门户网站</a></li>
+                <li><a class="link" href="https://tenda.com.cn/" target="_blank">腾达(Tenda)官方网站</a></li>
+                <li><a class="link" href="https://www.qq.com/" target="_blank">腾讯网</a></li>
+                <li><a class="link" href="https://www.wanfangdata.com.cn/" target="_blank">万方数据知识服务平台-科研学习全流程支持服务平台</a></li>
+                <li><a class="link" href="https://www.wondershare.cn/" target="_blank">万兴科技 - 让世界更有创意！</a></li>
+                <li><a class="link" href="https://www.wjx.cn/" target="_blank">问卷星_不止问卷调查/在线考试</a></li>
+                <li><a class="link" href="https://www.xitongzhijia.net/" target="_blank">系统之家官网_Win10系统_Windows7旗舰版_最新GhostXP Sp3系统下载</a></li>
+                <li><a class="link" href="http://www.zlcool.com/" target="_blank">心得体会_资料库提供学习心得体会等范文-资料库</a></li>
+                <li><a class="link" href="https://www.sparke.cn/" target="_blank">星火英语</a></li>
+                <li><a class="link" href="https://www.cmbchina.com/" target="_blank">一网通主页 -- 招商银行官方网站</a></li>
+                <li><a class="link" href="https://www.ieway.cn/" target="_blank">一唯科技 - 为您提供简单易用的音视频软件</a></li>
+                <li><a class="link" href="https://www.yixue.com/" target="_blank">医学百科_公益靠谱的医学知识宝库_医学网</a></li>
+                <li><a class="link" href="https://www.kf5.com/" target="_blank">逸创云客服_全渠道智能云客服系统_工单系统_在线客服_云呼叫中心</a></li>
+                <li><a class="link" href="https://www.umeng.com/" target="_blank">友盟+，领先的全域数据智能服务商</a></li>
+                <li><a class="link" href="https://www.yusenpaper.com/" target="_blank">雨森官网-让品质渗透生活</a></li>
+                <li><a class="link" href="https://www.yuque.com/" target="_blank">语雀，为每一个人提供优秀的文档和知识库工具</a></li>
+                <li><a class="link" href="https://www.rapidtables.org/zh-CN/" target="_blank">在线计算器和工具 - RT</a></li>
+                <li><a class="link" href="https://tool.chinaz.com/" target="_blank">站长工具 - 站长之家</a></li>
+                <li><a class="link" href="https://uc.chinaz.com/" target="_blank">站长之家用户中心</a></li>
+                <li><a class="link" href="https://cx.panpass.com/" target="_blank">兆信科技 - 产品溯源防伪码验证平台</a></li>
+                <li><a class="link" href="http://www.ytyaoye.com/" target="_blank">浙江亚太药业股份有限公司-化学药品制剂-药品研发</a></li>
+                <li><a class="link" href="https://zhutix.com/" target="_blank">致美化 - 视觉美化研究平台</a></li>
+                <li><a class="link" href="https://iqeq.com.cn/" target="_blank">智商测试(测智网2025版)1369万人通过IQ测试国际标准60题免费版</a></li>
+                <li><a class="link" href="https://weather.cma.cn/" target="_blank">中国气象局-天气预报</a></li>
+                <li><a class="link" href="https://www.10086.cn/" target="_blank">中国移动官方网站</a></li>
+                <li><a class="link" href="http://www.sowang.com/" target="_blank">中文搜索引擎指南网「搜网」- 让您搜索更快更准确！</a></li>
+                <li><a class="link" href="https://www.zhuanzhuan.com/" target="_blank">转转_转转二手官方验，买卖二手不一样</a></li>
+                <li><a class="link" href="https://www.bytedance.com/zh/" target="_blank">字节跳动</a></li>
+                <li><a class="link" href="https://www.westerndigital.com/zh-cn" target="_blank">高性能 SSD、HDD、USB 驱动器和内存卡 | Western Digital</a></li>
+                <li><a class="link" href="https://cybermap.kaspersky.com/cn" target="_blank">地图 | 卡巴斯基网络威胁实时地图</a></li>
+                <li><a class="link" href="https://www.douyin.com/" target="_blank">抖音</a></li>
+                <li><a class="link" href="https://www.kuaishou.com/" target="_blank">快手</a></li>
+                </ul></div><div><ul>
+                <h3>长标题</h3>
+            <ol><a class="link" href="https://site.ip138.com/" target="_blank">域名查iP 域名解析 iP查询网站 iP反查域名 iP反查网站 同一iP网站 同iP网站域名iP查询</a></ol>
+            <ol><a class="link" href="https://www.qinzhe.com/cn/index.html" target="_blank">勤哲Excel服务器 - 简单易用的管理软件平台，自主构建 ERP/OA/CRM/财务软件/进销存/HRM等各类管理软件</a></ol>
+            <ol><a class="link" href="https://www.chajiechi.com/" target="_blank">查劫持 查分光 网站劫持检测 DNS污染检测 dns污染查询 真机渲染检查 多地多线并发查询</a></ol>
+            <ol><a class="link" href="https://www.zol.com.cn/" target="_blank">中关村在线 - 大中华区专业IT网站 - The valuable and professional IT business website in Greater China</a></ol>
+            <ol><a class="link" href="https://m.statscrop.com/" target="_blank"> Free Online Website Analyzer - Traffic, SEO, Security and Performance - StatsCrop </a></ol>
+            <ol><a class="link" href="https://www.oxfordlearnersdictionaries.com/" target="_blank">Oxford Learner's Dictionaries | Find definitions, translations, and grammar explanations at Oxford Learner's Dictionaries</a></ol>
+            <ol><a class="link" href="https://edianyun.com/" taWrget="_blank">首页 - 租电脑_电脑租赁_免押金租电脑_电脑出租_一站式租电脑平台 -【易点云】</a></ol>
+            <ol><a class="link" href="https://b3log.org/" target="_blank">B3log - 平等•自由•奔放的开源社区。目前 B3log 已经开源了多款产品：Sym、Solo、Pipe、Vditor、Lute、思源笔记等，欢迎大家加入，贡献开源。</a></ol>
+            <ol><a class="link" href="https://www.itheima.com/" target="_blank">黑马程序员官网-IT培训机构|java培训|前端培训|python培训|大数据培训|鸿蒙开发培训</a></ol>
+</ul></div></div></div>
+<p>排序办法：复制粘贴txt | Excel导入 | 单元格后插缺失角 | 排序 | 复制粘贴Word | 替换角空为角</p>
+</body>
+</html>

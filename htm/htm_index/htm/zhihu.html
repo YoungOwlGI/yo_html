@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知乎链接分类展示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #333;
+            font-size: 32px;
+        }
+        .category {
+            margin-bottom: 30px;
+        }
+        .category h2 {
+            font-size: 24px;
+            color: #555;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+        .category .type {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .category .type .type-box {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 200px;
+        }
+        .category .type .type-box h3 {
+            font-size: 18px;
+            color: #444;
+        }
+        .category .type .type-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .category .type .type-box ul li {
+            padding: 8px 0;
+        }
+        .category .type .type-box ul li a {
+            color: #0078d4;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .category .type .type-box ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>知乎链接分类展示</h1>
+            <p>根据不同领域，展示知乎问答和专栏链接</p>
+        </div>
+
+        <div class="category">
+            <h2>计算机</h2>
+            <div class="type">
+                <div class="type-box">
+                    <h3>问答</h3>
+                    <ul>
+                        <li><a href="https://www.zhihu.com/question/560479035/answer/28186943722" target="_blank">为什么 Python 运行速度慢却如此受欢迎？</a></li>
+                        <li><a href="https://www.zhihu.com/question/530399276" target="_blank">游戏关卡搭建白盒是否是很愚蠢的行为？</a></li>
+                        <li><a href="https://www.zhihu.com/question/37659535/answer/2733911902" target="_blank">有什么适合上班摸鱼的网站吗？                        </a></li>
+                    </ul>
+                </div>
+                <div class="type-box">
+                    <h3>专栏</h3>
+                    <ul>
+                        <li><a href="https://zhuanlan.zhihu.com/p/150785825" target="_blank">8个流氓软件，这辈子是不可能安装的。</a></li>
+                        <li><a href="https://zhuanlan.zhihu.com/p/654321" target="_blank">从游戏中学习编程的经验</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>二次元</h2>
+            <div class="type">
+                <div class="type-box">
+                    <h3>问答</h3>
+                    <ul>
+                        <li><a href="https://www.zhihu.com/question/384545836" target="_blank">什么是a站、b站、c站、d站、e站、f站、g站、h站、i站、j站、k站、l站、m站、n站…z站？</a></li>
+                        <li><a href="https://www.zhihu.com/question/34567" target="_blank">二战爆发的根本原因是什么？</a></li>
+                    </ul>
+                </div>
+                <div class="type-box">
+                    <h3>专栏</h3>
+                    <ul>
+                        <li><a href="https://zhuanlan.zhihu.com/p/234567" target="_blank">世界历史的十个重大转折点</a></li>
+                        <li><a href="https://zhuanlan.zhihu.com/p/765432" target="_blank">关于清朝的历史故事</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>科技</h2>
+            <div class="type">
+                <div class="type-box">
+                    <h3>问答</h3>
+                    <ul>
+                        <li><a href="https://www.zhihu.com/question/45678" target="_blank">人工智能是否会取代人类的工作？</a></li>
+                        <li><a href="https://www.zhihu.com/question/56789" target="_blank">量子计算对未来科技的影响如何？</a></li>
+                    </ul>
+                </div>
+                <div class="type-box">
+                    <h3>专栏</h3>
+                    <ul>
+                        <li><a href="https://zhuanlan.zhihu.com/p/345678" target="_blank">如何看待未来的人工智能技术？</a></li>
+                        <li><a href="https://zhuanlan.zhihu.com/p/876543" target="_blank">科技创新的趋势与挑战</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
