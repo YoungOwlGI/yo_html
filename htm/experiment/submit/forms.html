@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>提交表单</title>
+  <link rel="stylesheet" href="style_forms.css" type="text/css">
+</head>
+
+<body>
+
+
+
+<h1>评论</h1>
+<form action="form_submit.php" method="post">
+  <label for="name">姓名：</label><br>
+  <input type="text" id="name" name="name"><br>
+  <label for="email">邮箱：</label><br>
+  <input type="email" id="email" name="email"><br>
+  <label for="message">留言：</label><br>
+  <textarea id="message" name="message" rows="5" cols="50"></textarea><br>
+  <input type="submit" value="提交">
+</form>
+
+<h1>评论区</h1>
+<fieldset>
+  <legend>填写评论信息</legend>
+  <form action="form_submit.php" method="post">
+    <label>评论内容：</label><br>
+    <textarea name="comment" rows="5" cols="50"></textarea><br>
+    <label for="captcha">验证码：</label><br>
+    <input type="text" name="captcha"><br>
+    <img src="captcha.php" alt="验证码" onclick="this.src='captcha.php?'+Math.random()"><br>
+    <label for="username">用户名：</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="dropdown">选择一个选项：</label><br>
+    <select id="dropdown" name="dropdown">
+      <option value="option1">小猫头鹰</option>
+      <option value="option2">选项 2</option>
+      <option value="option3">选项 3</option>
+    </select><br>
+    <label>单选按钮组：</label><br>
+    <input type="radio" id="radio1" name="radioGroup" value="radio1">
+    <label for="radio1">选项 A</label><br>
+    <input type="radio" id="radio2" name="radioGroup" value="radio2">
+    <label for="radio2">选项 B</label><br>
+    <input type="radio" id="radio3" name="radioGroup" value="radio3">
+    <label for="radio3">选项 C</label><br>
+    <label>复选框：</label><br>
+    <input type="checkbox" id="checkbox" name="checkbox">
+    <label for="checkbox">我同意条款</label><br>
+    <input type="submit" value="提交">
+  </form>
+</fieldset>
+
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    fieldset {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      padding: 10px 20px;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <title>登录</title>
+</head>
+
+<body>
+
+<fieldset>
+  <legend>登录信息</legend>
+  <form action="./submit/form_submit.php" method="post" onsubmit="return validateForm()">
+    <label for="username">用户名：</label>
+    <input type="text" id="username" name="username">
+    <label for="password">密码：</label>
+    <input type="password" id="password" name="password">
+    <label for="email">邮箱：</label>
+    <input type="email" id="email" name="email">
+    <label for="phone">手机号码：</label>
+    <input type="tel" id="phone" name="phone">
+    <label for="address">地址：</label>
+    <input type="text" id="address" name="address">
+    <label for="birthday">生日：</label>
+    <input type="date" id="birthday" name="birthday">
+    <label for="gender">性别：</label>
+    <input type="radio" name="gender" value="male">
+    <label for="male">男</label>
+    <input type="radio" name="gender" value="female">
+    <label for="female">女</label>
+    <label for="hobby">爱好：</label>
+    <input type="checkbox" name="hobby[]" value="sports">
+    <label for="sports">体育</label>
+    <input type="checkbox" name="hobby[]" value="music">
+    <label for="music">音乐</label>
+    <input type="checkbox" name="hobby[]" value="reading">
+    <label for="reading">阅读</label>
+    <label for="avatar">选择头像：</label>
+    <select name="avatar">
+      <option value="avatar1">头像 1</option>
+      <option value="avatar2">头像 2</option>
+      <option value="avatar3">头像 3</option>
+    </select>
+    <label for="captcha">验证码：</label>
+    <input type="text" id="captcha" name="captcha">
+    <img src="./submit/captcha.php" alt="验证码" width="100" height="30">
+    <a href="#" onclick="changeCaptcha()">换一张</a>
+    <input type="checkbox" id="remember" name="remember">
+    <label for="remember">信任本设备</label><br>
+    <input type="submit" value="登录">
+    <input type="reset" value="重置">
+  </form>
+  <p style="text-align: center"><a href="./submit/register.html">还没有账号？点此注册</a></p>
+</fieldset>
+
+<script>
+  function validateForm() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var address = document.getElementById('address').value;
+    var birthday = document.getElementById('birthday').value;
+    var captcha = document.getElementById('captcha').value;
+
+    if (username === '' || password === '' || email === '' || phone === '' || address === '' || birthday === '' || captcha === '') {
+      alert('请填写所有必填字段。');
+      return false;
+    }
+
+    // 可以添加更多的验证逻辑
+
+    return true;
+  }
+
+  function changeCaptcha() {
+    var img = document.querySelector('img[src="./submit/captcha.php"]');
+    img.src = './submit/captcha.php?' + Math.random();
+  }
+</script>
+
+</body>
+
+</html>

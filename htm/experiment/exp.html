@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+    <META name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="小猫头鹰-HTML5">
+    <meta name="theme-color" content="#E4EBF8">
+    <link rel="manifest" href="manifest.json">
+  <title>小猫头鹰实验页</title>
+    <link rel="icon" href="./favicon.png" type="image/png">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <script type="text/javascript" src="./js/link.js"></script>
+    <script type="text/javascript" src="404.js"></script>
+<script>
+  // 获取所有带有 data-img 属性的链接
+  const links = document.querySelectorAll('.children-list a');
+  const hoverImg = document.createElement('img'); // 创建一个 img 元素
+  hoverImg.classList.add('hover-img'); // 给图片添加 hover-img 类
+  document.body.appendChild(hoverImg); // 将图片添加到页面中
+
+  // 监听每个链接的鼠标悬停事件
+  links.forEach(link => {
+    link.addEventListener('mouseenter', function(event) {
+      const imgSrc = this.getAttribute('data-img'); // 获取对应的图片路径
+      hoverImg.src = `${imgSrc}`; // 设置图片路径
+      hoverImg.style.display = 'block'; // 显示图片
+    });
+
+    link.addEventListener('mousemove', function(event) {
+      const mouseX = event.clientX; // 获取鼠标的 X 坐标
+      const mouseY = event.clientY; // 获取鼠标的 Y 坐标
+      const imgWidth = hoverImg.offsetWidth; // 获取图片的宽度
+      const imgHeight = hoverImg.offsetHeight; // 获取图片的高度
+
+      // 计算图片的左上角位置，使其显示在鼠标的左下方
+      const positionX = mouseX - imgWidth / 2; // 让图片水平居中于鼠标
+      const positionY = mouseY + 20; // 让图片显示在鼠标的下方 20px
+
+      // 更新图片的位置
+      hoverImg.style.left = `${positionX}px`;
+      hoverImg.style.top = `${positionY}px`;
+    });
+
+    link.addEventListener('mouseleave', function() {
+      hoverImg.style.display = 'none'; // 鼠标离开时隐藏图片
+    });
+  });
+
+  function displayWelcomeMessage() {
+    alert('欢迎访问 小猫头鹰 的网页！\n请登录！\n该网页仅供学习交流，登录信息不用真实，请放心使用！');
+    let name = prompt('请输入您的姓名：', '小猫头鹰'),
+      sex = prompt('请输入您的性别：', '男'),
+      age = prompt('请输入您的年龄：', '20'),
+      address = prompt('请输入您所在地：', '河南省郑州市');
+    window.alert('欢迎您，' + name + '！\n您的性别是：' + sex + '，年龄是：' + age + '，所在地是：' + address + '。');
+    console.log('来访者：【' + name + '】的性别是：' + sex + '，年龄是：' + age + '，所在地是：' + address);
+  }
+</script>
+</head>
+<body>
+    <h1>小猫头鹰实验页</h1>
+    <div class="search">
+    <input type="button" value="登录实验" onclick="displayWelcomeMessage()">
+    </div>
+    <p>今日温度：-2<sup>o</sup>C。</p>
+
+    <script>
+      
+      document.getElementById("time").innerHTML = formattedTime;
+      
+</script>
+
+
+<p id="time">1</p>
+
+
+    <hr class="red-hr">
+    <label for="inputData"></label><input type="text" id="inputData" placeholder="请输入数字以计算平方">
+    <button id="run">计算平方</button>
+    <div id="output_Data"></div>
+    <script>
+      // 获取页面中按钮和输入框的 DOM 元素
+      const runButton = document.getElementById('run'); // 获取 id 为 'run' 的按钮
+      const inputData = document.getElementById('inputData'); // 获取 id 为 'inputData' 的输入框
+      const outputData = document.getElementById('output_Data'); // 获取 id 为 'output_Data' 的输出区域
+
+      // 为按钮添加点击事件监听器
+      runButton.addEventListener('click', function() {
+        // 当按钮被点击时，执行以下代码
+        const num1 = parseInt(inputData.value); // 将输入框中的值转换为整数
+        const result = num1 ** 2; // 计算 num1 和 num2 的平方
+        outputData.innerHTML = '这个数的平方为：' + result; // 在输出区域显示结果
+      });
+    </script>
+    <hr class="red-hr">
+    <fieldset>
+      <legend>登录信息</legend>
+      <p style="color: #0000ff; text-indent: 2em;">该登录信息表单仅作为学习使用，请不要输入个人信息。如有输入个人信息，个人信息不会被泄露。</p>
+      
+      <form id="loginForm" method="post" action="./submit/login.js">
+        <table style="margin: 0 auto;">
+          <tr>
+            <td><label for="phone">手机号码：</label></td>
+            <td><input type="tel" id="phone" name="phone" aria-label="手机号码输入框" required></td>
+          </tr>
+          <tr>
+            <td><label for="password">密码：</label></td>
+            <td><input type="password" id="password" name="password" aria-label="密码输入框" required></td>
+          </tr>
+          <tr>
+            <td><label for="captcha">验证码：</label></td>
+            <td><input type="text" id="captcha" name="captcha" aria-label="验证码输入框" required></td>
+            <td><img src="./submit/captcha.js" alt="验证码" id="captchaImg" width="100" height="30"></td>
+            <td><a href="#" onclick="changeCaptcha()">换一张</a></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="remember" name="remember">
+              <label for="remember">信任本设备</label></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><button type="submit">登录</button></td>
+            <td><button type="reset">重置</button></td>
+          </tr>
+        </table>
+      </form>
+    
+      <p style="text-align: center;">
+        <a href="./submit/register.html">还没有账号？点此注册</a>
+      </p>
+    </fieldset>
+    
+    <script>
+      // 验证码切换函数
+      function changeCaptcha() {
+        let captchaImg = document.getElementById('captchaImg');
+        captchaImg.src = './submit/captcha.js?' + Math.random(); // 防止缓存
+      }
+    
+      // 通过控制台直接提交表单
+      function submitForm() {
+        let form = document.getElementById('loginForm');
+        form.submit();
+      }
+    
+      // 通过控制台直接重置表单
+      function resetForm() {
+        let form = document.getElementById('loginForm');
+        form.reset();
+      }
+    
+      // 控制台命令来获取验证码图片元素
+      function getCaptchaImg() {
+        return document.getElementById('captchaImg');
+      }
+    </script>
+    
+<hr class="red-hr">
+    <h2><a href=".abcdefg.html" class="appointment-link">这是个不存在的页面，用于测试 404 页面</a></h2>
+    <fieldset>
+      <legend style="color:#00bbff" >这个是404页面截图。</legend>
+      <img style="width: 100%" src="../../img/404.png" alt="404" title="404页面截图">
+    </fieldset>
+<hr class="red-hr">
+<fieldset style="text-align: center; margin: 0 auto; width: fit-content;">
+  <legend style="color:#e600ff; text-align: center; font-size: 22px;">你是来找可莉玩的吗？</legend>
+  <video style="display: block; margin: 0 auto;" src="../../file/《原神》角色演示_「可莉：哒哒哒」_哔哩哔哩_bilibili.mp4" width="789" controls>
+    <p>您的浏览器不支持 video 标签，请下载最新版 Edge、Chrome、Firefox 等浏览器以获得最佳体验。</p>
+  </video>
+  <p style="text-align: center;">真魔女从不回头看爆炸</p>
+</fieldset>
+<hr class="red-hr">
+  <fieldset style="text-align: center; margin: 0 auto; width: fit-content;">
+    <legend style="color:#005eff;">密码数据库验证实验</legend>
+    作者登录：请输入B**的姓名 ，if True，请输入她的身份证号。（全程加密）【困丕丕亩亡丕亡霋霋亩霋丘亡困亩丞亡冂】用这种加密方式也不错哦。
+    <p>数据库：use youngowl; select pwd from password;</p>
+    <p>密码：<a href="../../file/pwd.txt" class="appointment-link" target="_blank">乱码了</a></p>
+    <p>密码：<a href="../../file/pwd.html" class="appointment-link" target="_blank">没乱码，但没换行</a></p>
+  </fieldset>
+
+<!-- -----------------------------备案号----------------------------- -->
+<div class="foot-wrap" id="footer">
+    <div class="footer-nav">
+        <a href="#top" class="scroll-to-top">返回顶部</a>
+        <a href="https://www.xiaomty.com" target="_blank" class="scroll-to-top">官网首页</a>
+    </div>
+    <div class="footer width1180 clearfix">
+        <div class="footer-list">
+          <h3>联系我们</h3>
+            <p>联系电话：195 6132 1158</p>
+            <p>粉丝QQ群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=ibDJR0qohZm0cfAq2MVjvddCcK76ddF_&jump_from=webapi&authKey=Y4BcwAYsMwIgtJXkCn5JmrI/YuxULoyALcy1+zEsYXZwr6BzaBBF9/6BPqa9eBsK"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="星辰大海主群" title="星辰大海主群"></a></p>
+            <p>联系邮箱：<a href="mailto:youngowlgi@outlook.com">youngowlgi@outlook.com</a>（全球）</p>
+        </div>
+        <div class="footer-list">
+          <h3>网站信息</h3>
+            <p>网址：<a href="http://www.xiaomty.com/" target="_blank">http://www.xiaomty.com/</a></p>
+            <p>网址：<a href="http://www.youngowl.asia/" target="_blank">http://www.youngowl.asia/</a></p>
+            <p>备案号：<a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">豫ICP备2024074093号</a></p>
+        </div>
+        <div class="footer-list">
+          <h3>作者信息</h3>
+            <p>作者：<a href="http://www.xiaomty.com/" target="_blank">小猫头鹰</a></p>
+            <p>哔哩哔哩：<a href="https://space.bilibili.com/1220237535" target="_blank">小_猫头鹰</a></p>
+            <p>Gitee：<a href="https://gitee.com/youngowl" target="_blank">小猫头鹰</a></p>
+        </div>
+    </div>
+
+    <footer class="footer-bottom">
+        <p>Copyright © 2023 小猫头鹰</p>
+    </footer>
+</div>
+
+
+</body>
+</html>

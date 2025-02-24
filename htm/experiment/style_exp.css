@@ -1,0 +1,115 @@
+body {
+    background-color: #ebf4ea;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+p {
+    margin-bottom: 1em;
+
+}
+hr {
+    border: none;
+    border-top: 1px solid #0000ff;
+    margin: 2em 0;
+}
+
+h1 {
+  align-items: center;
+  background-color: #00ffff;
+  color: #ff00ff;
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  padding: 1em;
+}
+
+/* text类的样式，用于控制文本容器的显示效果 */
+text {
+    width: 80%; /* 设置容器的宽度为视口宽度的80%，可以根据需要调整 */
+    max-width: 800px; /* 设置容器的最大宽度为800px */
+    margin: 0 auto; /* 水平居中容器 */
+    border: 1px dashed #0000ff; /* 设置容器边框为虚线 */
+    padding: 20px; /* 设置容器内边距 */
+    text-indent: 4ch; /* 设置文本左缩进4个字符宽度 */
+    word-wrap: break-word; /* 确保文本在容器内自动换行 */
+    word-break: break-all; /* 强制在任何字符间换行 */
+    overflow-wrap: break-word; /* 确保长单词或URL在容器内换行 */
+}
+
+.text-center {
+    font-weight: bold; /* 设置文本加粗 */
+    text-align: center; /* 居中对齐文本 */
+}
+
+/* 设置页眉的背景颜色、字体颜色和内边距 */
+header {
+    background-color: #00ffff;
+    color: #ff00ff;
+    padding: 5px 10px; /* 设置页眉的内边距 */
+    margin-bottom: 2em; /* 设置下方边距为2em */
+}
+
+/*设置正文标准样式*/
+header.text {
+    background-color: #ebf4ea; /* 设置页眉背景颜色为深灰色 */
+    color: #00b050; /* 设置页眉内文字颜色为白色 */
+    padding: 10px 20px; /* 设置页眉的内边距 */
+}
+
+/* 定义页眉容器的布局 */
+.header-container {
+    display: flex; /* 使用Flexbox布局 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: space-between; /* 子元素在主轴上均匀分布 */
+}
+
+/*--------------------------appointment-link 链接类型--------------------------*/
+.appointment-link {
+    display: block;
+    text-decoration: none;
+    color: #0066cc;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .appointment-link:hover {
+    background-color: #0066cc;
+    color: #fff;
+  }
+  .appointment-link:active {
+    background-color: #004499;
+    color: #fff;
+  }
+
+.image-container {
+    display: flex; /* 使用 flexbox 布局 */
+    justify-content: center; /* 水平居中对齐图片 */
+    gap: 15px; /* 设置图片之间的间距 */
+    margin-bottom: 20px; /* 图片与链接之间的间距 */
+}
+
+.image-container img {
+    max-width: 150px; /* 设置图片最大宽度 */
+    height: auto; /* 保持图片的比例 */
+    border-radius: 8px; /* 设置图片圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+}
+
+.links-container {
+    display: flex; /* 使用 flexbox 布局 */
+    justify-content: center; /* 水平居中对齐链接 */
+    gap: 10px; /* 链接之间的间距 */
+    flex-wrap: wrap; /* 允许换行 */
+}
+
+/* 设置 一起来预约 的样式 */
+.appointment-section {
+    display: flex; /* 使用 flexbox 布局 */
+    flex-direction: column; /* 纵向排列内容 */
+    align-items: center; /* 水平居中对齐 */
+}

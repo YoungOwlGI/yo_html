@@ -1,0 +1,147 @@
+<html lang="zh-CN">
+<head>
+	<title>注册</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      fieldset {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+      }
+      legend {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="date"], select, input[type="file"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+      input[type="submit"], input[type="reset"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover, input[type="reset"]:hover {
+        background-color: #45a049;
+      }
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
+      input[type="file"] {
+        padding: 0;
+      }
+      img {
+        margin-top: 5px;
+      }
+    </style>
+    <script>
+      function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        if (!re.test(email.value)) {
+          alert("请输入有效的邮箱地址！");
+          email.focus();
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+<body>
+<fieldset>
+  <legend>注册</legend>
+  <p style="color: #0000ff;text-indent: 2em">该注册信息表单仅作为学习使用，请不要输入个人信息。如有输入个人信息，个人信息不会被泄露。</p>
+  <form method="post" action="login.js">
+    <table style="margin: 0 auto;">
+      <tr>
+        <td>用户名：</td>
+        <td><input type="text" name="username" placeholder="请输入用户名" aria-label="用户名输入框"></td>
+      </tr>
+      <tr>
+        <td>密码：</td>
+        <td><input type="password" name="password" aria-label="密码输入框"></td>
+      </tr>
+      <tr>
+        <td>邮箱：</td>
+        <td><input type="email" name="email" oninput="validateEmail(this)" aria-label="邮箱输入框"></td>
+      </tr>
+      <tr>
+        <td>手机号码：</td>
+        <td><input type="tel" name="phone" aria-label="手机号码输入框"></td>
+      </tr>
+      <tr>
+        <td>地址：</td>
+        <td><input type="text" name="address" aria-label="地址输入框"></td>
+      </tr>
+      <tr>
+        <td>生日：</td>
+        <td><input type="date" name="birthday" aria-label="生日选择框"></td>
+      </tr>
+      <tr>
+        <td>性别：</td>
+        <td>
+          <input type="radio" name="gender" value="male" id="male_radio">
+          <label for="male_radio">男</label>
+          <input type="radio" name="gender" value="female" id="female_radio">
+          <label for="female_radio">女</label>
+        </td>
+      </tr>
+      <tr>
+        <td>爱好：</td>
+        <td>
+          <input type="checkbox" name="hobby[]" value="sports" id="sports_checkbox">
+          <label for="sports_checkbox">原神</label>
+          <input type="checkbox" name="hobby[]" value="music" id="music_checkbox">
+          <label for="music_checkbox">音乐</label>
+          <input type="checkbox" name="hobby[]" value="reading" id="reading_checkbox">
+          <label for="reading_checkbox">漫展</label>
+        </td>
+      </tr>
+      <tr>
+        <td>选择方向：</td>
+        <td>
+          <select name="avatar">
+            <option value="avatar1">华为大数据技术</option>
+            <option value="avatar2">人工智能</option>
+            <option value="avatar3">计算机应用技术</option>
+          </select>
+        </td>
+        <td>
+      <tr>
+        <td>选择头像：</td>
+        <td>
+          <input type="file" name="avatar" accept="image/*">
+        </td>
+      </tr>
+      <tr>
+        <td>验证码：</td>
+        <td><input type="text" name="captcha" aria-label="验证码输入框"></td>
+        <td><img src="captcha.php?generateCaptcha&rand=<?php echo rand(); ?>" alt="验证码" width="100" height="30"></td>
+        <td><a href="#" onclick="changeCaptcha()">换一张</a></td>
+      </tr>
+      <script>
+        function changeCaptcha() {
+          window.location.href = './submit/process_form.php?generateCaptcha=true';
+        }
+      </script>
+      <tr>
+        <td><input type="checkbox" id="remember" name="remember">
+          <label for="remember">信任本设备</label><br></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" value="登录"></td>
+        <td><input type="reset" value="重置"></td>
+      </tr>
+    </table>
+  </form>
+  <p style="text-align: center"><a href="register.html">还没有账号？点此注册</a></p>
+</fieldset>
+</body>
+</html>

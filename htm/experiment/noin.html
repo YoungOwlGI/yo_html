@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h1>No In</h1>
+    <p>This is a test page for no in.</p>
+  <script>
+    // 弹窗
+    const popup = document.getElementById('popup');
+    popupTitle.textContent = title; 
+    popupContent.textContent = content;
+
+    // 添加子链接
+    links.forEach(subLink => {
+        const subLinkElement = document.createElement('a');
+        subLinkElement.href = subLink.url;
+        subLinkElement.target = "_blank";
+        subLinkElement.innerHTML = `<span class="link-icons">${subLink.icon}</span>${subLink.type}`; // 修正引号
+        popupLinks.appendChild(subLinkElement);
+    });
+    // 显示弹窗
+    document.getElementById('popup-overlay').style.display = 'block';
+    document.getElementById('popup').addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
+    document.getElementById('popup-overlay').addEventListener('click', () => {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('popup-overlay').style.display = 'none';
+    });
+    // 显示弹窗
+    document.getElementById('show-popup').addEventListener('click', () => {
+        document.getElementById('popup-overlay').style.display = 'block';
+        document.getElementById('popup').style.display = 'block';
+    });
+    // 关闭弹窗
+    document.getElementById('close-popup').addEventListener('click', () => {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('popup-overlay').style.display = 'none';
+    });
+</script>
+
+<div class="foot-wrap" id="footer"> 
+    <footer class="footer-bottom"> 
+        <p>Copyright © 2023-2025 小猫头鹰 All rights reserved.</p> 
+    </footer> 
+</div>  
+</body>
+</html>

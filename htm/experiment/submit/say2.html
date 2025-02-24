@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户反馈表</title>
+<style>
+    .feedback{
+    width:398px;
+    padding:1px;
+    border:1px solid #e8e8e8;
+    background-color:#ffffff;
+    }
+    *{
+    margin:0px;
+    padding:0px;
+    font:normal 12px/1.5em "宋体",Verdana,Lucida,Arial,Helvetica,sans-serif;
+    }
+    h3{
+    height:24px;
+    line-height:24px;
+    color:#ffffff;
+    background-color:#999999;
+    font-size:13px;
+    font-weight:bold;
+    text-indent:12px;
+    }
+    .content{
+    padding:0px 10px;}
+    fieldset{
+    padding-left:12px;
+    margin-top:10px;
+    border:0 none;
+    border-top:1px solid #999999;}
+    legend{
+    padding:0px 5px;
+    color:#333333;}
+    fieldset div{
+    margin-top:8px;}
+    label{
+    float:left;
+    width:80px;
+    height:22px;
+    line-height:24px;
+    text-align:right;
+    color:#ababab;
+    cursor:pointer;}
+
+    .base_info input{
+    padding:3px 2px 0px;
+    border:1px solid #dedede;
+    }
+    .usename input,.tel input,.email input{
+    width:100px;
+    height:17px;}
+    .image input{
+    width:auto;
+    height:auto;}
+    textarea{
+    width:240px;
+    height:66px;
+    padding-left:2px;
+    border:1px solid #dedede;
+    }
+    .tip{
+    font-size:10px;
+    padding:5px 0px 0px 80px;
+    color:#ff3260;}
+    .btn{
+    text-align:center;
+    padding:5px 0px;}
+    button{
+    height:22px;
+    margin:0 5px;
+    letter-spacing:3px;
+    padding-left:3px;
+    cursor:pointer;
+    }
+    </style>
+
+    </head>
+    <body>
+    <div class="feedback">
+    <div><h3>反馈表单</h3></div>
+    <div class="content">
+      <form action="demo_form.php" method="post">
+    <fieldset class="base_info">
+    <legend>用户信息</legend>
+    <div class="usename">
+        <label for="userName">用户名：</label><input type="text" value=“张三” id="userName"/>
+    </div>
+    <div>
+        <label for="sex">性别：</label>男<input type="radio" value="男" name="sex"/>女<input type="radio" value="女" name="sex"/>
+    </div>
+    <div class="tel">
+        <label for="tel">电话：</label><input type="tel" id="tel"/>
+    </div>
+    <div class="email">
+        <label for="email">邮箱：</label><input type="email" id="email"/>
+    </div>
+    </fieldset>
+    <fieldset class="feedback_info">
+    <legend>反馈信息</legend>
+    <div><label for="message">
+        留言：</label><textarea rows="4" cols="40" id="message">
+        </textarea >
+    </div>
+    <div class="image"><label for="image">相关图片：</label><input type="file"/>
+    <p class="tip">支持上传.jpg、.gif、.png图片！</p> </div>
+    </fieldset>
+
+    <div class="btn">
+        <button type="submit">提交</button>
+        <button type="reset">重置</button>
+    </div>
+    </form>
+    </div>
+
+</html>

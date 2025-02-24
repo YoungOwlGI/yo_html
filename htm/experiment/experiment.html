@@ -1,0 +1,278 @@
+<html lang="cn"><head><meta charset="UTF-8">
+	<title>Experiment</title>
+    <link rel="stylesheet" type="text/css" href="style_exp.css">
+    <script>
+      console.log(Number.MAX_SAFE_INTEGER);  //数字的最大安全整数
+      console.log(Number.MIN_SAFE_INTEGER);  //数字的最小安全整数
+      console.log(Number.MAX_VALUE);  //数字的最大值
+      console.log(Number.MIN_VALUE);  //数字的最小值
+      console.log(Number.MAX_VALUE * 2);  //无穷大
+    </script>
+</head>
+<body>
+	<h1>Experiment</h1>
+	<p>This is the experiment page.</p>
+  <hr class="red-hr">
+  <header class="text">
+    <h1>一起来预约/来玩</h1>
+      <div class="appointment-section">
+          <!-- 图片区域 -->
+          <div class="image-container">
+              <img src="../../img/一起来预约/lsxyly.png" alt=蓝色星原：旅遥" title="蓝色星原：旅遥">
+              <img src="../../img/一起来预约/wxnn.png" alt="无限暖暖" title="无限暖暖">
+              <img src="../../img/一起来预约/perfectworld.png" alt="异环" title="异环">
+              <img src="../../img/一起来预约/genshin_impact.png" alt="原神" title="原神">
+              <img src="../../img/一起来预约/star_tail.png" alt="崩坏：星穹铁道" title="崩坏：星穹铁道">
+          </div>
+          <!-- 链接区域 -->
+          <div class="links-container">
+              <a href="https://azurpromilia.manjuu.com/home/" class="appointment-link" target="_blank">蓝色星原：旅遥</a>
+              <a href="https://infinitynikki.nuanpaper.com/home" class="appointment-link" target="_blank">无限暖暖（12月5日）</a>
+              <a href="https://nte.perfectworld.com/cn/index.html" class="appointment-link" target="_blank">异环</a>
+              <a href="https://ys.mihoyo.com/" class="appointment-link" target="_blank">原神（不是预约）</a>
+              <a href="https://sr.mihoyo.com/" class="appointment-link" target="_blank">崩坏：星穹铁道（不是预约）</a>
+          </div>
+          <a href="./htm/2024年2月份国产网络游戏审批信息.html" class="appointment-link" target="_blank">2024年2月份国产网络游戏审批信息</a>
+      </div>
+  </header>
+  <hr class="red-hr">
+
+  <script>
+    // 监听浏览器窗口大小变化
+    window.addEventListener('resize', function() {
+      // 调整导航栏的样式
+      const header = document.querySelector('header');
+      const logo = header.querySelector('.logo');
+      const nav = header.querySelector('nav');
+      const search = header.querySelector('.search');
+      const searchInput = search.querySelector('#search-input');
+      const searchButton = search.querySelector('#search-button');
+      const searchResults = document.getElementById('search-results');
+
+      // 导航栏的样式
+      if (window.innerWidth >= 768) {
+        header.classList.remove('mobile');
+        logo.classList.remove('mobile');
+        nav.classList.remove('mobile');
+        search.classList.remove('mobile');
+        searchInput.classList.remove('mobile');
+        searchButton.classList.remove('mobile');
+        searchResults.classList.remove('mobile');
+      } else {
+        header.classList.add('mobile');
+        logo.classList.add('mobile');
+        nav.classList.add('mobile');
+        search.classList.add('mobile');
+        searchInput.classList.add('mobile');
+        searchButton.classList.add('mobile');
+        searchResults.classList.add('mobile');
+      }
+    });
+  </script>
+
+  <input type="text" id="inputData" placeholder="请输入第二个数据">
+  <p></p>
+  <button id="run">运行代码</button>
+  <div id="output_Data"></div>
+  <script>
+    const runButton = document.getElementById('run');
+    const inputData = document.getElementById('inputData');
+    const outputData = document.getElementById('output_Data');
+
+    runButton.addEventListener('click', function() {
+      const num1 = parseInt(inputData.value);
+      const num2 = 2;
+      const result = num1 + num2;
+      outputData.innerHTML = '结果为：' + result;
+    });
+  </script>
+
+  <form name="fname" method="post" action="result.php">
+    <h3>社团用户注册</h3>
+    <p>用户账号： <input type="text" name="user" /> </p>
+    <p>用户性别：<label><input type="radio" name="gender" value="男"   />男</label>
+      <label><input type="radio" name="gender" value="女" checked />女</label> </p>
+    <p>用户特长： <input type="text" name="speciality" /></p>
+    <p>联系电话： <input type="text" name="phone" maxlength="11" /></p>
+    <p>用户密码： <input type="password" name="pass" /></p>
+    <p>确认密码： <input type="password" name="rpass" /></p>
+    <p><label><input type="checkbox" name="gr" value="1" />承诺遵守社团各项制度，成为社会主义核心价值观的积极践行者</label></p>
+    <input type="button" value="注册"   /></p>
+  </form>
+
+  <!DOCTYPE html>
+
+<h1>雷达图数据输入</h1>
+<input type="number" id="management" placeholder="管理能力" required />
+<input type="number" id="business" placeholder="业务能力" required />
+<input type="number" id="organization" placeholder="组织能力" required />
+<input type="number" id="communication" placeholder="沟通能力" required />
+<input type="number" id="expression" placeholder="表达能力" required />
+<button id="generate">生成雷达图</button>
+<div id="radar-chart"></div>
+<div id="loading" style="display:none;">生成雷达图中...</div>
+
+<script>
+  document.getElementById('generate').addEventListener('click', function() {
+    const data = [
+      document.getElementById('management').value,
+      document.getElementById('business').value,
+      document.getElementById('organization').value,
+      document.getElementById('communication').value,
+      document.getElementById('expression').value,
+    ];
+
+    // 数据验证
+    if (data.some(val => val === "" || isNaN(val))) {
+      alert('请确保所有输入均为有效数字！');
+      return;
+    }
+
+    // 显示加载提示
+    document.getElementById('loading').style.display = 'block';
+
+    // 使用 fetch 发送数据
+// 使用之前的 HTML 代码
+    fetch('/generate_radar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ data })
+    })
+
+    .then(response => response.text())
+    .then(response => {
+      document.getElementById('radar-chart').innerHTML = response;
+      document.getElementById('loading').style.display = 'none'; // 隐藏加载提示
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      document.getElementById('loading').style.display = 'none'; // 隐藏加载提示
+      alert('生成雷达图时出错，请重试。');
+    });
+  });
+</script>
+
+
+  <a id="experiment"></a>
+  <h3>这里是 特殊字符</h3>
+  <p style="text-align: center">&lt; &gt; &amp; &yen; &copy; &reg; &deg; &plusmn; &times; &divide; &sup2; &sup3;</p>
+  <hr class="red-hr">
+  <h1>输入两个数字进行相加</h1>
+  <input type="text" id="inputData1" placeholder="请输入第一个数据">
+  <p></p>
+  <input type="text" id="inputData2" placeholder="请输入第二个数据">
+  <p></p>
+  <button id="runPython">运行Python代码</button>
+  <div id="outputData"></div>
+
+  <script>
+    document.getElementById('runPython').addEventListener('click', function() {
+      const data1 = document.getElementById('inputData1').value;
+      const data2 = document.getElementById('inputData2').value;
+
+      // 发送请求到后端
+      fetch('/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ num1: data1, num2: data2 })
+      })
+        .then(response => response.json())
+        .then(result => {
+          document.getElementById('outputData').innerText = '结果: ' + result.sum;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          document.getElementById('outputData').innerText = '计算出错，请重试。';
+        });
+    });
+  </script>
+<!--  <script>-->
+
+<!--    // $(document).ready(function () {-->
+<!--    //   $('#runPython').click(function () {-->
+<!--    //     const inputData = $('#inputData').val();-->
+<!--    //     $.ajax({-->
+<!--    //       url: 'app.py',-->
+<!--    //       type: 'POST',-->
+<!--    //       contentType: 'application/json',-->
+<!--    //       data: JSON.stringify({ input_data: inputData }),-->
+<!--    //       success: function (response) {-->
+<!--    //         // 将服务器返回的结果输出到网页-->
+<!--    //         $('#outputData').html('<p>' + response.output_data + '</p>');-->
+<!--    //       },-->
+<!--    //       error: function (error) {-->
+<!--    //         console.error('Error:', error);-->
+<!--    //       }-->
+<!--    //     });-->
+<!--    //   });-->
+<!--    // });-->
+<!--  </script>-->
+  <output id="input"></output>
+  <hr class="red-hr">
+  <code class='language-python' id='python-code'>
+    import random
+    print("Hello, world!")
+    for i in range(10):
+    print(random.randint(1, 100))
+  </code>
+  <hr class="red-hr">
+  <p>这里是实验制表区域</p>
+  <header class="text">
+    <h2>关于小猫头鹰</h2>
+    <div class="appointment-section">
+<!--      有序标签列表-->
+      <ol START="10086" type="1">
+        <li>神里绫华</li>
+        <li>宵宫</li>
+        <li>玛拉妮</li>
+        <li>暖暖</li>
+        <li>符玄</li>
+      </ol>
+<!--      无序标签列表-->
+      <ul type="circle">
+        <li>小猫头鹰</li>
+        <li>Young Owl</li>
+        <li>Catherine Erin</li>
+      </ul>
+<!--      自定义列表-->
+      <dl>
+        <dt>米哈游</dt>
+          <dd type="circle">原神</dd>
+          <dd type="square">崩坏星穹铁道</dd>
+          <dd>崩坏3</dd>
+          <dd type="disc">绝区零</dd>
+          <dd>崩坏学园2</dd>
+          <dd>人工桌面</dd>
+          <dd>米游社</dd>
+        <dt>叠纸网络</dt>
+          <dd>无限暖暖</dd>
+          <dd>闪耀暖暖</dd>
+      </dl>
+    </div>
+  </header>
+<hr class="red-hr">
+  <h2>欣赏古诗</h2>
+  <h3>春江花月夜</h3>
+
+  <p style="text-align: center">春江潮水连海平，海上明月共潮生。滟滟随波千万里，何处春江无月明！</p>
+  <p style="text-align: center">江流宛转绕芳甸，月照花林皆似霰。空里流霜不觉飞，汀上白沙看不见。</p>
+  <p style="text-align: center">江天一色无纤尘，皎皎空中孤月轮。江畔何人初见月？江月何年初照人？</p>
+  <p style="text-align: center">人生代代无穷已，江月年年望相似。不知江月待何人，但见长江送流水。</p>
+  <p style="text-align: center">白云一片去悠悠，青枫浦上不胜愁。谁家今夜扁舟子？何处相思明月楼？</p>
+  <p style="text-align: center">可怜楼上月裴回，应照离人妆镜台。玉户帘中卷不去，捣衣砧上拂还来。</p>
+  <p style="text-align: center">此时相望不相闻，愿逐月华流照君。鸿雁长飞光不度，鱼龙潜跃水成文。</p>
+  <p style="text-align: center">昨夜闲潭梦落花，可怜春半不还家。江水流春去欲尽，江潭落月复西斜。</p>
+  <p style="text-align: center">斜月沉沉藏海雾，碣石潇湘无限路。不知乘月几人归，落月摇情满江树。</p>
+  <hr class="red-hr">
+
+  <sub>下标</sub>
+
+  <footer class="text">
+    <p>Copyright © 2021 小猫头鹰</p>
+  </footer>
+</body>
+</html>
