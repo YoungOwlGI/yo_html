@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bing 搜索页面</title>
+    <link rel="icon" href="https://cn.bing.com/sa/simg/favicon-trans-bg-blue-mg-png.png" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            /* background-color: #f5f5f5; */
+            background-image: url("./img/begin_1.png");
+            background-size: cover; /* 确保图片覆盖整个背景区域 */
+            background-position: center; /* 将背景图片居中 */
+            background-repeat: no-repeat; /* 防止图片重复 */
             margin: 0;
             padding: 0;
             display: flex;
@@ -15,8 +20,9 @@
             align-items: center;
             height: 100vh;
         }
+
         .search-container {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.7); /* 70% 透明度的白色 */
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -24,6 +30,7 @@
             max-width: 500px;
             text-align: center;
         }
+
         h1 {
             font-size: 24px;
             margin-bottom: 20px;
@@ -69,12 +76,13 @@
         <h1>欢迎使用 Bing 搜索</h1>
         <form action="https://www.bing.com/search" method="get">
             <label for="searchQuery">请输入搜索内容:</label>
-            <input type="text" id="searchQuery" name="q" required placeholder="请输入查询内容...">
+            <input type="text" id="searchQuery" name="q" required placeholder="请输入搜索内容...">
             <button type="submit">开始搜索</button>
         </form>
         <footer>
-            <p>由 小猫头鹰 提供思路</p>
-            <p>由 ChatGPT 提供设计</p>
+            <p>由 小猫头鹰 提供思路
+                &thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;
+                由 ChatGPT、fittencode 提供设计</p>
         </footer>
     </div>
 </body>
