@@ -1,125 +1,127 @@
+/* Base Styles */
 body {
     font-family: '微软雅黑', sans-serif;
-    cursor: url('../cur_yo.cur'), pointer;
-    padding: 0; /* 设置页面内边距 */
-    margin: 0; /* 设置页面外边距 */
+    cursor: url('../cur_yo.cur'),  pointer;
+    padding: 0;
+    margin: 0;
     background-color: #ebf4ea;
 }
-
+ 
+/* Typography */
 h1 {
     font-size: 55px;
     color: #ff00ff;
-    margin: 0.5em 0; /* 设置上下外边距为0.5em */
+    margin: 0.5em 0;
     text-align: center;
     font-weight: bold;
 }
-
+ 
 h2 {
-    font-size: 24px; /* 设置标题字体大小 */
-    font-weight: bold; /* 加粗标题 */
+    font-size: 24px;
+    font-weight: bold;
     text-align: center;
     color: #fa00ff;
-    margin-bottom: 20px; /* 标题与内容之间的间距 */
+    margin-bottom: 20px;
 }
-
+ 
 h3 {
-  font-size: 20px; /* 设置字体大小为30px */
-  text-align: center;
-  color: #0000ff;
-  margin: 0.5em 0; /* 设置上下外边距为0.5em */
+    font-size: 20px;
+    text-align: center;
+    color: #0000ff;
+    margin: 0.5em 0;
 }
-
+ 
 h4 {
-  font-size: 18px; /* 设置字体大小为24px */
-  text-align: center;
-  color: #0000ff;
-  margin: 0.5em 0; /* 设置上下外边距为0.5em */
+    font-size: 18px;
+    text-align: center;
+    color: #0000ff;
+    margin: 0.5em 0;
 }
-
+ 
 p {
-    margin: 0; /* 去除默认外边距 */
-    padding: 0.5em 0; /* 设置上下内边距为0.5em */
+    margin: 0;
+    padding: 0.5em 0;
 }
-
-.hr{
-    border: none; /* 去除默认边框 */
-    height: 2px; /* 设置分割线高度 */
+ 
+/* Horizontal Rules */
+.hr, .red-hr {
+    border: none;
+    height: 2px;
+}
+ 
+.hr {
     background-color: #0000ff;
 }
-
+ 
 .red-hr {
-    border: none; /* 去除默认边框 */
-    height: 2px; /* 设置分割线高度 */
     background-color: #ff00ff;
 }
-/* ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️ */
-/* 设置页眉的背景颜色、字体颜色和内边距 */
+ 
+/* Header Styles */
 header {
     color: #ff00ff;
     font-weight: bold;
-    padding: 5px 10px; /* 设置页眉的内边距 */
-    margin-bottom: 2em; /* 设置下方边距为2em */
+    padding: 5px 10px;
+    margin-bottom: 2em;
 }
-
-/* 定义页眉容器的布局 */
+ 
 .header-container {
     display: flex;
-    align-items: center; /* 垂直居中对齐 */
-    justify-content: space-between; /* 子元素在主轴上均匀分布 */
+    align-items: center;
+    justify-content: space-between;
 }
-/* ❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️↓❤️ */
-/* Logo 样式 */
+ 
+/* Logo */
 .logo {
-  display: flex; /* 使用 flexbox 布局 */
-  align-items: center; /* 垂直居中对齐 */
+    display: flex;
+    align-items: center;
 }
+ 
 .logo img {
-  height: 40px; /* 设置 logo 图片的高度 */
-  margin-right: 10px; /* 图片和文字之间的间距 */
+    height: 40px;
+    margin-right: 10px;
 }
-
-/* 定义导航菜单的样式 */
+ 
+/* Navigation */
 nav ul {
-  list-style: none; /* 去除列表的默认样式 */
-  margin: 0; /* 去除默认外边距 */
-  padding: 0; /* 去除默认内边距 */
-  display: flex;
-  gap: 15px; /* 设置菜单项之间的间距 */
-  align-items: center; /* 垂直居中对齐 */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
-
-/* 定义每个菜单项的显示方式 */
+ 
 nav ul li {
-  display: inline; /* 菜单项以行内元素显示 */
-  position: relative; /* 使菜单项成为相对定位元素 */
-  /*!* 鼠标悬停时显示下拉菜单 *!*/
-  &:hover > ul {
+    display: inline;
+    position: relative;
+}
+ 
+nav ul li:hover > ul {
     display: block;
-  }
 }
-
-/* 设置导航链接的样式 */
+ 
 nav ul li a {
-  color: #0000ff;
-  font-weight: bold;
-  text-decoration: none; /* 去除链接下划线 */
-  font-size: 18px; /* 设置字体大小为18px */
-  padding: 8px 15px; /* 设置链接的内边距 */
-  display: block; /* 将链接显示为块级元素 */
-  transition: all 0.9s ease-in-out; /* 添加过渡效果 */
-  align-items: center; /* 垂直居中对齐 */
+    color: #0000ff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 15px;
+    display: block;
+    transition: all 0.9s ease-in-out;
+    align-items: center;
 }
-
+ 
 .hidden-label {
-  display: none; /* 隐藏标签 */
+    display: none;
 }
-
-/* 子菜单样式 */
+ 
+/* Dropdown Menu */
 .item-children {
-    display: none; /* 默认隐藏子菜单 */
+    display: none;
     position: absolute;
     top: 100%;
-    background-color: #1aff00;/* 背景颜色 貌似没用 */   
+    background-color: #aa00ff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     z-index: 1000;
@@ -128,145 +130,110 @@ nav ul li a {
     min-width: 300px;
     transition: all 0.3s ease-in-out;
 }
-
-/* 如果需要子菜单在显示时使用flex布局，可以添加如下规则 */
-.item-children.show {
+ 
+.item-children.show  {
     display: flex;
 }
-
-/* 悬停时显示下拉菜单 */
+ 
 nav li:hover .item-children {
-    display: flex; /* 悬停时显示子菜单 */
-    animation: fadeIn 0.3s ease-in-out; /* 增加淡入动画 */
-}
-
-/* 子菜单项列表样式 */
-.children-list {
-    padding: 0; /* 去掉内边距 */
-    margin: 0; /* 去掉外边距 */
     display: flex;
-    flex-wrap: wrap; /* 允许换行 */
-    gap: 15px; /* 增加菜单项之间的间距 */
+    animation: fadeIn 0.3s ease-in-out;
 }
-
-/* 每个子菜单项的样式 */
+ 
+.children-list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+ 
 .children-list li {
-    padding: 8px 14px; /* 增加内边距 */
-    flex: 0 1 auto; /* 允许换行 */
-    box-sizing: border-box; /* 包括边框在内 */
-    border-radius: 8px; /* 每个菜单项的圆角 */
-    transition: all 0.3s ease; /* 增加过渡效果 */
+    padding: 8px 14px;
+    flex: 0 1 auto;
+    box-sizing: border-box;
+    border-radius: 8px;
+    transition: all 0.3s ease;
     background-color: #ffb3d9;
 }
-
-/* 设置每个子菜单项的链接样式 */
+ 
 .children-list li a {
-    color: #fb00ff; /* 紫红色字体 */
-    text-decoration: none; /* 去掉下划线 */
-    display: block; /* 将链接显示为块级元素 */
-    padding: 8px 16px; /* 内边距 */
-    font-size: 16px; /* 字体大小 */
-    border-radius: 5px; /* 圆角 */
-    background-color: #fac8e1; /* 默认背景颜色 */
-    transition: all 0.3s ease; /* 增加所有属性变化的过渡 */
+    color: #fb00ff;
+    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #fac8e1;
+    transition: all 0.3s ease;
 }
-
-/* 悬停时改变背景颜色 */
+ 
 .children-list li a:hover {
-    background-color: #b0affd; /* 悬停时背景颜色 */
-    transform: scale(1.05); /* 悬停时增加轻微缩放效果 */
+    background-color: #b0affd;
+    transform: scale(1.05);
 }
-
-/* 添加淡入动画 */
+ 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-10px); /* 初始位置稍微偏上 */
+        transform: translateY(-10px);
     }
     to {
         opacity: 1;
-        transform: translateY(0); /* 最终位置 */
+        transform: translateY(0);
     }
 }
-/*   */ 
-/* 美化导航项 */
-.nav-item {
-    position: relative; /* 相对定位 */
-    margin: 0 15px; /* 设置横向外边距 */
-}
-
-.nav-item .link {
-    color: #333; 
-    text-decoration: none; /* 去除下划线 */
-    font-weight: bold; /* 字体加粗 */
-    padding: 10px 15px; /* 内边距 */
-    transition: color 0.3s; /* 颜色变化过渡效果 */
-}
-
-.nav-item .link:hover {
-    color: #007bff; /* 悬停时的颜色 */
-}
-
+ 
+/* Search Form */
 .search-form {
-    display: flex; /* 使用弹性布局 */
-    flex-grow: 1; /* 让表单占据剩余空间 */
+    display: flex;
+    flex-grow: 1;
 }
-
+ 
 .search-text {
-    width: 100%; /* 搜索框宽度100% */
-    border: 1px solid #ccc; /* 边框样式 */
-    border-radius: 5px; /* 圆角 */
-    padding: 10px; /* 内边距 */
-    font-size: 16px; /* 字体大小 */
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
 }
-
+ 
 .search-btn {
-    background-color: #007bff; /* 按钮背景颜色 */
-    color: white; /* 按钮文字颜色 */
-    border: none; /* 去除边框 */
-    border-radius: 5px; /* 圆角 */
-    cursor: pointer; /* 鼠标悬停时显示手型 */
-    padding: 10px 15px; /* 内边距 */
-    margin-left: 5px; /* 左边距 */
-    transition: background-color 0.3s; /* 背景颜色变化过渡效果 */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-left: 5px;
+    transition: background-color 0.3s;
 }
-
-.search-btn:hover { 
-    background-color: #0056b3; /* 悬停时背景颜色 */
+ 
+.search-btn:hover {
+    background-color: #0056b3;
 }
-
-/* 美化下拉菜单 */
-.item-children {
-    display: none; /* 默认隐藏子菜单 */
-    position: absolute; /* 绝对定位 */
-    top: 100%; /* 在导航项下方显示 */
-    left: 0; /* 左对齐 */
-    background-color: white; /* 背景颜色 */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-    z-index: 1000; /* 确保菜单在最上层 */
-}
-
-/* -----------------------设置轮播图的样式----------------------- */
+ 
+/* Carousel */
 .carousel {
     position: relative;
-    width: 100%; /* 改为全宽 */
-    margin: 0; /* 去掉边距 */
+    width: 100%;
+    margin: 0;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
+ 
 .carousel-inner {
     display: flex;
     transition: transform 1s ease-in-out;
 }
-
+ 
 .carousel-item {
     min-width: 100%;
     box-sizing: border-box;
     position: relative;
 }
-
+ 
 .carousel img {
     width: 100%;
     height: 700px;
@@ -274,18 +241,15 @@ nav li:hover .item-children {
     object-fit: cover;
     border-radius: 10px;
 }
-
-/* 隐藏未显示的图片 */
+ 
 .carousel-item:not(:first-child) {
     display: none;
 }
-
-/* 添加过渡效果 */
+ 
 .carousel-item img {
     transition: opacity 1s ease-in-out;
 }
-
-/* 添加左右切换按钮 */
+ 
 .carousel-button {
     position: absolute;
     top: 50%;
@@ -297,16 +261,15 @@ nav li:hover .item-children {
     cursor: pointer;
     z-index: 10;
 }
-
-.carousel-button.prev {
+ 
+.carousel-button.prev  {
     left: 10px;
 }
-
-.carousel-button.next {
+ 
+.carousel-button.next  {
     right: 10px;
 }
-
-/* 添加指示器 */
+ 
 .carousel-indicators {
     position: absolute;
     bottom: 10px;
@@ -315,7 +278,7 @@ nav li:hover .item-children {
     justify-content: center;
     z-index: 10;
 }
-
+ 
 .carousel-indicator {
     width: 10px;
     height: 10px;
@@ -325,266 +288,238 @@ nav li:hover .item-children {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
-.carousel-indicator.active {
+ 
+.carousel-indicator.active  {
     background-color: white;
 }
-/* ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️ */
-button {
-  padding: 8px 12px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+ 
+/* Buttons & Form Elements */
+button, .btn-copy {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
-
-button:hover {
-  background-color: #0056b3; /* 悬停颜色 */
+ 
+button:hover, .btn-copy:hover {
+    background-color: #0056b3;
 }
-
+ 
 select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
+ 
 .search input[type="text"] {
-    padding: 5px 10px; /* 设置输入框的内边距 */
-    border: 1px solid #ccc; /* 设置边框 */
-    border-radius: 5px; /* 设置圆角 */
-    margin-right: 10px; /* 输入框和按钮之间的间距 */
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
 }
-
+ 
 .search button {
-    display: flex; /* 使用 flexbox 布局 */
-    align-items: center; /* 垂直居中对齐 */
-    justify-content: center; /* 水平居中对齐 */
-    padding: 5px 20px; /* 设置按钮的内边距 */
-    background-color: #555; /* 设置按钮背景颜色 */
-    color: white; /* 设置按钮文字颜色 */
-    border: none; /* 去除按钮边框 */
-    border-radius: 5px; /* 设置按钮圆角 */
-    cursor: pointer; /* 鼠标悬停时显示指针 */
-    font-size: 16px; /* 设置文字大小 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 20px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
-
+ 
 .search button .icon-search {
-    margin-right: 8px; /* 图标和文字之间的间距 */
+    margin-right: 8px;
 }
-
-
-/*设置表单的样式*/
+ 
+/* Layout */
 .container {
-  display: flex; /* 使用弹性盒布局，使子元素在水平方向上排列 */
+    display: flex;
 }
-
-.left-column {
-  flex: 1; /* 设定左侧列占据可用空间的1倍，两个列会均分空间 */
-  padding: 10px; /* 设置左侧列内边距为10像素，增加内容与边框的距离 */
+ 
+.left-column, .right-column {
+    flex: 1;
+    padding: 10px;
 }
-
-.right-column {
-  flex: 1; /* 设定右侧列占据可用空间的1倍，与左侧列一致均分空间 */
-  padding: 10px; /* 设置右侧列内边距为10像素，增加内容与边框的距离 */
-}
-
-/* 设置iframe的样式 */
+ 
 .custom-iframe {
-  width: 100%;
-  height: 550px;
+    width: 100%;
+    height: 550px;
 }
-
-/*---------------------------------------这里是设置按钮的样式-----------------------------------------------*/
+ 
+/* Custom Buttons */
 .button-container {
     margin-top: 20px;
 }
-
+ 
 .custom-button {
     display: inline-block;
-    padding: 12px 24px; /* 按钮的内边距 */
-    font-size: 16px; /* 字体大小 */
+    padding: 12px 24px;
+    font-size: 16px;
     color: #fff;
-    background-color: #aa00ff; /* 按钮背景颜色 */
-    border: none; /* 去掉边框 */
-    border-radius: 8px; /* 圆角边框 */
-    text-decoration: none; /* 去掉下划线 */
-    transition: background-color 0.3s, transform 0.3s; /* 过渡效果 */
-    cursor: pointer; /* 鼠标悬停时显示指针 */
+    background-color: #aa00ff;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
 }
-
+ 
 .custom-button:hover {
-    background-color: #0056b3; /* 鼠标悬停时背景颜色 */
-    transform: translateY(-2px); /* 鼠标悬停时按钮轻微上移 */
+    background-color: #0056b3;
+    transform: translateY(-2px);
 }
-
+ 
 .custom-button:active {
-    background-color: #004494; /* 按钮被点击时背景颜色 */
-    transform: translateY(1px); /* 点击时按钮轻微下移 */
+    background-color: #004494;
+    transform: translateY(1px);
 }
-
+ 
 .custom-button:focus {
-    outline: none; /* 去掉焦点边框 */
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* 添加焦点阴影 */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
 }
-
+ 
 .button-container video {
-  display: block;
-  margin: 0 auto;
+    display: block;
+    margin: 0 auto;
 }
-
+ 
 .btn-copy {
-  background-color: #000000;
-  color: white;
-  border: none;
-  border-radius: 2px; /* 减小圆角，使按钮看起来更扁平 */
-  cursor: pointer;
-  padding: 4px 10px; /* 减小内边距，使按钮高度降低 */
-  margin-left: 10px;
+    background-color: #000000;
+    padding: 4px 10px;
+    margin-left: 10px;
 }
-
-/*--------------------------appointment-link 链接类型--------------------------*/
+ 
+/* Links */
 .appointment-link {
-  display: block;
-  text-decoration: none;
-  color: #0066cc;
-  font-size: 16px;
-  line-height: 24px;
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  transition: background-color 0.3s, color 0.3s;
+    display: block;
+    text-decoration: none;
+    color: #0066cc;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, color 0.3s;
 }
+ 
 .appointment-link:hover {
-  background-color: #0066cc;
-  color: #fff;
-}
-.appointment-link:active {
-  background-color: #004499;
-  color: #fff;
-}
-
-/*--------------------------------------备案号的CSS代码-------------------------------------------*/
-
-/* 设置页脚整体的背景颜色、字体颜色和内边距 */
-.foot-wrap {
-    background-color: #333; /* 设置页脚背景颜色为深灰色 */
+    background-color: #0066cc;
     color: #fff;
-    padding: 20px 0; /* 设置页脚的上下内边距 */
+}
+ 
+.appointment-link:active {
+    background-color: #004499;
+    color: #fff;
+}
+ 
+/* Footer */
+.foot-wrap {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
     font-family: Arial, sans-serif;
 }
-
-/* 设置页脚导航的样式 */
+ 
 .footer-nav {
-    text-align: center; /* 居中对齐 */
-    margin-bottom: 20px; /* 设置下方边距为20px */
+    text-align: center;
+    margin-bottom: 20px;
 }
-
-/* 设置页脚导航链接的样式 */
+ 
 .footer-nav a {
     color: #aaa;
-    margin: 0 10px; /* 设置链接左右边距为10px */
-    text-decoration: none; /* 去除链接下划线 */
-    font-size: 14px; /* 设置字体大小为14px */
-}
-
-/* 设置通用的宽度类 */
-.width1180 {
-    width: 1180px;
-    margin: 0 auto; /* 水平居中容器 */
-}
-
-/* 设置页脚主内容区域的布局 */
-.footer {
-    display: flex; /* 使用Flexbox布局 */
-    justify-content: space-between; /* 子元素在主轴上均匀分布 */
-    padding: 0 20px; /* 设置左右内边距为20px */
-}
-
-/* 设置页脚内容块的宽度 */
-.footer-list {
-    width: 30%; /* 每个内容块占据30%的宽度 */
-}
-
-/* 设置页脚标题的样式 */
-.footer-list h3 {
-    font-size: 18px; /* 设置标题字体大小为18px */
-    margin-bottom: 10px; /* 设置标题下方边距为10px */
-    color: #fff; /* 设置标题文本颜色为白色 */
-    border-bottom: 2px solid #555; /* 设置标题下方边框颜色为深灰色，并设置边框宽度为2px */
-    padding-bottom: 5px; /* 设置标题下方的内边距为5px */
-}
-
-/* 设置页脚段落文本的样式 */
-.footer-list p {
-    margin: 5px 0; /* 设置上下外边距为5px */
-    line-height: 1.6; /* 设置行高为1.6倍字体大小，增加可读性 */
-}
-
-/* 设置页脚内链接的样式 */
-.footer-list a {
-    color: #aaa; /* 设置链接颜色为浅灰色 */
-    text-decoration: none; /* 去除链接下划线 */
-}
-
-/* 设置页脚内链接的悬停效果 */
-.footer-list a:hover {
-    text-decoration: underline; /* 悬停时添加下划线 */
-    color: #fff;
-}
-
-/* 设置页脚底部的样式 */
-.footer-bottom {
-    text-align: center; /* 居中对齐 */
-    padding-top: 10px; /* 设置上方内边距为10px */
-    border-top: 1px solid #555;
-    margin-top: 20px; /* 设置顶部外边距为20px */
+    margin: 0 10px;
+    text-decoration: none;
     font-size: 14px;
 }
-
-/* 设置页脚底部段落文本的样式 */
+ 
+.width1180 {
+    width: 1180px;
+    margin: 0 auto;
+}
+ 
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+ 
+.footer-list {
+    width: 30%;
+}
+ 
+.footer-list h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #fff;
+    border-bottom: 2px solid #555;
+    padding-bottom: 5px;
+}
+ 
+.footer-list p {
+    margin: 5px 0;
+    line-height: 1.6;
+}
+ 
+.footer-list a {
+    color: #aaa;
+    text-decoration: none;
+}
+ 
+.footer-list a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+ 
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #555;
+    margin-top: 20px;
+    font-size: 14px;
+}
+ 
 .footer-bottom p {
-    margin: 0; /* 去除默认外边距 */
+    margin: 0;
     color: #aaa;
 }
-
-/* 媒体查询，针对屏幕宽度小于768px的设备 */
+ 
+/* Responsive */
 @media (max-width: 768px) {
-    /* 修改页脚主内容区域的布局为列式布局 */
     .footer {
         flex-direction: column;
-        align-items: center; /* 水平居中对齐 */
+        align-items: center;
     }
-
-    /* 修改页脚内容块的宽度为100% */
+ 
     .footer-list {
         width: 100%;
-        margin-bottom: 20px; /* 添加上下边距 */
+        margin-bottom: 20px;
     }
-
-    /* 修改页脚导航的样式 */
+ 
     .footer-nav {
-        margin-bottom: 10px; /* 调整下方边距 */
+        margin-bottom: 10px;
     }
-
-    /* 修改页脚标题的样式---暂未实现效果 */
+ 
     .footer-list h3 {
-        text-align: left;
-        font-size: 16px; /* 调整标题字体大小为16px */
-        margin-bottom: 8px; /* 调整标题下方边距为8px */
-        border-bottom: 1px solid #555; /* 调整标题下方边框宽度为1px */
-        padding-bottom: 3px; /* 调整标题下方的内边距为3px */
+        font-size: 16px;
+        margin-bottom: 8px;
+        border-bottom: 1px solid #555;
+        padding-bottom: 3px;
     }
-
-    /* 修改页脚导航链接的样式 */
+ 
     .footer-nav a {
-        margin: 0 5px; /* 调整链接左右边距 */
+        margin: 0 5px;
     }
-
-    /* 修改页脚底部的样式 */
+ 
     .footer-bottom {
-        margin-top: 10px; /* 调整顶部外边距 */
+        margin-top: 10px;
     }
 }
-
-
