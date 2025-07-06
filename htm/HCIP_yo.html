@@ -1,0 +1,405 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小猫头鹰</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap"  rel="stylesheet">
+    <link rel="icon" href="../favicon.png"  type="image/png">
+    <link rel="icon" href="../favicon.ico"  type="image/x-icon">
+    <style>
+        * {
+            cursor: url('./cur_yo.cur'),  auto;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans SC', 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #e6f7ff, #cceeff, #b3e6ff);
+            color: #6699cc; /* 改为浅蓝色文字 */
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+ 
+        .header {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+ 
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+ 
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #00b4d8, #0096c7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+ 
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 0;
+            position: relative;
+        }
+ 
+        .text-content {
+            flex: 1;
+            padding-right: 50px;
+            position: relative;
+            z-index: 2;
+        }
+ 
+        .text-bg {
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            right: -30px;
+            bottom: -30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            z-index: -1;
+        }
+ 
+        .image-content {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+ 
+        .main-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 15px;
+            transition: all 0.4s ease;
+        }
+ 
+        .main-image:hover {
+            transform: scale(1.02);
+        }
+ 
+        .date {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #00b4d8, #0096c7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+ 
+        .achievement {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            color: #6699cc; /* 普通文字改为浅蓝色 */
+        }
+ 
+        .highlight {
+            background: linear-gradient(90deg, #00b4d8, #48cae4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(72, 202, 228, 0.3);
+            padding: 0 5px;
+            border-radius: 5px;
+            animation: pulse 2s infinite, glow 3s infinite alternate;
+        }
+ 
+        .progress-container {
+            position: fixed;
+            bottom: 70px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+        }
+ 
+        .progress-link {
+            display: inline-block;
+            font-size: 1.2rem;
+            background: linear-gradient(90deg, #ff9a8b, #ff6b95);
+            color: white;
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255, 107, 149, 0.3);
+            transition: all 0.3s ease;
+        }
+ 
+        .progress-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 107, 149, 0.4);
+        }
+ 
+.slogan {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 2rem 0;
+    position: relative;
+    display: inline-block;
+    color: #a3c4e0; /* 改为更柔和的浅蓝色 */
+}
+ 
+.slogan-highlight {
+    background: linear-gradient(90deg, #4cc9f0, #4895ef);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 15px rgba(76, 201, 240, 0.4);
+    padding: 0 5px;
+    border-radius: 5px;
+    animation: pulse 3s infinite, glow 3s infinite alternate;
+}
+ 
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+ 
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(72, 202, 228, 0.3);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(72, 202, 228, 0.6);
+            }
+        }
+ 
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(102, 153, 204, 0.8); /* 改为浅蓝色 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            z-index: 10;
+        }
+ 
+    /* 新增备案号链接样式 */
+    .footer a {
+        color: rgba(102, 153, 204, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .footer a:hover {
+        color: #4cc9f0;
+        text-decoration: underline;
+    }
+    
+    /* 新增作者地址样式 */
+    .author-address {
+        position: fixed;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 0.8rem;
+        color: rgba(102, 153, 204, 0.7);
+        z-index: 10;
+    }
+
+        .footer-image {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+ 
+        /* 碎花特效 - 从顶部向下飘落 */
+        .petal {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            opacity: 0.5;
+            z-index: 1;
+            animation: petal-fall linear infinite;
+            pointer-events: none;
+        }
+ 
+        @keyframes petal-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+ 
+        .decoration {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.1;
+            z-index: 1;
+        }
+ 
+        .decoration-1 {
+            background: #4cc9f0;
+            top: 10%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+ 
+        .decoration-2 {
+            background: #ff9a8b;
+            bottom: 10%;
+            right: 10%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+ 
+        .decoration-3 {
+            background: #a7e8bd;
+            top: 50%;
+            right: 20%;
+            animation: float 12s ease-in-out infinite;
+        }
+ 
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(40px, 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+    <div class="decoration decoration-3"></div>
+ 
+    <div class="header">
+        <img src="../favicon.png"  alt="Logo" class="logo">
+        <div class="site-title">小猫头鹰</div>
+    </div>
+ 
+    <div class="content">
+        <div class="text-content">
+            <div class="text-bg"></div>
+            <div class="date">6月3日 15:00</div>
+            <div class="achievement"><span class="highlight">HCIP-Security</span> 必过！</div>
+            <div class="slogan"><span class="slogan-highlight">所有！</span>或一无所有！</div>
+        </div>
+        <div class="image-content">
+            <img src="./sjhcip.webp"  alt="崩坏星穹铁道" class="main-image" title="来自米游社崩坏星穹铁道wiki">
+        </div>
+    </div>
+ 
+    <div class="progress-container">
+        <a href="https://www.yuque.com/xmty/hcip-security/qnykl4do0gkqzhfg?singleDoc#9kak"  class="progress-link" target="_blank">我的测试进度</a>
+    </div>
+
+ <!-- 在footer上方添加作者地址 -->
+<div class="author-address">作者当前地址：可观测宇宙 银河系 太阳系 地球 亚洲 中华人民共和国 河南省 郑州市 荥阳市 豫龙镇 桃贾路331号 郑州信息工程职业学院 11号楼</div>
+<div class="author-address">作者当前地址：可观测宇宙 银河系 太阳系 地球 亚洲 中华人民共和国 河南省 郑州市 二七区 马寨镇学院路1号 郑州科技学院 众创中心五楼513B.</div>
+
+<div class="footer">
+    <img src="./sjhcip.webp"  alt="崩坏星穹铁道" class="footer-image" title="来自米游社崩坏星穹铁道wiki">
+    <a href="https://beian.miit.gov.cn/"  target="_blank" rel="noopener noreferrer">备案号：豫ICP备2024074093号</a>
+</div>
+ 
+    <script>
+        document.addEventListener('DOMContentLoaded',  function() {
+            // 文字动画效果 
+            const elements = document.querySelectorAll('.date,  .achievement, .slogan');
+            elements.forEach((el,  index) => {
+                el.style.opacity  = 0;
+                el.style.transform  = 'translateY(20px)';
+                el.style.transition  = `all 0.5s ease ${index * 0.2}s`;
+                
+                setTimeout(() => {
+                    el.style.opacity  = 1;
+                    el.style.transform  = 'translateY(0)';
+                }, 100);
+            });
+ 
+            // 碎花特效 - 从顶部向下飘落 
+            function createPetals() {
+                const colors = ['#ff9a8b', '#a7e8bd', '#ffcc70', '#ff6b95', '#4cc9f0'];
+                const shapes = ['circle', 'flower'];
+                
+                for (let i = 0; i < 50; i++) {
+                    const petal = document.createElement('div'); 
+                    petal.className  = 'petal';
+                    
+                    // 随机颜色 
+                    petal.style.backgroundColor  = colors[Math.floor(Math.random() * colors.length)]; 
+                    
+                    // 随机大小 
+                    const size = Math.random()  * 15 + 10;
+                    petal.style.width  = `${size}px`;
+                    petal.style.height  = `${size}px`;
+                    
+                    // 随机形状 
+                    const shape = shapes[Math.floor(Math.random() * shapes.length)]; 
+                    if (shape === 'circle') {
+                        petal.style.borderRadius  = '50%';
+                    } else {
+                        // 简单花朵形状 
+                        petal.innerHTML  = '❀';
+                        petal.style.fontSize  = `${size}px`;
+                        petal.style.lineHeight  = '1';
+                        petal.style.backgroundColor  = 'transparent';
+                        petal.style.color  = colors[Math.floor(Math.random() * colors.length)]; 
+                    }
+                    
+                    // 随机起始位置（顶部）
+                    petal.style.left  = `${Math.random()  * 100}%`;
+                    petal.style.top  = `-${size}px`;
+                    
+                    // 随机动画 
+                    const duration = Math.random()  * 15 + 10;
+                    const delay = Math.random()  * 5;
+                    petal.style.animationDuration  = `${duration}s`;
+                    petal.style.animationDelay  = `${delay}s`;
+                    
+                    // 随机旋转角度 
+                    petal.style.transformOrigin  = 'center';
+                    
+                    document.body.appendChild(petal); 
+                }
+            }
+            
+            createPetals();
+        });
+    </script>
+</body>
+</html>

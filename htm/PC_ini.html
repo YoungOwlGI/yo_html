@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高端台式机配置清单</title>
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css"  rel="stylesheet">
+    <link href="https://s2.ssl.qhres2.com/static/56662140ef7d5d03.css"  rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --secondary: #8338ec;
+            --dark: #0f0f1a;
+            --darker: #080811;
+            --light: #e2e2e2;
+            --lighter: #f8f9fa;
+            --accent: #ff006e;
+            --tech-glow: rgba(58, 134, 255, 0.3);
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, var(--tech-glow) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(131, 56, 236, 0.2) 0%, transparent 20%);
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+        
+        h2 {
+            color: var(--light);
+            font-weight: 500;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            grid-column: 1 / -1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .component-card {
+            background: rgba(15, 15, 26, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(58, 134, 255, 0.3);
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 i {
+            margin-right: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .component {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+        }
+        
+        .component:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .component-name {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .price-tag {
+            background: rgba(58, 134, 255, 0.2);
+            color: var(--primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(58, 134, 255, 0.3);
+        }
+        
+        .component-desc {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 0.8rem;
+        }
+        
+        .component-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        a.link-item  {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        a.link-item:hover  {
+            background: rgba(58, 134, 255, 0.2);
+            color: var(--primary);
+        }
+        
+        a.link-item  i {
+            margin-right: 0.4rem;
+            font-size: 0.8rem;
+        }
+        
+        .chart-container {
+            background: rgba(15, 15, 26, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .chart-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        #priceChart {
+            width: 100%;
+            height: 400px;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>高端台式机配置清单</h1>
+        </header>
+            <p style="text-align: center;">未完全写完</p>
+        <div class="grid">
+            <h2>核心组件</h2>
+            
+            <!-- CPU -->
+            <div class="component-card">
+                <h3><i class="fas fa-microchip"></i> CPU</h3>
+                <div class="component">
+                    <div class="component-name">⛤ 英特尔(Intel) i7-14700KF <span class="price-tag">¥2389</span></div>
+                    <div class="component-desc">酷睿14代 处理器 20核28线程 五年质保 台式机盒装CPU</div>
+                    <div class="component-links">
+                        <a href="https://www.mydrivers.com/zhuanti/tianti/cpu/index.html"  class="link-item" target="_blank">
+                            <i class="fas fa fa-bar-chart"></i> 桌面CPU性能天梯图 
+                        </a>
+                        <a href="https://www.intel.cn/content/www/cn/zh/products/sku/236789/intel-core-i7-processor-14700kf-33m-cache-up-to-5-60-ghz/specifications.html"  class="link-item" target="_blank">
+                            <i class="fas fa-info-circle"></i> Intel官网参数 
+                        </a>
+                        <a href="https://item.jd.com/100070072259.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东自营购买 
+                        </a>
+                    </div>
+                </div>
+                <div class="component">
+                    <div class="component-name">英特尔(Intel) i5-14600KF <span class="price-tag">¥1298.9</span></div>
+                    <div class="component-desc">酷睿14代 处理器 14核20线程 24M三级缓存 台式机CPU</div>
+                    <div class="component-links">
+                        <a href="https://www.intel.cn/content/www/cn/zh/products/sku/236778/intel-core-i5-processor-14600kf-24m-cache-up-to-5-30-ghz/specifications.html"  class="link-item" target="_blank">
+                            <i class="fas fa-info-circle"></i> Intel官网参数 
+                        </a>
+                        <a href="https://item.jd.com/100069427196.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东自营购买 
+                        </a>
+                    </div>
+                </div>
+                <div class="component">
+                    <div class="component-name">英特尔(Intel) i9-14900KF <span class="price-tag">¥3089</span></div>
+                    <div class="component-desc">酷睿14代 24核32线程 五年质保 台式机CPU</div>
+                    <div class="component-links">
+                        <a href="https://www.intel.cn/content/www/cn/zh/products/sku/236787/intel-core-i9-processor-14900kf-36m-cache-up-to-6-00-ghz/specifications.html"  class="link-item" target="_blank">
+                            <i class="fas fa-info-circle"></i> Intel官网参数 
+                        </a>
+                        <a href="https://item.jd.com/100069427204.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东自营购买 
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 显卡 -->
+            <div class="component-card">
+                <h3><i class="fas fa-microchip"></i> 显卡</h3>
+                <div class="component">
+                    <div class="component-name">⛤ 耕升GeForce RTX 5060 追风 <span class="price-tag">¥2599</span></div>
+                    <div class="component-desc">白 OC 8G游戏显卡 DLSS 4</div>
+                    <div class="component-links">
+                        <a href="https://www.mydrivers.com/zhuanti/tianti/gpu/"  class="link-item" target="_blank">
+                            <i class="fas fa fa-bar-chart"></i> 桌面显卡性能天梯图 
+                        </a>
+                        <a href="https://www.nvidia.cn/geforce/graphics-cards/50-series/rtx-5060-family/"  class="link-item" target="_blank">
+                            <i class="fas fa-file-alt"></i> NVIDIA官网介绍 
+                        </a>
+                        <a href="https://www.szgainward.cn/goods/detail?id=712275781270769664"  class="link-item" target="_blank">
+                            <i class="fas fa-file-alt"></i> 耕升官网信息 
+                        </a>
+                        <a href="https://item.jd.com/100215373670.html"  class="link-item" target="_blank">
+                            <i class="fas fa-cart-shopping"></i> 京东自营购买 
+                        </a>
+                    </div>
+                </div>
+                <div class="component">
+                    <div class="component-name">耕升GeForce RTX 5060 Ti 踏雪X3 <span class="price-tag">¥3799</span></div>
+                    <div class="component-desc">OC 16G游戏显卡 DLSS 4</div>
+                    <div class="component-links">
+                        <a href="https://item.jd.com/100167355161.html"  class="link-item" target="_blank">
+                            <i class="fas fa-cart-shopping"></i> 京东自营购买 
+                        </a>
+                    </div>
+                </div>
+                <div class="component">
+                    <div class="component-name">七彩虹（Colorful）iGame GeForce RTX 5070 Ultra W <span class="price-tag">¥5499</span></div>
+                    <div class="component-desc">OC 12GB GDDR7 DLSS 4</div>
+                    <div class="component-links">
+                        <a href="https://www.nvidia.cn/geforce/graphics-cards/50-series/rtx-5070-family/"  class="link-item" target="_blank">
+                            <i class="fas fa-file-alt"></i> NVIDIA官网介绍 
+                        </a>
+                        <a href="https://search.jd.com/Search?keyword=5070%E6%98%BE%E5%8D%A1&enc=utf-8&wq=5070%E6%98%BE%E5%8D%A1&pvid=7d0ccd1daa9b4de9943f358ef237c565"  class="link-item" target="_blank">
+                            <i class="fas fa-cart-shopping"></i> 京东搜索 
+                        </a>
+                        <a href="https://item.jd.com/100193622628.html"  class="link-item" target="_blank">
+                            <i class="fas fa-cart-shopping"></i> 京东自营购买 
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 内存 -->
+            <div class="component-card">
+                <h3><i class="fas fa-memory"></i> 内存</h3>
+                <div class="component">
+                    <div class="component-name">⛤ 阿斯加特（Asgard）32GB(16GBx2) DDR5 8000 <span class="price-tag">¥999</span></div>
+                    <div class="component-desc">台式机内存条 女武神·瓦尔基里II代 RGB灯条 海力士A-die CL36 极地白</div>
+                    <div class="component-links">
+                        <a href="https://item.jd.com/100145342532.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东自营购买 
+                        </a>
+                        <a href="https://www.zhihu.com/tardis/zm/art/614414745"  class="link-item" target="_blank">
+                            <i class="fas fa-comment-dots"></i> 知乎点评 
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 存储设备【SSD + HDD】 -->
+            <div class="component-card">
+                <h3><i class="fas fa-database"></i> 存储设备【SSD + HDD】</h3>
+                <div class="component">
+                    <div class="component-name">⛤ 990 PRO PCIe 4.0 4TB <span class="price-tag">¥2499</span></div>
+                    <div class="component-desc">NVMe M.2 固态硬盘 MZ-V9P4T0BW</div>
+                    <div class="component-links">
+                        <a href="https://www.samsung.com.cn/memory-storage/nvme-ssd/990-pro-4tb-nvme-pcie-gen-4-mz-v9p4t0bw/"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 三星官方购买 
+                        </a>
+                        <a href="https://www.bilibili.com/video/BV1hG4y1Q7a2/"  class="link-item" target="_blank">
+                            <i class="fas fa-comment-dots"></i> 哔哩哔哩点评 
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="component">
+                    <div class="component-name">西部数据（WD）NAS机械硬盘 8TB <span class="price-tag">¥1809</span></div>
+                    <div class="component-desc">WD Red Pro西数红盘 企业级7200转256MB SATA CMR垂直网络存储3.5英寸</div>
+                    <div class="component-links">
+                        <a href="https://item.jd.com/100111445486.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东自营购买 
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 主板 -->
+            <div class="component-card">
+                <h3><i class="fas fa-project-diagram"></i> 主板</h3>
+                <div class="component">
+                    <div class="component-name">⛤ 微星 MAG B760M MORTAR WIFI II DDR5迫击炮主板<span class="price-tag">¥1199</span></div>
+                    <div class="component-desc">12路75A智能供电 | 3*M.2GEN4插槽 | DDR5-7800+ | 2*M.2冰霜铠甲</div>
+                    <div class="component-links">
+                        <a href="https://www.msi.cn/Motherboard/MAG-B760M-MORTAR-WIFI"  class="link-item" target="_blank">
+                            <i class="fas fa-file-alt"></i> 微星官网信息 
+                        </a>
+                        <a href="https://store.msi.cn/ProductDefault?goodsId=706"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 微星官网购买 
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 电源 -->
+            <div class="component-card">
+                <h3><i class="fas fa-bolt"></i> 电源</h3>
+                <div class="component">
+                    <div class="component-name">⛤ 长城（Great Wall）额定650W X6 <span class="price-tag">¥333</span></div>
+                    <div class="component-desc">白色金牌全模电脑电源（漏电监测/全电压/温控风扇/长线材/5060TI）</div>
+                    <div class="component-links">
+                        <a href="https://item.jd.com/100082360823.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东自营购买 
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 散热系统【水冷+风扇】 -->
+            <div class="component-card">
+                <h3><i class="fas fa-fan"></i> 散热系统【水冷+风扇】</h3>
+                <div class="component">
+                    <div class="component-name">⛤ 微星 MAG CORELIQUID A13 360 WHITE <span class="price-tag">¥409</span></div>
+                    <div class="component-desc">黑白双色可选 水冷散热</div>
+                    <div class="component-links">
+                        <a href="https://store.msi.cn/ProductDefault?goodsId=1403"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 微星官网购买 
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="component">
+                    <div class="component-name">京品鹿棱镜四代PRO战隼F12棱镜PLUS积木版 <span class="price-tag">¥13.9</span></div>
+                    <div class="component-desc">水冷12CM机箱风扇正反向无线拼接ARGB神光同步PWM温控制器集线 棱镜4代PRO白色正向风扇（5V三针接口）</div>
+                    <div class="component-links">
+                        <a href="https://item.jd.com/10094033922949.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东旗舰店网购买 
+                        </a>
+                    </div>
+                </div>
+
+                <div class="component">
+                    <div class="component-name">大水牛（BUBALUS）冰晶L 幻彩电脑机箱散热风扇 <span class="price-tag">¥8.9</span></div>
+                    <div class="component-desc">（定光12cm风扇/液压轴承/减震脚垫/大4pin/低噪）</div>
+                    <div class="component-links">
+                        <a href="https://item.jd.com/100029369939.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东自营购买 
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 机箱 -->
+            <div class="component-card">
+                <h3><i class="fas fa-box-open"></i> 机箱</h3>
+                <div class="component">
+                    <div class="component-name">⛤ 酷冷至尊（CoolerMaster）TD500MESHV2白 <span class="price-tag">¥386</span></div>
+                    <div class="component-desc">EATX电脑中塔机箱 冲孔前面板/钢玻侧板/双360水冷位/配3ARGB风扇</div>
+                    <div class="component-links">
+                        <a href="https://www.coolermaster.com.cn/product_detail/31.html"  class="link-item" target="_blank">
+                            <i class="fas fa-info-circle"></i> 酷冷至尊官网信息 
+                        </a>
+                        <a href="https://item.jd.com/100052503255.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东自营购买 
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="component">
+                    <div class="component-name">LIANLI联力L216白色 <span class="price-tag">¥546</span></div>
+                    <div class="component-desc">中塔式台式电竞游戏机箱 标配3把风扇/支持EATX主板竖装显卡360水冷/一体式网孔面板</div>
+                    <div class="component-links">
+                        <a href="https://lianli-cn.com/productinfo/1200249.html"  class="link-item" target="_blank">
+                            <i class="fas fa-info-circle"></i> 联力官网信息 
+                        </a>
+                        <a href="https://item.jd.com/100117874161.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东自营购买 
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <h2>外设配置</h2>
+            
+            <!-- 显示器 -->
+            <div class="component-card">
+                <h3><i class="fas fa-desktop"></i> 显示器</h3>
+                <div class="component">
+                    <div class="component-name">HKC 27英寸4K 160Hz双模320Hz <span class="price-tag">¥2549</span></div>
+                    <div class="component-desc">QD量子点MiniLED广色域HDR1400认证Type-C90W电竞游戏显示器G27M7Pro</div>
+                    <div class="component-links">
+                        <a href="https://www.szhk.com.cn/product-it.html"  class="link-item" target="_blank">
+                            <i class="fas fa-info-circle"></i> HKC官网信息 
+                        </a>
+                        <a href="https://item.jd.com/100147832730.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东自营购买 
+                        </a>
+                        <a href="https://www.zhihu.com/tardis/zm/art/3654763957"  class="link-item" target="_blank">
+                            <i class="fas fa-comment-dots"></i> 知乎点评 
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="component">
+                    <div class="component-name">HKC 27英寸2K 260Hz <span class="price-tag">¥1799</span></div>
+                    <div class="component-desc">Fast IPS 猎鹰 G27H4</div>
+                    <div class="component-links">
+                        <a href="https://www.szhk.com.cn/product-it.html"  class="link-item" target="_blank">
+                            <i class="fas fa-info-circle"></i> HKC官网信息 
+                        </a>
+                        <a href="https://item.jd.com/100147832730.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东自营购买 
+                        </a>
+                        <a href="https://www.zhihu.com/tardis/zm/art/3654763957"  class="link-item" target="_blank">
+                            <i class="fas fa-comment-dots"></i> 知乎点评 
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="component">
+                    <div class="component-name">KTC 24.5英寸 疾速200Hz高刷 <span class="price-tag">¥519</span></div>
+                    <div class="component-desc">FastIPS Switch2外接 显示屏PS5游戏升降旋转显示器</div>
+                    <div class="component-links">
+                        <a href="https://item.jd.com/100177676194.html"  class="link-item"><i class="fas fa-shopping-cart"></i>京东自营购买</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 键盘鼠标 -->
+            <div class="component-card">
+                <h3><i class="fas fa-keyboard"></i> 键盘鼠标</h3>
+                <div class="component">
+                    <div class="component-name">⛤ 【原神】珊瑚宫心海·真珠之智机械键盘 <span class="price-tag">¥848</span></div>
+                    <div class="component-desc">机械键盘 极光冰淇淋轴 现货</div>
+                    <div class="component-links">
+                        <a href="https://www.mihoyogift.com/goods/2021746114587958480896"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 米游铺官网购买 
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="component">
+                    <div class="component-name">银雕(YINDIAO) K500键盘彩包升级版 <span class="price-tag">¥38.9</span></div>
+                    <div class="component-desc">机械手感 游戏背光电竞办公 USB外接 全尺寸 白蓝双拼混光有线键盘</div>
+                    <div class="component-links">
+                        <a href="https://item.jd.com/100041132814.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东自营购买 
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="component">
+                    <div class="component-name">⛤ 惠普（HP）M220游戏鼠标USB有线鼠标 <span class="price-tag">¥59</span></div>
+                    <div class="component-desc">自定义宏驱动2400DPI 白色 四色混光 有声版</div>
+                    <div class="component-links">
+                        <a href="https://item.jd.com/10072975881973.html"  class="link-item" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> 京东自营购买 
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 音频设备 -->
+            <div class="component-card">
+                <h3><i class="fas fa-headphones"></i> 音频设备</h3>
+                <div class="component">
+                    <div class="component-name">海威特 M19电脑音响 <span class="price-tag">¥129</span></div>
+                    <div class="component-desc">台式桌面家用笔记本外放</div>
+                    <div class="component-links">
+                        <a href="./a.html"  class="link-item"><i class="fas fa-shopping-cart"></i>京东自营</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 线材配件 -->
+            <div class="component-card">
+                <h3><i class="fas fa-plug"></i> 线材配件</h3>
+                <div class="component">
+                    <div class="component-name">绿联六类网线 2米 <span class="price-tag">¥29</span></div>
+                    <div class="component-desc">千兆高速5g宽带网络连接线</div>
+                    <div class="component-links">
+                        <a href="./a.html"  class="link-item"><i class="fas fa-shopping-cart"></i>京东自营</a>
+                    </div>
+                </div>
+                
+                <div class="component">
+                    <div class="component-name">绿联国标三孔电源线 <span class="price-tag">¥39</span></div>
+                    <div class="component-desc">2米 适用电脑主机显示器</div>
+                    <div class="component-links">
+                        <a href="./a.html"  class="link-item"><i class="fas fa-shopping-cart"></i>京东自营</a>
+                    </div>
+                </div>
+                
+                <div class="component">
+                    <div class="component-name">绿联Type-C扩展坞 <span class="price-tag">¥199</span></div>
+                    <div class="component-desc">USB3.2高速拓展坞 4K60Hz</div>
+                    <div class="component-links">
+                        <a href="./a.html"  class="link-item"><i class="fas fa-shopping-cart"></i>京东自营</a>
+                    </div>
+                </div>
+                
+                <div class="component">
+                    <div class="component-name">绿联DP线1.4 <span class="price-tag">¥129</span></div>
+                    <div class="component-desc">8K高清4K/2K240Hz</div>
+                    <div class="component-links">
+                        <a href="./a.html"  class="link-item"><i class="fas fa-shopping-cart"></i>京东自营</a>
+                    </div>
+                </div>
+                
+                <div class="component">
+                    <div class="component-name">绿联SATA数据线 <span class="price-tag">¥19</span></div>
+                    <div class="component-desc">高速SATA3.0硬盘数据连接线</div>
+                    <div class="component-links">
+                        <a href="./a.html"  class="link-item"><i class="fas fa-shopping-cart"></i>京东自营</a>
+                    </div>
+                </div>
+                
+                <div class="component">
+                    <div class="component-name">绿联AUX音频线 <span class="price-tag">¥29</span></div>
+                    <div class="component-desc">3.5mm公对公镀银车载音响线</div>
+                    <div class="component-links">
+                        <a href="./a.html"  class="link-item"><i class="fas fa-shopping-cart"></i>京东自营</a>
+                    </div>
+                </div>
+                
+                <div class="component">
+                    <div class="component-name">金隆兴显示器增高架 <span class="price-tag">¥79</span></div>
+                    <div class="component-desc">台式屏幕双层支架办公桌面置物架</div>
+                    <div class="component-links">
+                        <a href="./a.html"  class="link-item"><i class="fas fa-shopping-cart"></i>京东自营</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2>购物车和收藏夹</h2> 
+            <div class="component-card"> 
+                <h3><i class="fa-solid fa-basket-shopping">
+                    </i> 购物车 &emsp;2025-06-27&emsp; <span class="price-tag">¥ 7604.4 + 1478 + 2499 = ¥ 11581.4</span>
+                </h3> 
+                <div class="component"> 
+                    <div class="component-links"> 
+                        <a href="https://cart.jd.com/cart_index"   class="link-item" target="_blank"> 
+                            <i class="fa-solid fa-basket-shopping"></i> 京东 
+                        </a> 
+                        <a href="https://store.msi.cn/cart"   class="link-item" target="_blank"> 
+                            <i class="fa-solid fa-basket-shopping"></i> 微星 
+                        </a> 
+                        <a href="https://shop.samsung.com.cn/cn/cart"   class="link-item" target="_blank"> 
+                            <i class="fa-solid fa-basket-shopping"></i> 三星 
+                        </a> 
+                    </div> 
+                </div> 
+            </div> 
+            
+            <div class="component-card"> 
+                <h3><i class="fa-solid fa-eye"></i> 我的关注</h3> 
+                <div class="component"> 
+                    <div class="component-links"> 
+                        <a href="https://t.jd.com/follow/product"   class="link-item" target="_blank"> 
+                            <i class="fa-solid fa-eye"></i> 京东 
+                        </a> 
+                    </div> 
+                </div> 
+            </div> 
+        </div>
+        <!-- 图表 -->
+         <h2>主要组件价格分布</h2>
+        <div class="chart-container">
+            <div class="chart-title">主要组件价格分布</div>
+            <div id="priceChart"></div>
+        </div>
+    </div>
+    
+    <script src="https://s2.ssl.qhres2.com/!2dd0bbf7/echats.js"></script> 
+    <script>
+        document.addEventListener('DOMContentLoaded',  function() {
+            // 初始化图表 
+            const chartDom = document.getElementById('priceChart'); 
+            const myChart = echarts.init(chartDom); 
+            
+            const option = {
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    },
+                    formatter: '{b0}<br/>价格: <strong>{c0}元</strong>',
+                    textStyle: {
+                        fontSize: 12 
+                    }
+                },
+                legend: {
+                    data: ['价格(元)'],
+                    textStyle: {
+                        color: '#fff'
+                    },
+                    right: 10,
+                    top: 0 
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true 
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['CPU', '显卡', '内存', 'SSD', '主板', '散热', '电源', '机箱', '主显示器', '键盘', '鼠标', '音响'],
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,0.3)'
+                        }
+                    },
+                    axisLabel: {
+                        color: 'rgba(255,255,255,0.7)',
+                        rotate: 30 
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '价格(元)',
+                    nameTextStyle: {
+                        color: 'rgba(255,255,255,0.7)'
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,0.1)'
+                        }
+                    },
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: 'rgba(255,255,255,0.3)'
+                        }
+                    },
+                    axisLabel: {
+                        color: 'rgba(255,255,255,0.7)'
+                    }
+                },
+                series: [
+                    {
+                        name: '价格(元)',
+                        type: 'line',
+                        smooth: true,
+                        data: [3299, 4599, 1299, 2999, 1399, 899, 599, 699, 3999, 899, 99, 129],
+                        itemStyle: {
+                            color: '#3a86ff'
+                        },
+                        lineStyle: {
+                            width: 3,
+                            color: '#3a86ff'
+                        },
+                        symbolSize: 8,
+                        symbol: 'circle',
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0,  0, 0, 1, [
+                                {
+                                    offset: 0,
+                                    color: 'rgba(58, 134, 255, 0.5)'
+                                },
+                                {
+                                    offset: 1,
+                                    color: 'rgba(58, 134, 255, 0.1)'
+                                }
+                            ])
+                        },
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: '最大值' },
+                                { type: 'min', name: '最小值' }
+                            ],
+                            label: {
+                                color: '#fff'
+                            }
+                        }
+                    }
+                ]
+            };
+            
+            myChart.setOption(option); 
+            
+            // 响应式调整 
+            window.addEventListener('resize',  function() {
+                myChart.resize(); 
+            });
+        });
+    </script>
+</body>
+</html>
