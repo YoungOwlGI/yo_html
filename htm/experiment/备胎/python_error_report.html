@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python模块导入诊断 | 手绘艺术风格</title>
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css"  rel="stylesheet">
+    <link href="https://s2.ssl.qhres2.com/static/56662140ef7d5d03.css"  rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C5B7B;
+            --secondary: #C06C84;
+            --accent: #F67280;
+            --light: #F8B195;
+            --paper: #FFF5E0;
+            --ink: #333333;
+        }
+        
+        @font-face {
+            font-family: 'Sketch';
+            src: url('https://fonts.cdnfonts.com/css/sketch-3d')  format('woff2');
+            font-display: swap;
+        }
+        
+        body {
+            font-family: 'Caveat', cursive;
+            background-color: var(--paper);
+            color: var(--ink);
+            background-image: url('https://img.freepik.com/free-vector/hand-drawn-watercolor-texture_23-2149236858.jpg'); 
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: rgba(255, 245, 224, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://img.freepik.com/free-vector/hand-drawn-doodle-pattern_23-2149014967.jpg')  center/cover;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Sketch', cursive;
+            color: var(--primary);
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-top: 2.5rem;
+            border-bottom: 3px dashed var(--accent);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-top: 1.5rem;
+        }
+        
+        .error-box {
+            background-color: white;
+            border-left: 5px solid var(--secondary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+            position: relative;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .error-box::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-splash-background_23-2148902771.jpg')  center/cover;
+            opacity: 0.1;
+            pointer-events: none;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .solution-card {
+            background-color: white;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+            border: 2px dashed var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution-card::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            background-color: rgba(108, 91, 123, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        
+        pre {
+            background-color: rgba(108, 91, 123, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 3px solid var(--secondary);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        pre::before {
+            content: "代码示例";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.7rem;
+            border-radius: 0 0 0 8px;
+            font-family: 'Caveat', cursive;
+        }
+        
+        .icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            color: var(--accent);
+            vertical-align: middle;
+        }
+        
+        .hand-drawn-border {
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            position: relative;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .hand-drawn-border::after {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px dashed var(--light);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+        
+        .note {
+            background-color: rgba(248, 177, 149, 0.2);
+            padding: 1rem;
+            border-left: 4px solid var(--light);
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+        
+        .note::before {
+            content: "Note";
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background-color: var(--paper);
+            padding: 0 0.5rem;
+            font-family: 'Sketch', cursive;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--secondary), transparent);
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .divider::before, .divider::after {
+            content: "✻";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        .divider::before {
+            left: 20%;
+        }
+        
+        .divider::after {
+            right: 20%;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-bug icon"></i>Python模块导入诊断</h1>
+        
+        <div class="hand-drawn-border">
+            <p>您遇到了Python模块导入错误：<code>ModuleNotFoundError: No module named 'calculate_draws'</code>。这个手绘风格的诊断页面将帮助您理解问题并提供解决方案。</p>
+        </div>
+        
+        <h2><i class="fas fa-search icon"></i>错误分析</h2>
+        
+        <div class="error-box">
+            <p>Traceback (most recent call last):</p>
+            <p>  File "D:\猫头鹰的文件\Python\objects_set\game_target_count\main.py",  line 1, in &lt;module&gt;</p>
+            <p>    from genshin_import import main as genshin_import</p>
+            <p>  File "D:\猫头鹰的文件\Python\objects_set\game_target_count\genshin_import\main.py",  line 1, in &lt;module&gt;</p>
+            <p>    from calculate_draws import calculate_draws</p>
+            <p><strong>ModuleNotFoundError: No module named 'calculate_draws'</strong></p>
+        </div>
+        
+        <div class="note">
+            <p>这个错误表明Python无法找到名为<code>calculate_draws</code>的模块。通常这是由于模块未安装或不在Python的搜索路径中。</p>
+        </div>
+        
+        <h2><i class="fas fa-lightbulb icon"></i>可能的原因</h2>
+        
+        <div class="solution-card">
+            <h3>1. 模块未安装</h3>
+            <p><code>calculate_draws</code>模块可能尚未安装在您的Python环境中。</p>
+        </div>
+        
+        <div class="solution-card">
+            <h3>2. 路径问题</h3>
+            <p>模块可能存在于项目中，但不在Python的模块搜索路径中。</p>
+        </div>
+        
+        <div class="solution-card">
+            <h3>3. 命名问题</h3>
+            <p>模块文件名可能与导入语句不匹配（如大小写不一致）。</p>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <h2><i class="fas fa-wrench icon"></i>解决方案</h2>
+        
+        <div class="solution-card">
+            <h3>方案1：安装缺失模块</h3>
+            <p>如果<code>calculate_draws</code>是一个可安装的包，使用pip安装：</p>
+            <pre>pip install calculate_draws</pre>
+        </div>
+        
+        <div class="solution-card">
+            <h3>方案2：添加模块路径</h3>
+            <p>如果模块在项目目录中，确保Python可以找到它：</p>
+            <pre>import sys 
+sys.path.append('D:\\ 猫头鹰的文件\\Python\\objects_set\\game_target_count')</pre>
+        </div>
+        
+        <div class="solution-card">
+            <h3>方案3：检查文件结构</h3>
+            <p>确认项目结构正确，<code>calculate_draws.py</code> 文件位于正确位置：</p>
+            <pre>game_target_count/
+├── genshin_import/
+│   └── main.py  
+└── calculate_draws.py   # 应该在同一目录下</pre>
+        </div>
+        
+        <div class="note">
+            <p><strong>专业提示：</strong> 使用相对导入时，确保目录中有<code>__init__.py</code>文件将其标记为Python包。</p>
+        </div>
+        
+        <div class="hand-drawn-border">
+            <h3><i class="fas fa-book icon"></i>Python导入系统小知识</h3>
+            <p>Python使用<code>sys.path</code> 列表来查找模块。当您使用<code>import</code>语句时，Python会按顺序搜索这些位置：</p>
+            <ol>
+                <li>包含输入脚本的目录</li>
+                <li>PYTHONPATH环境变量指定的目录</li>
+                <li>标准库目录</li>
+                <li>第三方库目录</li>
+            </ol>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <h2><i class="fas fa-question-circle icon"></i>进一步帮助</h2>
+        
+        <div class="solution-card">
+            <p>如果问题仍然存在，您可以：</p>
+            <ul>
+                <li>检查<code>calculate_draws.py</code> 文件是否存在</li>
+                <li>验证文件权限</li>
+                <li>尝试绝对导入而非相对导入</li>
+                <li>使用<code>try-except</code>捕获导入错误并提供友好提示</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <p><strong>艺术笔记：</strong> 这个手绘风格的错误页面旨在将技术问题转化为更友好的视觉体验，减少开发者的挫败感。</p>
+        </div>
+    </div>
+    
+    <script>
+        // 添加微妙的动画效果
+        document.addEventListener('DOMContentLoaded',  () => {
+            const cards = document.querySelectorAll('.solution-card,  .error-box');
+            cards.forEach((card,  index) => {
+                card.style.opacity  = '0';
+                card.style.transform  = 'translateY(20px)';
+                card.style.transition  = `all 0.5s ease ${index * 0.1}s`;
+                
+                setTimeout(() => {
+                    card.style.opacity  = '1';
+                    card.style.transform  = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

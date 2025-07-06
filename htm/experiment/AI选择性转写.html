@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>官方网站列表</title>
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css"  rel="stylesheet">
+    <link href="https://s2.ssl.qhres2.com/static/56662140ef7d5d03.css"  rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5e35b1;
+            --secondary: #7c4dff;
+            --white: #f5f5f5;
+            --gray: #e0e0e0;
+            --light-purple: #ede7f6;
+            --dark-purple: #311b92;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --sidebar-width: 200px;
+            --sidebar-bg: linear-gradient(135deg, #7b1fa2 0%, #4527a0 100%);
+            --hand-drawn-border: 2px solid #5e35b1;
+            --sketch-color: #9c27b0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+            color: #333;
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* 手绘风格元素 */
+        .hand-drawn {
+            position: relative;
+        }
+        
+        .hand-drawn:before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: var(--hand-drawn-border);
+            border-radius: 8px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* 侧边栏样式 */
+        #sidebar {
+            width: var(--sidebar-width);
+            background: var(--sidebar-bg);
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 100;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        
+        #sidebar.hidden  {
+            transform: translateX(calc(-1 * var(--sidebar-width)));
+        }
+        
+        .sidebar-toggle {
+            position: absolute;
+            right: -40px;
+            top: 10px;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            z-index: 101;
+        }
+        
+        .sidebar-toggle i {
+            transition: transform 0.3s ease;
+        }
+        
+        #sidebar.hidden  + .sidebar-toggle i {
+            transform: rotate(180deg);
+        }
+        
+        .sidebar-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+        }
+        
+        .sidebar-header h2 {
+            margin: 0;
+            font-size: 20px;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .sidebar-nav {
+            padding: 15px 0;
+        }
+        
+        .sidebar-nav a {
+            display: block;
+            padding: 12px 20px;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 16px;
+        }
+        
+        .sidebar-nav a:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding-left: 25px;
+        }
+        
+        .sidebar-nav a:before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-nav a:hover:before {
+            opacity: 1;
+            left: 15px;
+        }
+        
+        /* 主内容区域 */
+        #main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 20px;
+            transition: all 0.3s ease;
+            max-width: 100%;
+        }
+        
+        #sidebar.hidden  ~ #main-content {
+            margin-left: 0;
+        }
+        
+        /* 手绘标题样式 */
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-top: 0;
+            color: var(--dark-purple);
+            padding: 20px;
+            background: linear-gradient(90deg, var(--light-purple), var(--white));
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h1:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px dashed var(--sketch-color);
+            border-radius: 8px;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        
+        .text-bg {
+            background-color: rgba(255,255,255,0.9);
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .text-bg:before {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 1px dashed var(--sketch-color);
+            border-radius: 8px;
+            pointer-events: none;
+            opacity: 0.2;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: var(--primary);
+            margin-top: 30px;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 8px;
+            display: inline-block;
+            width: 100%;
+            background-color: var(--light-purple);
+            padding: 10px 15px;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"  width="100" height="10" viewBox="0 0 100 10"><path d="M0,5 Q25,10 50,5 T100,5" fill="none" stroke="%239c27b0" stroke-width="1" stroke-dasharray="5,2"/></svg>') repeat-x;
+            opacity: 0.5;
+        }
+        
+        .section-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .category-block {
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            padding: 20px;
+            width: 25%;
+            min-width: 300px;
+            max-width: 480px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(to bottom, var(--white), var(--light-purple));
+            position: relative;
+        }
+        
+        .category-block:before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 1px dashed var(--sketch-color);
+            border-radius: 7px;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        
+        .category-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .category-block h3 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 5px;
+            background-color: rgba(94, 53, 177, 0.1);
+            padding: 8px;
+            border-radius: 4px;
+        }
+        
+        .link-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .link-list li {
+            margin-bottom: 12px;
+            padding: 8px;
+            background-color: rgba(255,255,255,0.7);
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        
+        .link-list li:before {
+            content: "•";
+            position: absolute;
+            left: -15px;
+            color: var(--secondary);
+            font-size: 20px;
+        }
+        
+        .link-list li:hover {
+            background-color: var(--light-purple);
+        }
+        
+        .link {
+            font-size: 16px;
+            color: var(--primary);
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 8px;
+            border-radius: 3px;
+            background-color: rgba(94, 53, 177, 0.1);
+            border-left: 3px solid var(--primary);
+        }
+        
+        .link:hover {
+            color: var(--secondary);
+            text-decoration: none;
+            background-color: rgba(124, 77, 255, 0.2);
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .link::after {
+            content: '↗';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .link:hover::after {
+            opacity: 1;
+            right: -15px;
+        }
+        
+        .two-column-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .two-column-list li {
+            width: calc(50% - 5px);
+            min-width: 300px;
+            max-width: 480px;
+            padding: 10px;
+            margin: 0;
+            box-sizing: border-box;
+            background-color: rgba(255,255,255,0.7);
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        
+        .two-column-list li:hover {
+            background-color: var(--light-purple);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 14px;
+            padding: 15px;
+            border-top: 1px dashed var(--sketch-color);
+        }
+        
+        @media (max-width: 992px) {
+            #sidebar {
+                transform: translateX(calc(-1 * var(--sidebar-width)));
+            }
+            
+            #sidebar.hidden  {
+                transform: translateX(0);
+            }
+            
+            #main-content {
+                margin-left: 0;
+            }
+            
+            .category-block {
+                width: 100%;
+            }
+            
+            .two-column-list li {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --sidebar-width: 160px;
+            }
+            
+            .section-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .category-block {
+                width: 90%;
+                margin: 10px 0;
+            }
+            
+            .two-column-list li {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <h2>网站导航</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#me">个人网站</a>
+            <a href="#search">浏览工具</a>
+            <a href="#convenient">便捷工具</a>
+            <a href="#cloud">网盘工具</a>
+            <a href="#gov">政府网站</a>
+            <a href="#other">其他官方网站</a>
+        </nav>
+    </aside>
+    
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    
+    <!-- 主内容区域 -->
+    <main id="main-content">
+        <div class="text-bg">
+            <h1>官方网站列表</h1>
+        </div>
+        
+        <!-- 内容部分 -->
+        <div class="text-bg" id="me">
+            <h2 class="section-title">个人网站</h2>
+            <div class="section-content">
+                <ul class="two-column-list">
+                    <li><a class="link" href="http://www.youngowl.asia/">小猫头鹰</a></li> 
+                    <li><a class="link" href="https://xiaomty.icoc.ws/"> 小猫头鹰首页</a></li>
+                    <li><a class="link" href="https://xiaomty.fkguest.com/"> 小猫头鹰首页</a></li>
+                    <li><a class="link" href="http://www.xiaomty.com/">http://www.xiaomty.com/</a></li> 
+                    <li><a class="link" href="http://www.youngowl.top/">http://www.youngowl.top/</a></li> 
+                    <li><a class="link" href="https://xiaomty-2.fkguest.com/"> 小猫头鹰</a></li>
+                    <li><a class="link" href="https://xiaomty-3.fkguest.com/"> 小猫头鹰</a></li>
+                    <li><a class="link" href="https://xiaomty-4.fkguest.com/"> 小猫头鹰-4</a></li>
+                    <li><a class="link" href="https://xiaomty-5.fkguest.com/"> 小猫头鹰</a></li>
+                    <li><a class="link" href="https://xiaomty-6.fkguest.com/"> 小猫头鹰</a></li>
+                    <li><a class="link" href="https://xiaomty-8.fkguest.com/"> 鸱鸺印务</a></li>
+                    <li><a class="link" href="https://youngowl.rth1.xyz/"> 小猫头鹰</a></li>
+                    <li><a class="link" href="https://qc30528390.jzfkw.net/"> 我的网站</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-bg" id="search">
+            <h2 class="section-title">浏览工具</h2>
+            <div class="section-content">
+                <div class="category-block">
+                    <h3>搜索引擎和工具</h3>
+                    <ul class="link-list">
+                        <li><a class="link" href="https://cn.bing.com/"> 搜索 - Microsoft 必应</a></li>
+                        <li><a class="link" href="https://www.baidu.com/"> 百度一下，你就知道</a></li>
+                        <li><a class="link" href="https://www.so.com/">360 搜索，SO靠谱</a></li>
+                    </ul>
+                </div>
+                <div class="category-block">
+                    <h3>浏览器</h3>
+                    <ul class="link-list">
+                        <li><a class="link" href="https://www.microsoft.com/zh-cn/edge">Microsoft  Edge</a></li>
+                        <li><a class="link" href="https://www.chrome.net.cn/">Google</a></li> 
+                        <li><a class="link" href="https://www.firefox.com.cn/">Firefox</a></li> 
+                        <li><a class="link" href="https://browser.qq.com/">QQ 浏览器</a></li>
+                        <li><a class="link" href="https://www.twinkstar.com/"> 星原浏览器</a></li>
+                        <li><a class="link" href="https://www.ccleaner.com/zh-cn/ccleaner/browser">CCleaner</a></li> 
+                    </ul>
+                </div>
+                <div class="category-block">
+                    <h3>搜索页面</h3>
+                    <ul class="link-list">
+                        <ul class="link-list">
+                            <li><a class="link" href="https://limestart.cn/"> 青柠起始页</a></li>
+                            <li><a class="link" href="https://www.onll.cn/"> 嗖的一下，很快啊 - 神秘布偶猫</a></li>
+                            <li><a class="link" href="https://www.hao123.com/">hao123_ 上网从这里开始</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-bg" id="convenient">
+            <h2 class="section-title">便捷工具</h2>
+            <div class="section-content">
+                <ul class="link-list">
+                    <li><a class="link" href="https://www.toolhelper.cn/"> 锤子在线工具网</a></li>
+                    <li><a class="link" href="https://convertfree.com/cn"> 免费转换 ——在线转换文件服务</a></li>
+                    <li><a class="link" href="https://www.airportal.cn/">AirPortal  空投快传</a></li>
+                    <li><a class="link" href="https://www.yasuotu.com/"> 在线图片压缩工具_无损压缩90%-压缩图</a></li>
+                    <li><a class="link" href="https://lab.magiconch.com/nbnhhsh/"> 能不能好好说话？</a></li>
+                    <li><a class="link" href="https://www.wenshushu.cn/"> 文叔叔 - 传文件，找文叔叔（大文件、永不限速）</a></li>
+                </ul>
+                <div class="category-block">
+                    <h3>测速</h3>
+                    <ul class="link-list">
+                        <li><a class="link" href="https://www.speedtest.cn/"> 测速网</a></li>
+                        <li><a class="link" href="https://test.ustc.edu.cn/"> 中国科学技术大学测速网站</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-bg" id="cloud">
+            <h2 class="section-title">网盘工具</h2>
+            <div class="section-content">
+                <ul class="link-list">
+                    <li><a class="link" href="https://www.123pan.com/">123 云盘</a></li>
+                    <li><a class="link" href="https://pan.baidu.com/"> 百度网盘-免费云盘丨文件共享软件丨超大容量丨存储安全</a></li>
+                    <li><a class="link" href="https://pan.quark.cn/"> 【夸克网盘】夸克网盘PC网页版端入口</a></li>
+                    <li><a class="link" href="https://yun.139.com/w/#/"> 中国移动云盘-不限速免流量的云盘</a></li>
+                    <li><a class="link" href="https://cloud.189.cn/web/login.html"> 天翼云盘 珍藏美好生活 家庭云|网盘|文件备份|资源分享</a></li>
+                    <li><a class="link" href="https://www.alipan.com/"> 阿里云盘 - 备份无忧 整理有序·阿里巴巴集团出品</a></li>
+                    <li><a class="link" href="https://wwu.lanzouy.com/"> 蓝奏·云存储</a></li>
+                    <li><a class="link" href="https://www.ctfile.com/"> 城通网盘</a></li>
+                    <li><a class="link" href="https://www.yunpan.com/">360AI 云盘 - 安全存储的云盘</a>：可能不能打开</li>
+                    <li><a class="link" href="https://www.quqi.com/"> 杭州此刻云匣信息技术有限公司</a></li>
+                    <li><a class="link" href="https://www.ctfile.com/"> 城通网盘</a></li>
+                    <li><a class="link" href="https://115.com/"> 115科技官网_首页_115，一生相伴</a></li>
+                    <li><a class="link" href="https://www.baiwang.com/official_website/index.html"> Baiwang.com  百望股份-数智商业平台</a></li>
+                    <li><a class="link" href="https://www.jianguoyun.com/"> 坚果云官网|网盘|云盘|云服务|团队协作软件|同步盘</a></li>
+                    <li><a class="link" href="https://www.weiyun.com/"> 首页-腾讯微云</a></li>
+                </ul>
+                <div class="category-block">
+                    <h3>文件资源管理器直连工具</h3>
+                    <ul class="link-list">
+                        <li><a class="link" href="https://www.speedtest.cn/"> 测速网</a></li>
+                        <li><a class="link" href="https://test.ustc.edu.cn/"> 中国科学技术大学测速网站</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-bg" id="gov">
+            <h2 class="section-title">政府网站</h2>
+            <div class="section-content">
+                <ul class="two-column-list">
+                    <li><a class="link" href="http://www.gov.cn/"> 中国政府网_中央人民政府门户网站</a></li>
+                    <li><a class="link" href="https://www.spp.gov.cn/"> 中华人民共和国最高人民检察院 </a></li>
+                    <li><a class="link" href="https://www.mps.gov.cn/"> 中华人民共和国公安部</a></li>
+                    <li><a class="link" href="http://www.nhc.gov.cn/"> 中华人民共和国国家卫生健康委员会</a></li>
+                    <li><a class="link" href="https://www.sac.gov.cn/"> 国家标准化管理委员会</a></li>
+                    <li><a class="link" href="https://www.court.gov.cn/index.html"> 首页 - 中华人民共和国最高人民法院</a></li>
+                    <li><a class="link" href="https://www.henan.gov.cn/"> 河南省人民政府门户网站</a></li>
+                    <li><a class="link" href="https://www.nppa.gov.cn/"> 国家新闻出版署</a></li>
+                    <li><a class="link" href="https://www.gfbzb.gov.cn/"> 全国征兵网</a></li>
+                    <li><a class="link" href="http://www.moe.gov.cn/"> 中华人民共和国教育部政府门户网站</a></li>
+                    <li><a class="link" href="https://www.ccdi.gov.cn/"> 中央纪委国家监委网站</a></li>
+                    <li><a class="link" href="https://www.ncac.gov.cn/"> 国家版权局网</a></li>
+                    <li><a class="link" href="http://www.cppcc.gov.cn/"> 中国政协网</a></li>
+                    <li><a class="link" href="https://cyberpolice.mps.gov.cn/#/"> 网络违法犯罪举报网站</a></li>
+                    <li><a class="link" href="http://www.npc.gov.cn/npc/index.html"> 中国人大网</a></li>
+                    <li><a class="link" href="https://www.cma.gov.cn/"> 中国气象网-中国气象局政府门户网站</a></li>
+                    <li><a class="link" href="https://qspfw.moe.gov.cn/index.html"> 教育部全国青少年普法网</a></li>
+                    <li><a class="link" href="https://www.zhengzhou.gov.cn/"> 郑州市人民政府</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-bg" id="other">
+            <h2 class="section-title">其他官方网站</h2>
+            <div class="section-content">
+                <ul class="two-column-list">
+                    <li><a class="link" href="https://www.wgtn.ac.nz/">  Te Herenga Waka—Victoria University of Wellington</a></li>
+                    <li><a class="link" href="https://www.beautyofscience.cn/#/home">  美丽科学</a></li>
+                    <li><a class="link" href="https://cn.58.com/"> 【58同城 58.com 】其他分类信息 - 本地 免费 高效</a></li>
+                    <li><a class="link" href="https://china.baixing.com/"> 【百姓网】 - 免费发布信息 - 中国分类信息网 - 中国百姓网</a></li>
+                    <li><a class="link" href="https://www.51.la/">51LA  - 领先的数据统计服务商</a></li>
+                    <li><a class="link" href="https://www.666php.com/">666 资源论坛</a>：这个网站禁止进行F12调试</li>
+                    <li><a class="link" href="https://www.adobe.com/cn/">Adobe ：创意、营销和文档管理解决方案</a></li>
+                    <li><a class="link" href="https://ananova.com/">Ananova  Business Web Hosting </a></li>
+                    <li><a class="link" href="http://www.crac.org.cn/">CRAC 首页-中国无线电协会业余无线电分会</a></li>
+                    <li><a class="link" href="https://mh.dp712.com/">DP 次元美化:「原创」二次元轻美化交流平台！</a></li>
+                    <li><a class="link" href="https://www.filezilla.cn/">FileZilla 中文网 - 免费开源的FTP解决方案</a></li>
+                    <li><a class="link" href="https://www.flash.cn/">Flash 官网-Flash Player下载 _Flash中心_重橙网络</a></li>
+                    <li><a class="link" href="https://www.infinityfree.com/">Free  Web Hosting with PHP and MySQL - InfinityFree</a></li>
+                    <li><a class="link" href="https://www.freenom.com/zh/index.html?lang=zh">Freenom  - 人人都熟悉的名字</a></li>
+                    <li><a class="link" href="https://www.gamivo.com/">GAMIVO  | Video games, gift cards, cd keys at best price</a></li>
+                    <li><a class="link" href="https://greasyfork.org/zh-CN">Greasy  Fork - 安全且实用的用户脚本站</a></li>
+                    <li><a class="link" href="https://china.usembassy-china.org.cn/zh/">Homepage  - 美国驻华大使馆和领事馆</a></li>
+                    <li><a class="link" href="https://www.keepscreenon.com/">Keep  Screen On - A page to prevent your device from sleeping</a></li>
+                    <li><a class="link" href="https://global.kfc.com/">KFC  - Home | KFC</a></li>
+                    <li><a class="link" href="https://www.kinder.com/cn/zh/">Kinder  中国</a></li>
+                    <li><a class="link" href="https://www.nature.com/">Nature</a></li> 
+                    <li><a class="link" href="https://www.lotuspens.com/">Premium  Quality Personalized Writing Instruments - Lotus Pens</a></li>
+                    <li><a class="link" href="https://transgate.de/">Prevenio®  - Die umfassende Software für Ihren Arbeitsschutz.</a></li>
+                    <li><a class="link" href="https://www.whitehouse.gov/">The  White House</a></li>
+                    <li><a class="link" href="https://u.tools/">uTools 官网 - 新一代效率工具平台</a></li>
+                    <li><a class="link" href="https://www.virustotal.com/gui/home/upload">VirusTotal  - Home</a></li>
+                    <li><a class="link" href="https://www.wallpaperengine.io/zh-hans">Wallpaper  Engine：Windows 系统上的动画壁纸</a></li>
+                    <li><a class="link" href="https://www.wto.org/">World  Trade Organization - Home page - Global trade</a></li>
+                    <li><a class="link" href="https://xmind.cn/">Xmind 思维导图 | Xmind中文官方网站</a></li>
+                    <li><a class="link" href="https://www.yumchina.com/"> 百胜中国-YumChina</a></li>
+                    <li><a class="link" href="https://www.baobeihuijia.com/bbhj/"> 宝贝回家 关爱儿童我们共同的责任</a></li>
+                    <li><a class="link" href="https://www.cnblogs.com/"> 博客园 - 开发者的网上家园</a></li>
+                    <li><a class="link" href="https://www.shuidichou.com/"> 筹款就用水滴筹，靠谱的大病救助平台</a></li>
+                    <li><a class="link" href="https://www.dewu.com/"> 得物App-新一代潮流网购社区</a>：这网站居然在F12调试的元素调试中没title标签！</li>
+                    <li><a class="link" href="https://api.zzmetro.com/lines/map"> 地铁线路规划图__郑州地铁运营线路图</a></li>
+                    <li><a class="link" href="https://app.diandian.com/"> 点点数据-App数据查询分析,AppStore排行榜,ASO,ASM优化平台</a></li>
+                    <li><a class="link" href="https://www.mvcat.com/"> 电影推荐 · MVCAT</a>：这网站居然在F12调试的元素调试中没title标签！</li>
+                    <li><a class="link" href="https://www.ddooo.com/"> 多多软件站-提供绿色软件和热门单机游戏下载</a></li>
+                    <li><a class="link" href="https://olympics.com/zh/"> 观看赛事直播和最新消息 | Olympics.com</a></li> 
+                    <li><a class="link" href="https://www.vpsor.cn/"> 硅云 - 领先的出海IaaS云计算基础设施服务提供商</a></li>
+                    <li><a class="link" href="https://www.gzbl.com/index.html"> 贵州百灵企业集团制药股份有限公司</a>：这个网站禁止进行F12调试</li>
+                    <li><a class="link" href="http://www.rightpaper.com/"> 湖北双佳纸品有限公司- 湖北双佳纸品有限公司</a></li>
+                    <li><a class="link" href="https://www.edrawsoft.cn/"> 绘制精美的流程图、思维导图、信息图等 - 亿图软件官网</a></li>
+                    <li><a class="link" href="https://www.hunliji.com/"> 婚纱摄影_婚礼策划_婚庆_一站式结婚服务【婚礼纪】</a></li>
+                    <li><a class="link" href="http://www.xz7.com/"> 极光下载站_绿色软件免费下载_手机应用商店</a></li>
+                    <li><a class="link" href="https://www.jianshu.com/"> 简书 - 创作你的创作</a></li>
+                    <li><a class="link" href="https://www.juming.com/"> 聚名网-到期域名查询抢注-域名注册-老域名买卖交易平台</a></li>
+                    <li><a class="link" href="https://www.kancloud.cn/"> 看云 | 现代化文档写作、托管及数字出版</a></li>
+                    <li><a class="link" href="https://kodcloud.com/"> 可道云-私有云存储&协同办公平台_企业网盘_企业云盘_网盘_云盘</a></li>
+                    <li><a class="link" href="http://www.lp-jt.com/"> 蓝漂集团官网_四川蓝漂日用品有限公司</a></li>
+                    <li><a class="link" href="https://www.ldmnq.com/"> 雷电模拟器官网_安卓模拟器_电脑手游模拟器</a></li>
+                    <li><a class="link" href="https://lirong.digitalixy.com/"> 李融博客</a></li>
+                    <li><a class="link" href="https://www.ling-shi.com/"> 灵狮科技-企微SCRM|智能直播|品牌网校搭建|全链路推广平台</a></li>
+                    <li><a class="link" href="https://www.linkedin.cn/"> 领英企业服务</a></li>
+                    <li><a class="link" href="https://www.longmenshuju.com/"> 龙门书局 - 首页</a></li>
+                    <li><a class="link" href="https://www.logitech.com/zh-cn"> 罗技：无线鼠标、键盘、耳机麦克风和视频会议</a></li>
+                    <li><a class="link" href="http://www.downcc.com/"> 绿色资源网-绿色下载站-做最好的免费软件下载网站</a></li>
+                    <li><a class="link" href="https://www.antso.cn/">" 蚂蚁目录-分类网址目录,精选网站导航,免费网站名录</a>" </li>
+                    <li><a class="link" href="https://www.mairuan.com/"> 麦软网-专业正版低价软件及软件培训，资讯，素材模版交易平台</a></li>
+                    <li><a class="link" href="https://www.moepro.cn/"> 萌娘资源站 - 动漫头像、手机壁纸、电脑壁纸下载</a></li>
+                    <li><a class="link" href="https://www.mianshiya.com/"> 面试鸭 - 程序员求职面试刷题神器，高频编程题目免费刷</a></li>
+                    <li><a class="link" href="https://www.mixchat.xin/"> 匿信聊天 - 陌生人社交联盟</a></li>
+                    <li><a class="link" href="https://www.nongfuspring.com/"> 农夫山泉|Nongfu Spring|農夫山泉</a></li>
+                    <li><a class="link" href="https://www.qikanchina.com/"> 期刊网</a></li>
+                    <li><a class="link" href="https://www.chinaqikan.com/"> 期刊网</a></li>
+                    <li><a class="link" href="https://drivers.mydrivers.com/"> 驱动之家-值得信赖的专业驱动中文网站</a></li>
+                    <li><a class="link" href="https://www.renren.com/"> 人人网</a></li>
+                    <li><a class="link" href="https://www.ryytn.com/"> 认养一头牛|只为用户养好牛- Adopt A Cow</a></li>
+                    <li><a class="link" href="https://www.rili.com.cn/"> 日历网</a></li>
+                    <li><a class="link" href="https://www.shicimingju.com/"> 诗词名句网-传承唯美的千古绝句</a></li>
+                    <li><a class="link" href="https://www.zto.com/index.html"> 首页 - 中通快递</a></li>
+                    <li><a class="link" href="https://www.sohu.com/"> 搜狐</a></li>
+                    <li><a class="link" href="https://www.goodark.com/"> 苏州固鍀</a></li>
+                    <li><a class="link" href="https://www.pconline.com.cn/"> 太平洋科技_专业IT门户网站</a></li>
+                    <li><a class="link" href="https://tenda.com.cn/"> 腾达(Tenda)官方网站</a></li>
+                    <li><a class="link" href="https://www.qq.com/"> 腾讯网</a></li>
+                    <li><a class="link" href="https://www.wanfangdata.com.cn/"> 万方数据知识服务平台-科研学习全流程支持服务平台</a></li>
+                    <li><a class="link" href="https://www.wondershare.cn/"> 万兴科技 - 让世界更有创意！</a></li>
+                    <li><a class="link" href="https://www.wjx.cn/"> 问卷星_不止问卷调查/在线考试</a></li>
+                    <li><a class="link" href="https://www.xitongzhijia.net/"> 系统之家官网_Win10系统_Windows7旗舰版_最新GhostXP Sp3系统下载</a></li>
+                    <li><a class="link" href="http://www.zlcool.com/"> 心得体会_资料库提供学习心得体会等范文-资料库</a></li>
+                    <li><a class="link" href="https://www.sparke.cn/"> 星火英语</a></li>
+                    <li><a class="link" href="https://www.cmbchina.com/"> 一网通主页 -- 招商银行官方网站</a></li>
+                    <li><a class="link" href="https://www.ieway.cn/"> 一唯科技 - 为您提供简单易用的音视频软件</a></li>
+                    <li><a class="link" href="https://www.yixue.com/"> 医学百科_公益靠谱的医学知识宝库_医学网</a></li>
+                    <li><a class="link" href="https://www.kf5.com/"> 逸创云客服_全渠道智能云客服系统_工单系统_在线客服_云呼叫中心</a></li>
+                    <li><a class="link" href="https://www.umeng.com/"> 友盟+，领先的全域数据智能服务商</a></li>
+                    <li><a class="link" href="https://www.yusenpaper.com/"> 雨森官网-让品质渗透生活</a></li>
+                    <li><a class="link" href="https://www.yuque.com/"> 语雀，为每一个人提供优秀的文档和知识库工具</a></li>
+                    <li><a class="link" href="https://www.rapidtables.org/zh-CN/"> 在线计算器和工具 - RT</a></li>
+                    <li><a class="link" href="https://tool.chinaz.com/"> 站长工具 - 站长之家</a></li>
+                    <li><a class="link" href="https://uc.chinaz.com/"> 站长之家用户中心</a></li>
+                    <li><a class="link" href="https://cx.panpass.com/"> 兆信科技 - 产品溯源防伪码验证平台</a></li>
+                    <li><a class="link" href="http://www.ytyaoye.com/"> 浙江亚太药业股份有限公司-化学药品制剂-药品研发</a></li>
+                    <li><a class="link" href="https://zhutix.com/"> 致美化 - 视觉美化研究平台</a></li>
+                    <li><a class="link" href="https://iqeq.com.cn/"> 智商测试(测智网2025版)1369万人通过IQ测试国际标准60题免费版</a></li>
+                    <li><a class="link" href="https://weather.cma.cn/"> 中国气象局-天气预报</a></li>
+                    <li><a class="link" href="https://www.10086.cn/"> 中国移动官方网站</a></li>
+                    <li><a class="link" href="http://www.sowang.com/"> 中文搜索引擎指南网「搜网」- 让您搜索更快更准确！</a></li>
+                    <li><a class="link" href="https://www.zhuanzhuan.com/"> 转转_转转二手官方验，买卖二手不一样</a></li>
+                    <li><a class="link" href="https://www.bytedance.com/zh/"> 字节跳动</a></li>
+                    <li><a class="link" href="https://www.westerndigital.com/zh-cn"> 高性能 SSD、HDD、USB 驱动器和内存卡 | Western Digital</a></li>
+                    <li><a class="link" href="https://cybermap.kaspersky.com/cn"> 地图 | 卡巴斯基网络威胁实时地图</a></li>
+                    <li><a class="link" href="https://www.douyin.com/"> 抖音</a></li>
+                    <li><a class="link" href="https://www.kuaishou.com/"> 快手</a></li>
+                    <li><a class="link" href="https://easypanel.fr/#/home">EasyPanel  | Sondages et tests consommateurs</a></li>
+                    <li><a class="link" href="https://digitalixy.com"> 数字生活</a></li>
+                    <li><a class="link" href="http://www.ueit.com.cn/index.html"> 优易信息</a></li>
+                    <li><a class="link" href="https://corp.oup.com/?cc=cn">Homepage  - Oxford University Press</a></li>
+                    <li><a class="link" href="https://www.xn--ghqy5t5uf651b82d.com/#/"> 莫老师的附件表</a></li>
+                    <li><a class="link" href="https://www.xuexi.cn/"> 学习强国</a></li>
+                    <li><a class="link" href="https://www.maczd.com/">Mac 知道 - 我们知道Mac上好玩实用的教程和软件</a></li>
+                    <li><a class="link" href="http://tears.ysepan.com/"> 樱振宇 - E盘</a></li>
+                    <li><a class="link" href="https://cat-catch.bmmmd.com/"> 猫抓(cat catch) | 猫抓(cat catch)文档</a></li>
+                    <li><a class="link" href="http://122.226.59.20:12303/login">Kingo API</a></li>
+                    <li><a class="link" href="https://www.henanzsbzx.com/"> 河南专升本_河南统招专升本_河南医学专升本-河南全日制专升本服务中心</a></li>
+                    <li><a class="link" href="https://ffmpeg.bmmmd.com/"> 笨猫猫 cat-catch</a></li>
+                    <li><a class="link" href="https://www.icbc.com.cn/icbc/"> 中国工商银行中国网站</a></li>
+                    <li><a class="link" href="https://www.12306.cn/index/index.html"> 中国铁路12306网站</a></li>
+                    <li><a class="link" href="https://encycolorpedia.cn/"> 十六进制颜色代码表，图表及调色板 - Encycolorpedia</a></li>
+                    <li><a class="link" href="https://www.isc.org.cn/"> 中国互联网协会</a></li>
+                    <li><a class="link" href="https://scikit-learn.org.cn/">scikit-learn 中文社区</a></li>
+                    <li><a class="link" href="https://www.pipchina.cn/">App 专项治理工作组</a></li>
+                    <li><a class="link" href="https://checkmarx.com/">Appsec  Tool - Checkmarx Application Security Testing Solution</a></li>
+                    <li><a class="link" href="https://www.godoos.com/home/os/#">GodoOS  - 湖南果度科技有限公司</a></li>
+                    <li><a class="link" href="https://developer.mozilla.org/zh-CN/">MDN  Web Docs</a></li>
+                    <li><a class="link" href="https://www.typescriptlang.org/">TypeScript:  JavaScript With Syntax For Types.</a></li>
+                    <li><a class="link" href="https://www.tslang.cn/#google_vignette">TypeScript 中文网 · TypeScript——JavaScript的超集</a></li>
+                    <li><a class="link" href="https://fishpi.cn/"> 摸鱼派 - 白与画科技</a></li>
+                    <li><a class="link" href="https://nodejs.cn/">Node.js  中文网</a></li>
+                    <li><a class="link" href="http://www.blackmagicdesign.com/">Blackmagic Design</a></li>
+                    <li><a class="link" href="https://www.tiaozhanbei.net/">挑战杯 全国大学生课外学术科技作品竞赛和创业计划大赛 官方网站  </a></li>
+                    <li><a class="link" href="https://www.ittel.cn/">IT技术之家-无欢不爱的博客</a></li>
+                    <li><a class="link" href="https://uupdump.net/">UUP dump</a></li>
+                    <li><a class="link" href="https://www.imsdn.cn/">MSDN原版系统,纯净镜像,MSDN ISO下载 - 我的MSDN</a></li>
+                    <li><a class="link" href="https://www.mokahr.com/">Moka人力资源管理系统-企业一体化招聘管理系统和人事管理系统-MokaHRSaaS</a></li>
+                    <li><a class="link" href="http://www.blackmagicdesign.com/">Blackmagic Design</a></li>
+                    <li><a class="link" href="http://www.blackmagicdesign.com/">Blackmagic Design</a></li>
+                </ul>
+            </div>
+            
+            <div class="text-bg">
+                <h3>长标题</h3>
+                <ul class="link-list">
+                    <li><a class="link" href="https://site.ip138.com/"> 域名查iP 域名解析 iP查询网站 iP反查域名 iP反查网站 同一iP网站 同iP网站域名iP查询</a></li>
+                    <li><a class="link" href="https://www.qinzhe.com/cn/index.html"> 勤哲Excel服务器 - 简单易用的管理软件平台，自主构建 ERP/OA/CRM/财务软件/进销存/HRM等各类管理软件</a></li>
+                    <li><a class="link" href="https://www.chajiechi.com/"> 查劫持 查分光 网站劫持检测 DNS污染检测 dns污染查询 真机渲染检查 多地多线并发查询</a></li>
+                    <li><a class="link" href="https://www.zol.com.cn/"> 中关村在线 - 大中华区专业IT网站 - The valuable and professional IT business website in Greater China</a></li>
+                    <li><a class="link" href="https://m.statscrop.com/">  Free Online Website Analyzer - Traffic, SEO, Security and Performance - StatsCrop </a></li>
+                    <li><a class="link" href="https://www.oxfordlearnersdictionaries.com/">Oxford  Learner's Dictionaries | Find definitions, translations, and grammar explanations at Oxford Learner's Dictionaries</a></li>
+                    <li><a class="link" href="https://edianyun.com/"  taWrget="_blank">首页 - 租电脑_电脑租赁_免押金租电脑_电脑出租_一站式租电脑平台 -【易点云】</a></li>
+                    <li><a class="link" href="https://b3log.org/">B3log  - 平等•自由•奔放的开源社区。目前 B3log 已经开源了多款产品：Sym、Solo、Pipe、Vditor、Lute、思源笔记等，欢迎大家加入，贡献开源。</a></li>
+                    <li><a class="link" href="https://www.itheima.com/"> 黑马程序员官网-IT培训机构|java培训|前端培训|python培训|大数据培训|鸿蒙开发培训</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <p>排序办法：复制粘贴txt | Excel导入 | 单元格后插缺失角 | 排序 | 复制粘贴Word | 替换角空为角</p>
+        </footer>
+    </main>
+    
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar'); 
+            sidebar.classList.toggle('hidden'); 
+        }
+        
+        // 自动隐藏侧边栏逻辑 
+        function checkScreenWidth() {
+            const sidebar = document.getElementById('sidebar'); 
+            if (window.innerWidth  <= 992) {
+                sidebar.classList.add('hidden'); 
+            } else {
+                sidebar.classList.remove('hidden'); 
+            }
+        }
+        
+        // 初始化检查 
+        checkScreenWidth();
+        
+        // 监听窗口大小变化 
+        window.addEventListener('resize',  checkScreenWidth);
+        
+        // 为所有链接添加target="_blank"
+        document.addEventListener("DOMContentLoaded",  function() {
+            var links = document.querySelectorAll('.link');  
+            links.forEach(function(link)  {
+                link.setAttribute('target',  '_blank');
+            });
+        });
+    </script>
+</body>
+</html>

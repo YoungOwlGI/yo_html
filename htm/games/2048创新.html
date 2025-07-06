@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048创新</title>
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css"  rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF9A8B;
+            --secondary: #FF6B95;
+            --accent: #4ECDC4;
+            --bg: #FFF5F5;
+            --text: #4A4A4A;
+            --tile-2: #FFECD2;
+            --tile-4: #FCB69F;
+            --tile-8: #FF9A8B;
+            --tile-16: #FF6B95;
+            --tile-32: #FF8E53;
+            --tile-64: #FF6B95;
+            --tile-128: #FF9A8B;
+            --tile-256: #FF8E53;
+            --tile-512: #FF6B95;
+            --tile-1024: #FF9A8B;
+            --tile-2048: #FF8E53;
+        }
+ 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        body {
+            font-family: 'Comic Sans MS', 'Marker Felt', cursive;
+            background-color: var(--bg);
+            color: var(--text);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 154, 139, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 149, 0.1) 0%, transparent 20%);
+            touch-action: none;
+            user-select: none;
+        }
+ 
+        .game-container {
+            width: 90vmin;
+            height: 90vmin;
+            max-width: 500px;
+            max-height: 500px;
+            position: relative;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 
+                0 0 0 10px rgba(255, 154, 139, 0.2),
+                0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 15px;
+            overflow: hidden;
+        }
+ 
+        .game-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+ 
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 15px;
+            width: 100%;
+            height: 100%;
+        }
+ 
+        .grid-cell {
+            background-color: rgba(255, 214, 214, 0.3);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+ 
+        .grid-cell::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px dashed rgba(255, 154, 139, 0.3);
+            border-radius: 6px;
+            pointer-events: none;
+        }
+ 
+        .tile {
+            position: absolute;
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 7vmin;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.15s ease-out;
+            z-index: 10;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: appear 0.2s ease-out;
+            cursor: grab;
+        }
+ 
+        .tile:active {
+            cursor: grabbing;
+            transform: scale(0.95);
+            z-index: 100;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+ 
+        @keyframes appear {
+            0% { transform: scale(0); opacity: 0; }
+            80% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+ 
+        @keyframes merge {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+ 
+        .tile-2 { background-color: var(--tile-2); color: var(--text); }
+        .tile-4 { background-color: var(--tile-4); color: var(--text); }
+        .tile-8 { background-color: var(--tile-8); color: white; }
+        .tile-16 { background-color: var(--tile-16); color: white; }
+        .tile-32 { background-color: var(--tile-32); color: white; }
+        .tile-64 { background-color: var(--tile-64); color: white; }
+        .tile-128 { background-color: var(--tile-128); color: white; font-size: 6vmin; }
+        .tile-256 { background-color: var(--tile-256); color: white; font-size: 6vmin; }
+        .tile-512 { background-color: var(--tile-512); color: white; font-size: 6vmin; }
+        .tile-1024 { background-color: var(--tile-1024); color: white; font-size: 5vmin; }
+        .tile-2048 { background-color: var(--tile-2048); color: white; font-size: 5vmin; }
+ 
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90vmin;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+ 
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--text);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+ 
+        .title::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+ 
+        .score-container {
+            display: flex;
+            gap: 10px;
+        }
+ 
+        .score-box {
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+ 
+        .score-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+ 
+        .score-title {
+            font-size: 0.8rem;
+            color: var(--text);
+            opacity: 0.7;
+        }
+ 
+        .score-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text);
+        }
+ 
+        .game-message {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease-out;
+        }
+ 
+        .game-message.show  {
+            opacity: 1;
+            pointer-events: all;
+        }
+ 
+        .message {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--text);
+            text-align: center;
+        }
+ 
+        .retry-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease-out;
+            font-family: inherit;
+        }
+ 
+        .retry-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+ 
+        .hand-drawn {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+        }
+ 
+        .hand-drawn-1 {
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path  d="M10,10 Q30,5 50,20 T90,10" fill="none" stroke="%23FF9A8B" stroke-width="2" stroke-linecap="round"/></svg>');
+            opacity: 0.5;
+        }
+ 
+        .hand-drawn-2 {
+            bottom: -20px;
+            left: -20px;
+            width: 100px;
+            height: 100px;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path  d="M10,90 Q30,95 50,80 T90,90" fill="none" stroke="%23FF6B95" stroke-width="2" stroke-linecap="round"/></svg>');
+            opacity: 0.5;
+        }
+ 
+        .instructions {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.7;
+            text-align: center;
+            max-width: 90vmin;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-header">
+        <div class="title">2048</div>
+        <div class="score-container">
+            <div class="score-box">
+                <div class="score-title">分数</div>
+                <div class="score-value" id="score">0</div>
+            </div>
+            <div class="score-box">
+                <div class="score-title">最佳</div>
+                <div class="score-value" id="best-score">0</div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="game-container">
+        <div class="hand-drawn hand-drawn-1"></div>
+        <div class="hand-drawn hand-drawn-2"></div>
+        
+        <div class="grid-container" id="grid-container">
+            <!-- 4x4 grid will be generated here -->
+        </div>
+ 
+        <div class="game-message" id="game-message">
+            <div class="message" id="message-text">游戏结束!</div>
+            <button class="retry-button" id="retry-button">再试一次</button>
+        </div>
+    </div>
+ 
+    <div class="instructions">
+        拖动方块进行合并，目标是获得2048! 使用鼠标拖动或键盘方向键操作 
+    </div>
+ 
+    <script>
+        document.addEventListener('DOMContentLoaded',  () => {
+            const gridContainer = document.getElementById('grid-container'); 
+            const scoreDisplay = document.getElementById('score'); 
+            const bestScoreDisplay = document.getElementById('best-score'); 
+            const gameMessage = document.getElementById('game-message'); 
+            const messageText = document.getElementById('message-text'); 
+            const retryButton = document.getElementById('retry-button'); 
+ 
+            // Game state 
+            const grid = Array(4).fill().map(() => Array(4).fill(0));
+            let score = 0;
+            let bestScore = localStorage.getItem('bestScore')  || 0;
+            let isDragging = false;
+            let draggedTile = null;
+            let draggedTileValue = 0;
+            let draggedTilePosition = { row: -1, col: -1 };
+            let gameOver = false;
+ 
+            bestScoreDisplay.textContent  = bestScore;
+ 
+            // Initialize game 
+            function initGame() {
+                // Clear grid 
+                gridContainer.innerHTML  = '';
+                
+                // Create grid cells 
+                for (let i = 0; i < 4; i++) {
+                    for (let j = 0; j < 4; j++) {
+                        const cell = document.createElement('div'); 
+                        cell.className  = 'grid-cell';
+                        cell.dataset.row  = i;
+                        cell.dataset.col  = j;
+                        gridContainer.appendChild(cell); 
+                    }
+                }
+ 
+                // Reset game state 
+                for (let i = 0; i < 4; i++) {
+                    for (let j = 0; j < 4; j++) {
+                        grid[i][j] = 0;
+                    }
+                }
+                
+                score = 0;
+                scoreDisplay.textContent  = score;
+                gameOver = false;
+                gameMessage.classList.remove('show'); 
+ 
+                // Add initial tiles 
+                addRandomTile();
+                addRandomTile();
+                updateView();
+            }
+ 
+            // Add a random tile (2 or 4) to an empty cell 
+            function addRandomTile() {
+                const emptyCells = [];
+                
+                for (let i = 0; i < 4; i++) {
+                    for (let j = 0; j < 4; j++) {
+                        if (grid[i][j] === 0) {
+                            emptyCells.push({  row: i, col: j });
+                        }
+                    }
+                }
+                
+                if (emptyCells.length  > 0) {
+                    const { row, col } = emptyCells[Math.floor(Math.random() * emptyCells.length)]; 
+                    grid[row][col] = Math.random()  < 0.9 ? 2 : 4;
+                    return true;
+                }
+                return false;
+            }
+ 
+            // Update the view based on the grid 
+            function updateView() {
+                // Remove all tiles except the one being dragged 
+                document.querySelectorAll('.tile').forEach(tile  => {
+                    if (tile !== draggedTile) {
+                        tile.remove(); 
+                    }
+                });
+                
+                // Add tiles based on grid 
+                for (let i = 0; i < 4; i++) {
+                    for (let j = 0; j < 4; j++) {
+                        if (grid[i][j] !== 0 && !(i === draggedTilePosition.row  && j === draggedTilePosition.col))  {
+                            const tile = document.createElement('div'); 
+                            tile.className  = `tile tile-${grid[i][j]}`;
+                            tile.textContent  = grid[i][j];
+                            tile.dataset.row  = i;
+                            tile.dataset.col  = j;
+                            
+                            const cell = document.querySelector(`.grid-cell[data-row="${i}"][data-col="${j}"]`); 
+                            cell.appendChild(tile); 
+                            
+                            // Animation for new tiles 
+                            if (!tile.hasAttribute('data-animated'))  {
+                                tile.setAttribute('data-animated',  'true');
+                                tile.style.animation  = 'appear 0.2s ease-out';
+                            }
+                        }
+                    }
+                }
+            }
+ 
+            // Handle tile dragging 
+            function handleTileDragStart(e, row, col) {
+                if (gameOver || grid[row][col] === 0) return;
+                
+                isDragging = true;
+                draggedTileValue = grid[row][col];
+                draggedTilePosition = { row, col };
+                
+                // Create a clone of the tile to drag 
+                draggedTile = document.createElement('div'); 
+                draggedTile.className  = `tile tile-${draggedTileValue}`;
+                draggedTile.textContent  = draggedTileValue;
+                draggedTile.style.position  = 'fixed';
+                draggedTile.style.zIndex  = '1000';
+                draggedTile.style.pointerEvents  = 'none';
+                
+                // Position the dragged tile at the cursor 
+                const rect = e.target.getBoundingClientRect(); 
+                draggedTile.style.left  = `${rect.left}px`; 
+                draggedTile.style.top  = `${rect.top}px`; 
+                draggedTile.style.width  = `${rect.width}px`; 
+                draggedTile.style.height  = `${rect.height}px`; 
+                
+                document.body.appendChild(draggedTile); 
+                
+                // Clear the original tile position 
+                grid[row][col] = 0;
+                updateView();
+                
+                // Prevent default for touch events 
+                if (e.type  === 'touchstart') {
+                    e.preventDefault(); 
+                }
+            }
+ 
+            function handleTileDragMove(e) {
+                if (!isDragging || !draggedTile) return;
+                
+                const clientX = e.clientX  || e.touches[0].clientX; 
+                const clientY = e.clientY  || e.touches[0].clientY; 
+                
+                // Update dragged tile position 
+                draggedTile.style.left  = `${clientX - draggedTile.offsetWidth  / 2}px`;
+                draggedTile.style.top  = `${clientY - draggedTile.offsetHeight  / 2}px`;
+                
+                // Prevent default for touch events 
+                if (e.type  === 'touchmove') {
+                    e.preventDefault(); 
+                }
+            }
+ 
+            function handleTileDragEnd(e) {
+                if (!isDragging || !draggedTile) {
+                    isDragging = false;
+                    return;
+                }
+                
+                const clientX = e.clientX  || (e.changedTouches  && e.changedTouches[0].clientX); 
+                const clientY = e.clientY  || (e.changedTouches  && e.changedTouches[0].clientY); 
+                
+                // Find the cell under the cursor 
+                const cells = document.querySelectorAll('.grid-cell'); 
+                let targetCell = null;
+                
+                cells.forEach(cell  => {
+                    const rect = cell.getBoundingClientRect(); 
+                    if (clientX >= rect.left  && clientX <= rect.right  && 
+                        clientY >= rect.top  && clientY <= rect.bottom)  {
+                        targetCell = cell;
+                    }
+                });
+                
+                if (targetCell) {
+                    const targetRow = parseInt(targetCell.dataset.row); 
+                    const targetCol = parseInt(targetCell.dataset.col); 
+                    
+                    // Check if we can merge with the target cell 
+                    if (grid[targetRow][targetCol] === draggedTileValue) {
+                        // Merge tiles 
+                        grid[targetRow][targetCol] *= 2;
+                        score += grid[targetRow][targetCol];
+                        scoreDisplay.textContent  = score;
+                        
+                        // Update best score if needed 
+                        if (score > bestScore) {
+                            bestScore = score;
+                            bestScoreDisplay.textContent  = bestScore;
+                            localStorage.setItem('bestScore',  bestScore);
+                        }
+                        
+                        // Check for win condition 
+                        if (grid[targetRow][targetCol] === 2048) {
+                            showMessage('你赢了!');
+                            gameOver = true;
+                        }
+                        
+                        // Animation for merged tile 
+                        const mergedTile = document.createElement('div'); 
+                        mergedTile.className  = `tile tile-${grid[targetRow][targetCol]}`;
+                        mergedTile.textContent  = grid[targetRow][targetCol];
+                        mergedTile.style.animation  = 'merge 0.3s ease-out';
+                        targetCell.appendChild(mergedTile); 
+                    } else if (grid[targetRow][targetCol] === 0) {
+                        // Move tile to empty cell 
+                        grid[targetRow][targetCol] = draggedTileValue;
+                    } else {
+                        // Can't move, return to original position 
+                        grid[draggedTilePosition.row][draggedTilePosition.col] = draggedTileValue;
+                    }
+                } else {
+                    // Return to original position if dropped outside grid 
+                    grid[draggedTilePosition.row][draggedTilePosition.col] = draggedTileValue;
+                }
+                
+                // Clean up dragged tile 
+                if (draggedTile) {
+                    draggedTile.remove(); 
+                    draggedTile = null;
+                }
+                
+                // Add a new random tile if the board changed 
+                if (JSON.stringify(grid)  !== JSON.stringify(Array(4).fill().map(()  => Array(4).fill(0)))) {
+                    addRandomTile();
+                }
+                
+                updateView();
+                
+                // Check for game over 
+                if (isGameOver()) {
+                    showMessage('游戏结束!');
+                    gameOver = true;
+                }
+                
+                isDragging = false;
+                
+                // Prevent default for touch events 
+                if (e.type  === 'touchend') {
+                    e.preventDefault(); 
+                }
+            }
+ 
+            // Keyboard controls 
+            function handleKeyDown(e) {
+                if (gameOver) return;
+                
+                let moved = false;
+                
+                switch (e.key)  {
+                    case 'ArrowUp':
+                        moved = moveTiles('up');
+                        break;
+                    case 'ArrowRight':
+                        moved = moveTiles('right');
+                        break;
+                    case 'ArrowDown':
+                        moved = moveTiles('down');
+                        break;
+                    case 'ArrowLeft':
+                        moved = moveTiles('left');
+                        break;
+                    case 'r':
+                    case 'R':
+                        initGame();
+                        return;
+                }
+                
+                if (moved) {
+                    addRandomTile();
+                    updateView();
+                    
+                    if (isGameOver()) {
+                        showMessage('游戏结束!');
+                        gameOver = true;
+                    }
+                }
+            }
+ 
+            // Move tiles in a direction (for keyboard controls)
+            function moveTiles(direction) {
+                let moved = false;
+                const oldGrid = JSON.parse(JSON.stringify(grid)); 
+                
+                // Transpose the grid for vertical moves 
+                if (direction === 'up' || direction === 'down') {
+                    for (let i = 0; i < 4; i++) {
+                        for (let j = i + 1; j < 4; j++) {
+                            [grid[i][j], grid[j][i]] = [grid[j][i], grid[i][j]];
+                        }
+                    }
+                }
+                
+                // Reverse rows for right and down moves 
+                if (direction === 'right' || direction === 'down') {
+                    for (let i = 0; i < 4; i++) {
+                        grid[i].reverse();
+                    }
+                }
+                
+                // Move and merge tiles 
+                for (let i = 0; i < 4; i++) {
+                    let row = grid[i].filter(val => val !== 0);
+                    let newRow = [];
+                    
+                    while (row.length  > 0) {
+                        if (row.length  >= 2 && row[0] === row[1]) {
+                            const mergedValue = row[0] * 2;
+                            newRow.push(mergedValue); 
+                            score += mergedValue;
+                            row = row.slice(2); 
+                            moved = true;
+                            
+                            // Check for win condition 
+                            if (mergedValue === 2048) {
+                                showMessage('你赢了!');
+                                gameOver = true;
+                            }
+                        } else {
+                            newRow.push(row[0]); 
+                            row = row.slice(1); 
+                        }
+                    }
+                    
+                    // Fill the rest with zeros 
+                    while (newRow.length  < 4) {
+                        newRow.push(0); 
+                    }
+                    
+                    grid[i] = newRow;
+                }
+                
+                // Reverse rows back 
+                if (direction === 'right' || direction === 'down') {
+                    for (let i = 0; i < 4; i++) {
+                        grid[i].reverse();
+                    }
+                }
+                
+                // Transpose back 
+                if (direction === 'up' || direction === 'down') {
+                    for (let i = 0; i < 4; i++) {
+                        for (let j = i + 1; j < 4; j++) {
+                            [grid[i][j], grid[j][i]] = [grid[j][i], grid[i][j]];
+                        }
+                    }
+                }
+                
+                // Update best score if needed 
+                if (moved && score > bestScore) {
+                    bestScore = score;
+                    bestScoreDisplay.textContent  = bestScore;
+                    localStorage.setItem('bestScore',  bestScore);
+                }
+                
+                return moved;
+            }
+ 
+            // Check if game is over 
+            function isGameOver() {
+                // Check for empty cells 
+                for (let i = 0; i < 4; i++) {
+                    for (let j = 0; j < 4; j++) {
+                        if (grid[i][j] === 0) {
+                            return false;
+                        }
+                    }
+                }
+                
+                // Check for possible merges 
+                for (let i = 0; i < 4; i++) {
+                    for (let j = 0; j < 4; j++) {
+                        if (j < 3 && grid[i][j] === grid[i][j + 1]) {
+                            return false;
+                        }
+                        if (i < 3 && grid[i][j] === grid[i + 1][j]) {
+                            return false;
+                        }
+                    }
+                }
+                
+                return true;
+            }
+ 
+            // Show game message 
+            function showMessage(text) {
+                messageText.textContent  = text;
+                gameMessage.classList.add('show'); 
+            }
+ 
+            // Event listeners 
+            function setupEventListeners() {
+                // Mouse events for tile dragging 
+                gridContainer.addEventListener('mousedown',  (e) => {
+                    const cell = e.target.closest('.grid-cell'); 
+                    if (cell) {
+                        const row = parseInt(cell.dataset.row); 
+                        const col = parseInt(cell.dataset.col); 
+                        handleTileDragStart(e, row, col);
+                    }
+                });
+                
+                document.addEventListener('mousemove',  handleTileDragMove);
+                document.addEventListener('mouseup',  handleTileDragEnd);
+                
+                // Touch events for mobile 
+                gridContainer.addEventListener('touchstart',  (e) => {
+                    const cell = e.target.closest('.grid-cell'); 
+                    if (cell) {
+                        const row = parseInt(cell.dataset.row); 
+                        const col = parseInt(cell.dataset.col); 
+                        handleTileDragStart(e, row, col);
+                    }
+                }, { passive: false });
+                
+                document.addEventListener('touchmove',  handleTileDragMove, { passive: false });
+                document.addEventListener('touchend',  handleTileDragEnd, { passive: false });
+                
+                // Keyboard controls 
+                document.addEventListener('keydown',  handleKeyDown);
+                
+                // Retry button 
+                retryButton.addEventListener('click',  initGame);
+            }
+ 
+            // Initialize game 
+            initGame();
+            setupEventListeners();
+        });
+    </script>
+</body>
+</html>
