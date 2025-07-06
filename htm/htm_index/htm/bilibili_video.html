@@ -1,250 +1,384 @@
-<!DOCTYPE html><html lang="zh-CN"><head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>哔哩哔哩视频列表</title><link rel="icon" href="../../../favicon.ico" type="image/x-icon">
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 20px;
-        background-color: #f9f9f9;
-        color: #333;
-    }
-    h1 {
-        font-size: 33px;
-        text-align: center;
-        margin-top: 0;
-    }
-    .index {
-        margin-bottom: 20px;
-        padding: 10px;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-    }
-    .index h2 {
-        font-size: 18px;
-        margin-bottom: 10px; 
-    }
-    .index a {
-        font-size: 14px;
-        color: #007acc;
-        text-decoration: none;
-        margin-right: 15px;
-    }
-    .index a:hover {
-        text-decoration: underline;
-    }
-    .section-title {
-        font-size: 20px;
-        color: #333;
-        margin-top: 20px;
-        border-bottom: 2px solid #007acc;
-        padding-bottom: 5px;
-    }
-    .link-list {
-        list-style: none;
-        padding: 0;
-        margin-top: 10px;
-    }
-    .link-list li {
-        margin-bottom: 8px;
-    }
-    .link {
-        font-size: 16px;
-        color: #007acc;
-        text-decoration: none;
-    }
-    .link:hover {
-        text-decoration: underline;
-    }
-    h3 {
-        font-size: 18px;
-        color: #555;
-        margin-top: 15px;
-        margin-bottom: 10px;
-        font-weight: bold;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 5px;
-    }
-    button {
-        font-size: 16px;
-        text-align: center;
-        background-color: #007acc;
-        color: #fff;
-        padding: 10px 20px; /* 增加内边距以使按钮更宽高 */
-        border: none; /* 去掉边框 */
-        border-radius: 5px; /* 添加圆角 */
-        cursor: pointer; /* 改变鼠标悬停时的光标形状 */
-        transition: background-color 0.3s ease; /* 添加过渡效果 */
-    }
-    button:hover {
-        background-color: #005fa3; /* 鼠标悬停时背景颜色变深 */
-    }
-    .container {
-        margin: 0 auto;
-        max-width: 1200px;
-    }
-    .section {
-        background-color: #fff;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: space-between;
-    }
-    .left-column, .right-column {
-        width: 48%;
-        margin-right: 4%;
-    }
-    .right-column {
-        margin-right: 0;
-    }
-    .section-title {
-        margin-top: 0;
-    }
-    .section .link-list {
-        margin-top: 10px;
-    }
-    .section .link-list li {
-        margin-bottom: 8px;
-    } 
-    .section .link-list .link {
-        font-size: 16px;
-        color: #007acc;
-        text-decoration: none;
-    }
-    .section .link-list .link:hover {
-        text-decoration: underline;
-    }
-    span {
-        color: #000000;
-        font-size: 12px;
-        display:inline-flexbox;
-        margin-left: 5px;
-    }
-    .popup {
-        display: none; /* 默认隐藏 */
-        position: fixed;
-        left: 50%;  
-        top: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgba(255, 255, 255, 0.5); /* 设置背景颜色为半透明白色 */
-        padding: 25px;
-        border: 1px solid #ccc;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000; 
-        max-width: 95%; /* 修改最大宽度 */
-        overflow-y: auto;
-        max-height: 80vh; /* 设置最大高度为视口高度的80% */
-    }
-    .overlay {
-        display: none; /* 默认隐藏 */
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: 
-            linear-gradient(rgba(255, 255, 255, 0.5), 
-            rgba(255, 255, 255, 0.5)), 
-            url("../../../img/Carousel_image/8.png");
-        background-size: cover; /* 使背景图片覆盖整个元素 */
-        background-position: center; /* 使背景图片居中 */
-        z-index: 999;
-    }
-
-</style>
-</head>
-<body>
-    <div class="container">
-        <h1>哔哩哔哩视频列表</h1>
-        <h3 style="text-align: center;">手机用户请在PC端打开</h3>
-        <a class="link" href="./bilibili_up.html" target="_blank">进入up主列表</a>
-        <!-- 索引部分 -->
-        <div class="index">
-            <h2>索引</h2>
-            <a href="#new_year">新春会</a>
-            <a href="#new_year_s">新春会（短片/预告片）</a>
-            <a href="#Fan_Special_Program">同人特别节目</a>
-            <a href="#birthday">生日会</a>
-            <a href="#music">音乐会</a>
-            <a href="#secure">安全</a>
-            <a href="#otherl">其他</a>
-            <a href="#otherlong">其他（标题过长）</a>
-        </div>
-
-        <!-- 内容部分 -->
-        <div class="section">
-            <div class="left-column">
-                <h2 id="new_year" class="section-title">新春会</h2>
-                <ul class="link-list">
-                    <h3>2021年</h3>
-                    <li><a class="link" href="https://www.bilibili.com/video/BV1FV411i7ok/" target="_blank">2021年原神拜年纪</a></li>
-                    <li><a class="link" href="https://www.bilibili.com/video/BV1Gp4y1s79x/" target="_blank">明日方舟拜年纪2021【皎星示岁】</a></li>
-                    <h3>2022年</h3>
-                    <div class="section" style="text-align:center;">
-                        <div class="left-column"><button class="video-btn">官方 num = 1</button><div class="popup">
-                            <li><a class="link" href="https://www.bilibili.com/festival/genshin2022" target="_blank">2022原神新春会</a> | <span>官方</span></li>
-                            <button class="close-btn">关闭</button>
-                        </div></div>  
-                        <div class="right-column"><button class="video-btn">非官方 num = 2</button><div class="popup">
-                            <li><a class="link" href="https://www.bilibili.com/video/BV1uP4y1N7cq" target="_blank">2022原神拜年纪</a></li>
-                            <li><a class="link" href="https://www.bilibili.com/video/BV1cF411W75Q/" target="_blank">2022崩坏3新春会 ·「"年"接一切」</a></li>
-                            <button class="close-btn">关闭</button>
-                        </div></div>
-                    </div>
-                    <h3>2023年</h3>
-                    <div class="section" style="text-align:center;">
-                        <div class="left-column"><button class="video-btn">官方 num = 1</button><div class="popup">
-                            <li><a class="link" href="https://www.bilibili.com/festival/genshin2023" target="_blank">2023原神新春会</a> | <span>官方</span></li>
-                            <button class="close-btn">关闭</button>
-                        </div></div>  
-                        <div class="right-column"><button class="video-btn">非官方 num = 4</button><div class="popup">
-                            <li><a class="link" href="https://www.bilibili.com/video/BV1fM41147sV" target="_blank">2023原神新春会「添箸迎春」</a></li>
-                            <li><a class="link" href="https://www.bilibili.com/video/BV1zd4y157Tp/" target="_blank">2023少女前线系列新春会-瑞月流光</a></li>
-                            <li><a class="link" href="https://www.bilibili.com/video/BV1V14y1g7hv/" target="_blank">战双2023新春会：岁雪同行</a></li>
-                            <li><a class="link" href="https://www.bilibili.com/video/BV1Gv4y1C7wP/" target="_blank">2023无期迷途新春会「一期相逢长相伴」</a></li>
-                            <button class="close-btn">关闭</button>
-                        </div></div>
-                    </div>
-                    <h3>2024年</h3>
-                    <div class="section" style="text-align:center;">
-                        <div class="left-column"><button class="video-btn">官方 num = 2</button><div class="popup">
-                            <li><a class="link" href="https://www.bilibili.com/festival/genshin2024" target="_blank">2024原神新春会</a> | <span>官方</span></li>
-                            <li><a class="link" href="https://www.bilibili.com/festival/honkaistarrail2024spring" target="_blank">2024崩坏星穹铁道新春会</a> | <span>官方</span></li>
-                            <button class="close-btn">关闭</button>
-                        </div></div>  
-                        <div class="right-column"><button class="video-btn">非官方 num = 4</button><div class="popup">
-                            <li><a class="link" href="https://www.bilibili.com/festival/2024cfwl1999" target="_blank">2024重返未来1999新春会</a></li>
-                            <li><a class="link" href="https://www.bilibili.com/video/BV1W64y1A77u" target="_blank">【第五人格2024新春会】五龙迎春</a></li>
-                            <li><a class="link" href="https://www.bilibili.com/video/BV1m44y1F7Ej/" target="_blank">战双2024新春会：时光印迹</a></li>
-                            <li><a class="link" href="https://www.bilibili.com/video/BV1ic411v7m1/" target="_blank">【无期迷途2024新春会】迎春纳福金狄斯</a></li>
-                            <button class="close-btn">关闭</button>
-                        </div></div>
-                    </div>
-                    <h3>2025年（年初排序）</h3>
-                    <div class="section" style="text-align:center;">
-                        <button class="video-btn" style="width: 45%; margin: 4px;">官方主题页 num = 8+1</button><div class="popup">
-                            <li><a class="link" href="https://www.bilibili.com/blackboard/era/2025GameSFG.html" target="_blank">2025游戏新春会</a> | <span>2025年2月16日前整合</span></li>
-                            <li>哔哩哔哩：<a class="link" href="https://www.bilibili.com/festival/bnj2025" target="_blank">2025哔哩哔哩拜年纪</a></li>
-                            <li>崩坏：星穹铁道：<a class="link" href="https://www.bilibili.com/festival/HSRSF2025" target="_blank">2025崩坏：星穹铁道新春会</a></li>
-                            <li>虚拟歌手：<a class="link" href="https://www.bilibili.com/festival/VSF2025live" target="_blank">2025虚拟歌手贺岁纪</a></li>
-                            <li>战双帕弥什：<a class="link" href="https://www.bilibili.com/festival/2025PGR" target="_blank">战双2025新春会</a></li>
-                            <li>迦勒底新春会：<a class="link" href="https://www.bilibili.com/festival/fgo2025" target="_blank">FGO新春会</a></li>
-                            <li>鸣潮：<a class="link" href="https://www.bilibili.com/festival/2025wuwa" target="_blankw">2025鸣潮新春会</a></li>
-                            <li>碧蓝航线：<a class="link" href="https://www.bilibili.com/festival/2025azurlane" target="_blank">2025《碧蓝航线》新春会</a></li>
-                            <li>明日方舟：<a class="link" href="https://www.bilibili.com/festival/2025arknights" target="_blank">明日方舟</a></li>
-                            <button class="close-btn">关闭</button>
-                        </div>
-                        <button class="video-btn" style="width: 45%; margin: 4px;">官方专题页 num = 11</button><div class="popup">
-                            <li>DNF手游：<a class="link" href="https://live.bilibili.com/blackboard/era/uAV7ZVcHR1yMeIy1.html" target="_blank">DNF手游2025新春会</a></li>
-                            <li>穿越火线手游：<a class="link" href="https://live.bilibili.com/blackboard/era/zOMjVSUbZaD193i4.html" target="_blank">2025年CFM新春会</a></li>
-                            <li>DNF：<a class="link" href="https://live.bilibili.com/blackboard/era/wjSgXXRM1DILrO9N.html" target="_blank">2025年DNF新春会</a></li>
-                            <li>物华弥新：<a class="link" href="https://live.bilibili.com/blackboard/era/FWtNn6LRq84z85P4.html" target="_blank">2025物华弥新新春会-「吉岁归年」</a></li>
-                            <li>重返未来：1999：<a class="link" href="https://live.bilibili.com/blackboard/era/t0eZaAIsuk7FtcKg.html" target="_blank">2025《重返未来：1999》新春会</a></li>
-                            <li>使命召唤手游：<a class="link" href="https://live.bilibili.com/blackboard/era/3XLpKq4JO3AytJQV.html" target="_blank">使命召唤手游2025新春会</a></li>
-                            <li>无期迷途：<a class="link" href="https://live.bilibili.com/blackboard/era/eY8uwGl2PcBDhVxs.html" target="_blank">2025无期迷途新春会</a></li>
+<!DOCTYPE html> 
+<html lang="zh-CN"> 
+ 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>哔哩哔哩视频列表</title> 
+    <link rel="icon" href="../../../favicon.ico"  type="image/x-icon"> 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '微软雅黑', sans-serif;
+        } 
+        body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            background-color: #f9f9f9; 
+            color: #333; 
+        } 
+ 
+        h1 { 
+            font-size: 33px; 
+            text-align: center; 
+            margin-top: 20px; 
+        } 
+ 
+        h3 { 
+            font-size: 18px; 
+            color: #555; 
+            margin-top: 15px; 
+            margin-bottom: 10px; 
+            font-weight: bold; 
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 5px; 
+        } 
+ 
+        button { 
+            font-size: 16px; 
+            text-align: center; 
+            background-color: #007acc; 
+            color: #fff; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease; 
+        } 
+ 
+        button:hover { 
+            background-color: #005fa3; 
+        } 
+ 
+        .container { 
+            margin: 0 auto; 
+            max-width: 1200px; 
+            padding: 20px; 
+        } 
+ 
+        .section { 
+            background-color: #fff; 
+            padding: 20px; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            margin-bottom: 20px; 
+            display: flex; 
+            justify-content: space-between; 
+        } 
+ 
+        .left-column, 
+        .right-column { 
+            width: 48%; 
+            margin-right: 4%; 
+        } 
+ 
+        .right-column { 
+            margin-right: 0; 
+        } 
+ 
+        .section-title { 
+            font-size: 20px; 
+            color: #333; 
+            margin-top: 0; 
+            border-bottom: 2px solid #007acc; 
+            padding-bottom: 5px; 
+        } 
+ 
+        .link-list { 
+            list-style: none; 
+            padding: 0; 
+            margin-top: 10px; 
+        } 
+ 
+        .link-list li { 
+            margin-bottom: 8px; 
+        } 
+ 
+        .link { 
+            font-size: 16px; 
+            color: #007acc; 
+            text-decoration: none; 
+        } 
+ 
+        .link:hover { 
+            text-decoration: underline; 
+        } 
+ 
+        span { 
+            color: #000000; 
+            font-size: 12px; 
+            display: inline-flexbox; 
+            margin-left: 5px; 
+        } 
+ 
+        .popup { 
+            display: none; 
+            position: fixed; 
+            left: 50%; 
+            top: 50%; 
+            transform: translate(-50%, -50%); 
+            background-color: rgba(255, 255, 255, 0.5); 
+            padding: 25px; 
+            border: 1px solid #ccc; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            z-index: 1000; 
+            max-width: 95%; 
+            overflow-y: auto; 
+            max-height: 80vh; 
+        } 
+ 
+        .overlay { 
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.5), 
+                    rgba(255, 255, 255, 0.5)), 
+                url("../../../img/Carousel_image/8.png");  
+            background-size: cover; 
+            background-position: center; 
+            z-index: 999; 
+        } 
+ 
+        /* 侧边索引样式 */ 
+        .sidebar-index { 
+            position: fixed; 
+            top: 0; 
+            left: -200px; 
+            width: 200px; 
+            height: 100%; 
+            background-color: #fff; 
+            border-right: 1px solid #ddd; 
+            padding: 20px; 
+            z-index: 1001; 
+            transition: left 0.3s ease; 
+        } 
+ 
+        .sidebar-index h2 { 
+            font-size: 18px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .sidebar-index a { 
+            display: block; 
+            font-size: 14px; 
+            color: #007acc; 
+            text-decoration: none; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .sidebar-index a:hover { 
+            text-decoration: underline; 
+        } 
+ 
+        .close-index { 
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            font-size: 20px; 
+            cursor: pointer; 
+        } 
+ 
+        /* 显示侧边索引的按钮 */ 
+        .show-index-btn { 
+            position: fixed; 
+            top: 20px; 
+            left: 20px; 
+            z-index: 1000; 
+        } 
+                /* 显示索引按钮样式 */
+        .show-index-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 8px 16px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .show-index-btn:hover {
+            background: #34495e;
+        }
+ 
+        /* 侧边索引容器 */
+        .sidebar-index {
+            position: fixed;
+            top: 0;
+            left: -300px; /* 初始隐藏在左侧 */
+            width: 300px;
+            height: 100vh;
+            background: white;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: left 0.3s ease-out; /* 侧边栏滑动动画 */
+        }
+        /* 侧边栏显示时的类（通过JS添加） */
+        .sidebar-index.show {
+            left: 0;
+        }
+ 
+        /* 关闭按钮 */
+        .close-index {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: #7f8c8d;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .close-index:hover {
+            color: #e74c3c;
+        }
+ 
+        /* 索引标题 */
+        .sidebar-index h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+ 
+        /* 索引链接 */
+        .sidebar-index a {
+            display: block;
+            padding: 10px 0;
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s, padding-left 0.3s;
+        }
+        .sidebar-index a:hover {
+            color: #2980b9;
+            padding-left: 5px; /* 悬停时轻微右移 */
+        }
+    </style> 
+</head> 
+ 
+<body> 
+    <!-- 显示侧边索引的按钮 --> 
+    <button class="show-index-btn" onclick="showSidebarIndex()">索引</button> 
+ 
+    <!-- 侧边索引 --> 
+    <div class="sidebar-index" id="sidebarIndex"> 
+        <span class="close-index" onclick="hideSidebarIndex()">x</span> 
+        <h2>索引</h2> 
+        <a href="#new_year">新春会</a> 
+        <a href="#new_year_s">新春会（短片/预告片）</a> 
+        <a href="#Fan_Special_Program">同人特别节目</a> 
+        <a href="#birthday">生日会</a> 
+        <a href="#music">音乐会</a> 
+        <a href="#secure">安全</a> 
+        <a href="#otherl">其他</a> 
+        <a href="#otherlong">其他（标题过长）</a> 
+    </div> 
+     <script>
+        // 显示侧边栏
+        function showSidebarIndex() {
+            const sidebar = document.getElementById('sidebarIndex');
+            sidebar.classList.add('show');
+        }
+ 
+        // 隐藏侧边栏
+        function hideSidebarIndex() {
+            const sidebar = document.getElementById('sidebarIndex');
+            sidebar.classList.remove('show');
+        }
+ 
+        // 点击页面其他区域关闭侧边栏（可选增强功能）
+        document.addEventListener('click', (e) => {
+            const sidebar = document.getElementById('sidebarIndex');
+            const isSidebar = sidebar.contains(e.target); // 点击是否在侧边栏内部
+            const isShowBtn = e.target.classList.contains('show-index-btn'); // 点击是否是显示按钮
+            if (!isSidebar && !isShowBtn && sidebar.classList.contains('show')) {
+                hideSidebarIndex();
+            }
+        });
+    </script>
+    <div class="container"> 
+        <h1>哔哩哔哩视频列表</h1> 
+        <h3 style="text-align: center;">手机用户请在PC端打开</h3> 
+        <a class="link" href="./bilibili_up.html"  target="_blank">进入up主列表</a> 
+ 
+        <!-- 内容部分 --> 
+        <div class="section"> 
+            <div class="left-column"> 
+                <h2 id="new_year" class="section-title">新春会</h2> 
+                <ul class="link-list"> 
+                    <h3>2021年</h3> 
+                    <li><a class="link" href="https://www.bilibili.com/video/BV1FV411i7ok/"  target="_blank">2021年原神拜年纪</a></li> 
+                    <li><a class="link" href="https://www.bilibili.com/video/BV1Gp4y1s79x/"  target="_blank">明日方舟拜年纪2021【皎星示岁】</a></li> 
+                    <h3>2022年</h3> 
+                    <div class="section" style="text-align:center;"> 
+                        <div class="left-column"><button class="video-btn">官方 num = 1</button><div class="popup"> 
+                            <li><a class="link" href="https://www.bilibili.com/festival/genshin2022"  target="_blank">2022原神新春会</a> | <span>官方</span></li> 
+                            <button class="close-btn">关闭</button> 
+                        </div></div> 
+                        <div class="right-column"><button class="video-btn">非官方 num = 2</button><div class="popup"> 
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1uP4y1N7cq"  target="_blank">2022原神拜年纪</a></li> 
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1cF411W75Q/"  target="_blank">2022崩坏3新春会 ·「"年"接一切」</a></li> 
+                            <button class="close-btn">关闭</button> 
+                        </div></div> 
+                    </div> 
+                    <h3>2023年</h3> 
+                    <div class="section" style="text-align:center;"> 
+                        <div class="left-column"><button class="video-btn">官方 num = 1</button><div class="popup"> 
+                            <li><a class="link" href="https://www.bilibili.com/festival/genshin2023"  target="_blank">2023原神新春会</a> | <span>官方</span></li> 
+                            <button class="close-btn">关闭</button> 
+                        </div></div> 
+                        <div class="right-column"><button class="video-btn">非官方 num = 4</button><div class="popup"> 
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1fM41147sV"  target="_blank">2023原神新春会「添箸迎春」</a></li> 
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1zd4y157Tp/"  target="_blank">2023少女前线系列新春会-瑞月流光</a></li> 
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1V14y1g7hv/"  target="_blank">战双2023新春会：岁雪同行</a></li> 
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1Gv4y1C7wP/"  target="_blank">2023无期迷途新春会「一期相逢长相伴」</a></li> 
+                            <button class="close-btn">关闭</button> 
+                        </div></div> 
+                    </div> 
+                    <h3>2024年</h3> 
+                    <div class="section" style="text-align:center;"> 
+                        <div class="left-column"><button class="video-btn">官方 num = 2</button><div class="popup"> 
+                            <li><a class="link" href="https://www.bilibili.com/festival/genshin2024"  target="_blank">2024原神新春会</a> | <span>官方</span></li> 
+                            <li><a class="link" href="https://www.bilibili.com/festival/honkaistarrail2024spring"  target="_blank">2024崩坏星穹铁道新春会</a> | <span>官方</span></li> 
+                            <button class="close-btn">关闭</button> 
+                        </div></div> 
+                        <div class="right-column"><button class="video-btn">非官方 num = 4</button><div class="popup"> 
+                            <li><a class="link" href="https://www.bilibili.com/festival/2024cfwl1999"  target="_blank">2024重返未来1999新春会</a></li> 
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1W64y1A77u"  target="_blank">【第五人格2024新春会】五龙迎春</a></li> 
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1m44y1F7Ej/"  target="_blank">战双2024新春会：时光印迹</a></li> 
+                            <li><a class="link" href="https://www.bilibili.com/video/BV1ic411v7m1/"  target="_blank">【无期迷途2024新春会】迎春纳福金狄斯</a></li> 
+                            <button class="close-btn">关闭</button> 
+                        </div></div> 
+                    </div> 
+                    <h3>2025年（年初排序）</h3> 
+                    <div class="section" style="text-align:center;"> 
+                        <button class="video-btn" style="width: 45%; margin: 4px;">官方主题页 num = 8+1</button><div class="popup"> 
+                            <li><a class="link" href="https://www.bilibili.com/blackboard/era/2025GameSFG.html"  target="_blank">2025游戏新春会</a> | <span>2025年2月16日前整合</span></li> 
+                            <li>哔哩哔哩：<a class="link" href="https://www.bilibili.com/festival/bnj2025"  target="_blank">2025哔哩哔哩拜年纪</a></li> 
+                            <li>崩坏：星穹铁道：<a class="link" href="https://www.bilibili.com/festival/HSRSF2025"  target="_blank">2025崩坏：星穹铁道新春会</a></li> 
+                            <li>虚拟歌手：<a class="link" href="https://www.bilibili.com/festival/VSF2025live"  target="_blank">2025虚拟歌手贺岁纪</a></li> 
+                            <li>战双帕弥什：<a class="link" href="https://www.bilibili.com/festival/2025PGR"  target="_blank">战双2025新春会</a></li> 
+                            <li>迦勒底新春会：<a class="link" href="https://www.bilibili.com/festival/fgo2025"  target="_blank">FGO新春会</a></li> 
+                            <li>鸣潮：<a class="link" href="https://www.bilibili.com/festival/2025wuwa"  target="_blankw">2025鸣潮新春会</a></li> 
+                            <li>碧蓝航线：<a class="link" href="https://www.bilibili.com/festival/2025azurlane"  target="_blank">2025《碧蓝航线》新春会</a></li> 
+                            <li>明日方舟：<a class="link" href="https://www.bilibili.com/festival/2025arknights"  target="_blank">明日方舟</a></li> 
+                            <button class="close-btn">关闭</button> 
+                        </div> 
+                        <button class="video-btn" style="width: 45%; margin: 4px;">官方专题页 num = 11</button><div class="popup"> 
+                            <li>DNF手游：<a class="link" href="https://live.bilibili.com/blackboard/era/uAV7ZVcHR1yMeIy1.html"  target="_blank">DNF手游2025新春会</a></li> 
+                            <li>穿越火线手游：<a class="link" href="https://live.bilibili.com/blackboard/era/zOMjVSUbZaD193i4.html"  target="_blank">2025年CFM新春会</a></li> 
+                            <li>DNF：<a class="link" href="https://live.bilibili.com/blackboard/era/wjSgXXRM1DILrO9N.html"  target="_blank">2025年DNF新春会</a></li> 
+                            <li>物华弥新：<a class="link" href="https://live.bilibili.com/blackboard/era/FWtNn6LRq84z85P4.html"  target="_blank">2025物华弥新新春会-「吉岁归年」</a></li> 
+                            <li>重返未来：1999：<a class="link" href="https://live.bilibili.com/blackboard/era/t0eZaAIsuk7FtcKg.html"  target="_blank">2025《重返未来：1999》新春会</a></li> 
+                            <li>使命召唤手游：<a class="link" href="https://live.bilibili.com/blackboard/era/3XLpKq4JO3AytJQV.html"  target="_blank">使命召唤手游2025新春会</a></li> 
+                            <li>无期迷途：<a class="link" href="https://live.bilibili.com/blackboard/era/eY8uwGl2PcBDhVxs.html"  target="_blank">2025无期迷途新春会</a></li>
                             <li>少女前线系列：<a class="link" href="https://live.bilibili.com/blackboard/era/0KVqpNXhZu3iAwn0.html" target="_blank">2025少女前线系列新春会</a></li>
                             <li>卡拉彼丘：<a class="link" href="https://live.bilibili.com/blackboard/era/eTUQMv8J9hfPplOl.html" target="_blank">沐春迎新-卡拉彼丘新春会</a></li>
                             <li>王者荣耀：<a class="link" href="https://www.bilibili.com/blackboard/era/zgskKeezfzC1qc83.html" target="_blank">王者荣耀新春会</a></li>
@@ -302,12 +436,14 @@
                 <h2 id="birthday" class="section-title">生日会</h2>
                 <ul class="link-list">
                     <div class="section" style="text-align: center;">
-                    <button class="video-btn">一周年 num = 1</button><div class="popup">
+                    <button class="video-btn">一周年 num = 2</button><div class="popup">
                         <li><a class="link" href="https://www.bilibili.com/video/BV1df4y1w7Z1/" target="_blank">2021年生日会</a></li>
+                        <li><a class="link" href="https://www.bilibili.com/festival/zzz2025birthday" target="_blank">绝区零2025生日会</a> | <span>官方</span></li>
                     <button class="close-btn">关闭</button>
                     </div>
-                    <button class="video-btn">二周年 num = 3</button><div class="popup">
+                    <button class="video-btn">二周年 num = 4</button><div class="popup">
                         <li><a class="link" href="https://www.bilibili.com/festival/genshin2nd" target="_blank">原神2周年生日会</a> | <span>官方</span></li>
+                        <li><a class="link" href="https://www.bilibili.com/festival/honkaistarrail2025birthday" target="_blank">崩坏：星穹铁道2025生日会</a></li>
                         <li><a class="link" href="https://www.bilibili.com/video/BV1ae4y1r7FS/" target="_blank">2022原神生日庆典</a></li>
                         <li><a class="link" href="https://www.bilibili.com/video/BV1Xw4m1v7hr/" target="_blank">【蛋仔派对生日会】来参加世纪圆舞会！</a></li>
                     <button class="close-btn">关闭</button>

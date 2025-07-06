@@ -4,155 +4,201 @@
     <title>原神角色立绘展示</title>
     <link rel="icon" href="https://webstatic.mihoyo.com/upload/op-public/2021/10/09/def1f2abcfc2af0bbe2e5900a60a5ee1_5699547505742166353.png" type="image/png">
 	<style>
-		/* 基本样式设置 */
+		:root {
+		/* 颜色变量 */
+		--primary-color: #333;
+		--secondary-color: #f4f4f4;
+		--accent-color: #007bff;
+		--text-color: #333;
+		--light-text: #fff;
+		--link-bg: #ddd;
+		--footer-text: #aaa;
+		
+		/* 尺寸变量 */
+		--gallery-gap: 15px;
+		--gallery-item-radius: 15px;
+		--caption-icon-size: 30px;
+		--link-padding: 5px 10px;
+		--header-padding: 20px;
+		}
+		
+		/* 基础样式 */
 		body {
-			font-family: Arial, sans-serif;
-			background-color: #f4f4f4;
-			text-align: center;
-			margin: 0;
-			padding: 0;
+		font-family: Arial, sans-serif;
+		background-color: var(--secondary-color);
+		text-align: center;
+		margin: 0;
+		padding: 0;
 		}
-
+		
 		header {
-			background-color: #333;
-			color: #fff;
-			padding: 20px;
+		background-color: var(--primary-color);
+		color: var(--light-text);
+		padding: var(--header-padding);
 		}
 
-		h2 {
-			margin: 0;
-			font-size: 28px;
-		}
-
-		/* 导航栏样式 */
-		.navigation {
-			margin: 20px 0;
-		}
-
-		.navigation ul {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-			display: inline-flex;
-			gap: 15px;
-		}
-
-		.navigation a {
-			color: #333;
-			text-decoration: none;
-			font-weight: bold;
-			background-color: #ddd;
-			padding: 10px 15px;
-			border-radius: 5px;
-			transition: background-color 0.3s, color 0.3s;
-		}
-
-		.navigation a:hover {
-			background-color: #007bff;
-			color: #fff;
-		}
-
-		/* 画廊样式 */
-		.country-gallery {
-			padding: 20px;
-		}
-
-		.country {
-			margin-bottom: 40px;
-		}
-
-		.country h3 {
-			font-size: 24px;
-			margin-bottom: 20px;
-			color: #333;
-		}
-
-		.gallery {
-			display: grid;
-			grid-template-columns: repeat(5, 1fr);
-			gap: 15px;
-		}
-
-		.gallery-item {
-			background-color: #fff;
-			border-radius: 15px;
-			overflow: hidden;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			text-align: center;
-			padding: 10px;
-		}
-
-		/* 为第一个和最后一个 gallery-item 设置长方形样式 */
-		.gallery-item:first-child(2),
-		.gallery-item:last-child(2) {
-			width: 200px; /* 根据需要调整宽度 */
-			height: 300px; /* 根据需要调整高度，使其成为长方形 */
-		}
-
-		/* 为中间的 gallery-item 设置正方形样式 */
-		.gallery-item:nth-child {
-			width: 300px; /* 根据需要调整宽度 */
-			height: 300px; /* 与宽度相同，使其成为正方形 */
-		}
-
-		.gallery-item img {
-			width: 100%;
-			height: auto;
-			max-height: 300px;
-			border-radius: 15px;
-			margin-bottom: 10px;
-		}
-
-		.caption {
-			font-size: 16px;
-			color: #333;
-			line-height: 1.2;
-			margin: 5px 0;
-		}
-
-		/* 链接容器样式 */
-		.link-container {
+		/* 定义页眉容器的布局 */
+		.header-container {
 			display: flex;
-			justify-content: center;
-			gap: 10px;
-			margin-top: 10px;
+			align-items: center; /* 垂直居中对齐 */
+			justify-content: space-between; /* 子元素在主轴上均匀分布 */
 		}
 
+		.logo {
+		display: flex; /* 使用 flexbox 布局 */
+		align-items: center; /* 垂直居中对齐 */
+		}
+		.logo img {
+		height: 40px; /* 设置 logo 图片的高度 */
+		margin-right: 10px; /* 图片和文字之间的间距 */
+		}
+		
+		h2 {
+		margin: 0;
+		font-size: 28px;
+		}
+		
+		/* 导航栏模块 */
+		.navigation {
+		margin: 20px 0;
+		}
+		
+		.navigation ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: inline-flex;
+		gap: var(--gallery-gap);
+		}
+		
+		.navigation a {
+		color: var(--primary-color);
+		text-decoration: none;
+		font-weight: bold;
+		background-color: var(--link-bg);
+		padding: 10px 15px;
+		border-radius: 5px;
+		transition: background-color 0.3s, color 0.3s;
+		}
+		
+		.navigation a:hover {
+		background-color: var(--accent-color);
+		color: var(--light-text);
+		}
+		
+		/* 画廊模块 */
+		.country-gallery {
+		padding: var(--header-padding);
+		}
+		
+		.country {
+		margin-bottom: 40px;
+		}
+		
+		.country h3 {
+		font-size: 24px;
+		margin-bottom: 20px;
+		color: var(--text-color);
+		}
+		
+		.gallery {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: var(--gallery-gap);
+		}
+		
+		/* 画廊项模块 */
+		.gallery-item {
+		background-color: var(--light-text);
+		border-radius: var(--gallery-item-radius);
+		overflow: hidden;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		text-align: center;
+		padding: 10px;
+		position: relative;
+		}
+		
+		.gallery-item img {
+		width: 100%;
+		height: auto;
+		max-height: 300px;
+		border-radius: var(--gallery-item-radius);
+		margin-bottom: 10px;
+		}
+		
+		/* 标题带图标样式 */
+		.caption {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 16px;
+		color: var(--text-color);
+		line-height: 1.2;
+		margin: 5px 0;
+		padding-left: calc(var(--caption-icon-size) + 5px);
+		}
+		
+		.caption img {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: var(--caption-icon-size);
+		height: auto;
+		}
+		
+		/* 链接容器模块 */
+		.link-container {
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+		margin-top: 10px;
+		}
+		
 		.link-container a {
-			font-size: 13px;
-			color: #007bff;
-			text-decoration: none;
-			padding: 5px 10px;
-			border-radius: 5px;
-			background-color: #f9f9f9;
-			transition: background-color 0.3s, color 0.3s;
+		font-size: 13px;
+		color: var(--accent-color);
+		text-decoration: none;
+		padding: var(--link-padding);
+		border-radius: 5px;
+		background-color: var(--secondary-color);
+		transition: background-color 0.3s, color 0.3s;
 		}
-
+		
 		.link-container a:hover {
-			background-color: #007bff;
-			color: #fff;
+		background-color: var(--accent-color);
+		color: var(--light-text);
 		}
-
-		/* 页脚样式 */
+		
+		/* 页脚模块 */
 		.footer-bottom {
-			text-align: center;
-			padding-top: 10px;
-			border-top: 1px solid #555;
-			margin-top: 20px;
-			font-size: 14px;
+		text-align: center;
+		padding-top: 10px;
+		border-top: 1px solid #555;
+		margin-top: 20px;
+		font-size: 14px;
 		}
-
+		
 		.footer-bottom p {
-			margin: 0;
-			color: #aaa;
+		margin: 0;
+		color: var(--footer-text);
 		}
 	</style>
 </head>
 <body>
+	<header>
+        <div class="header-container">
+            <div class="logo" style="font-weight: normal;"><img src="../../../favicon.png" alt="Logo">小猫头鹰</div>
+			<div class="logo" style="font-weight: bold;"><h2>原神角色立绘展示</h2></div>
+			<div class="logo" style="font-weight: normal;"><img src="https://webstatic.mihoyo.com/upload/op-public/2021/10/09/def1f2abcfc2af0bbe2e5900a60a5ee1_5699547505742166353.png" alt="Logo">原神</div>
+		  </div>
+	</header>
+<hr style="margin: auto; height: 2px; background-color: white; border: none;"/>
     <header>
-        <h2>原神角色立绘展示</h2>
+		<u>【本页面由 小猫头鹰 独立制作，与 原神 官方无任何关系】</u>
 		</br>所有角色顺序为拼音顺序，主角因为立绘比较特殊，所以单图暂不显示。</br>
-		加载本页面可能会消耗210MB流量，请确保你的流量够用。
+		加载本页面可能会消耗218MB流量，请确保你的流量够用。
 		<div style="text-align: center; margin: 20px 0;">
 			<hr style="width: 800px; margin: auto;"/>
 		</div>
@@ -750,11 +796,14 @@
 					</div>
 				</div>
 				<div class="gallery-item">
-				    <img src="./立绘/稻妻/珊瑚宫心海.jpg" alt="珊瑚宫心海">
-				    <p class="caption">珊瑚宫心海</p>
+					<img src="./立绘/稻妻/珊瑚宫心海.jpg" alt="珊瑚宫心海">
+					<p class="caption">
+						<img src="./立绘/稻妻/珊瑚宫心海..png" alt="珊瑚宫心海">
+						珊瑚宫心海 
+					</p>
 					<div class="link-container">
 						<a href="-----------" target="_blank">原文</a>
-						<a href="https://bbs.mihoyo.com/ys/obc/content/2403/detail" target="_blank">观测枢</a>
+						<a href="https://bbs.mihoyo.com/ys/obc/content/2403/detail"  target="_blank">观测枢</a>
 						<a href="-----------" target="_blank">百科</a>
 						<a href="-----------" target="_blank">wiki</a>
 					</div>
@@ -980,6 +1029,16 @@
         <div class="country" id="fontaine">
             <h3>枫丹</h3>
             <div class="gallery">
+				<div class="gallery-item">
+                    <img src="./立绘/枫丹/爱可菲.png" alt="爱可菲">
+                    <p class="caption">爱可菲</p>
+					<div class="link-container">
+						<a href="https://www.miyoushe.com/ys/article/63100428" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+                </div>
                 <div class="gallery-item">
                     <img src="./立绘/枫丹/阿蕾奇诺.jpg" alt="阿蕾奇诺">
                     <p class="caption">阿蕾奇诺</p>
@@ -1245,6 +1304,16 @@
 						<a href="-----------" target="_blank">wiki</a>
 					</div>
 				</div>
+				<div class="gallery-item">
+				    <img src="./立绘/纳塔/伊法.png" alt="伊法">
+				    <p class="caption">伊法</p>
+					<div class="link-container">
+						<a href="https://www.miyoushe.com/ys/article/63130883" target="_blank">原文</a>
+						<a href="-----------" target="_blank">观测枢</a>
+						<a href="-----------" target="_blank">百科</a>
+						<a href="-----------" target="_blank">wiki</a>
+					</div>
+				</div>
             </div>
         </div>
 
@@ -1281,13 +1350,10 @@
                 </div>
             </div>
         </div>
-
-    </section>
-
-
 	<div class="foot-wrap" id="footer">
 	    <footer class="footer-bottom">
         	<p>Copyright © 2023-2025 小猫头鹰 All rights reserved.</p>
+			<p>images from miHoYo®</p>
 	    </footer>
 	</div>
 </body>

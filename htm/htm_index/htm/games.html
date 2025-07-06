@@ -4,269 +4,224 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>游戏链接索引</title>
-    <link rel="icon" href="../../../favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="icon" href="../../../favicon.ico"  type="image/x-icon">
+    <link rel="stylesheet" href="../../../css/style.css"> 
     <style>
+        :root {
+            --primary: #4CAF50;
+            --secondary: #333;
+            --accent: #f9f9f9;
+            --text: #333;
+            --light: #fff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --radius: 8px;
+            --transition: all 0.2s ease-in-out;
+        }
+        
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: var(--accent);
+            line-height: 1.5;
         }
+        
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        h1 {
-            margin: 0;
-            font-size: 36px;
-        }
-        .company-section {
-            margin: 30px 0;
-            border-top: 3px solid #4CAF50;
-        }
-        .company-title {
-            background-color: #333;
-            color: white;
+            background-color: var(--primary);
+            color: var(--light);
             padding: 15px;
             text-align: center;
-            font-size: 24px;
-            border-radius: 8px 8px 0 0;
+            box-shadow: var(--shadow);
         }
-        /* 导航栏样式 */
+        
+        h1 {
+            margin: 10px 0;
+            font-size: 2rem;
+            text-shadow: 2px 2px 2px var(--secondary);
+        }
+        
+        .company-section {
+            margin: 20px 0;
+            border-top: 3px solid var(--primary);
+        }
+        
+        .company-title {
+            background-color: var(--secondary);
+            color: var(--light);
+            padding: 12px;
+            text-align: center;
+            font-size: 1.3rem;
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+        
         nav {
             background-color: #444;
-            padding: 10px;
+            padding: 8px;
             text-align: center;
         }
-
+        
         nav a {
-            color: white;
-            padding: 8px 20px;
+            color: var(--light);
+            padding: 6px 15px;
             text-decoration: none;
-            margin-right: 10px;
+            margin: 0 5px;
             border-radius: 4px;
-            font-size: 18px;
+            font-size: 1rem;
+            transition: var(--transition);
         }
+        
         nav a:hover {
             background-color: #575757;
         }
+        
         .game-index {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        .game-item {
-            background-color: white;
+            gap: 15px;
             padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease-in-out;
         }
+        
+        .game-item {
+            background-color: var(--light);
+            padding: 12px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
         .game-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
+        
         .game-item h3 {
-            margin-top: 0;
-            font-size: 20px;
-            color: #333;
+            margin: 0 0 10px;
+            font-size: 1.1rem;
+            color: var(--text);
         }
-        .game-item a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .game-item a:hover {
-            text-decoration: underline;
-        }
-        .game-links {
-            margin-top: 10px;
-        }
+        
         .game-links a {
             display: block;
-            padding: 6px 0;
-            color: #444;
-            font-size: 16px;
+            padding: 5px 0;
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: var(--transition);
         }
+        
         .game-links a:hover {
-            color: #4CAF50;
+            color: var(--primary);
         }
+        
         .link-icons {
-            font-size: 20px;
-            margin-right: 8px;
+            font-size: 1rem;
+            margin-right: 5px;
         }
-
-        /* 弹窗样式 */
+        
         .popup-overlay {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0,0,0,0.5);
             display: none;
             z-index: 1000;
         }
-
+        
         .popup {
             position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translate(-50%,-50%);
+            background-color: var(--light);
+            padding: 15px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             display: none;
             z-index: 1001;
-            width: 60%;
-            max-width: 600px;
+            width: 80%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
             animation: slideIn 0.3s ease-out;
-            max-height: 80vh; /* 设置最大高度为视口高度的80% */
-            overflow-y: auto; /* 内容超过最大高度时出现垂直滚动条 */
         }
-
-        /* 弹窗关闭按钮样式 */
+        
         .popup-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
         }
-
+        
         .popup-header h2 {
             margin: 0;
-            font-size: 24px;
-            color: #333;
+            font-size: 1.2rem;
+            color: var(--text);
         }
-
+        
         #close-popup {
             cursor: pointer;
-            font-size: 28px;
+            font-size: 1.5rem;
             color: #f44336;
             font-weight: bold;
             border: none;
             background: none;
-            transition: color 0.3s ease;
+            transition: var(--transition);
         }
-
-        #close-popup:hover {
-            color: #d32f2f;
-        }
-
-        .popup-links {
-            margin-top: 10px;
-        }
-
+        
         .popup-links a {
             display: block;
-            padding: 8px 0;
-            color: #4CAF50;
+            padding: 6px 0;
+            color: var(--primary);
             text-decoration: none;
         }
-
-        .popup-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* 弹窗动画 */
+        
         @keyframes slideIn {
-            0% {
-                transform: translate(-50%, -60%);
-                opacity: 0;
-            }
-            100% {
-                transform: translate(-50%, -50%);
-                opacity: 1;
-            }
+            0% { transform: translate(-50%,-60%); opacity: 0; }
+            100% { transform: translate(-50%,-50%); opacity: 1; }
+        }
+        
+        /* 手绘风格元素 */
+        .game-item {
+            border: 1px solid #e0e0e0;
+            background-image: linear-gradient(to bottom, var(--light) 0%, #f5f5f5 100%);
+        }
+        
+        .company-title {
+            font-family: 'Comic Sans MS', cursive;
+            letter-spacing: 1px;
+            border-bottom: 2px dashed var(--primary);
+        }
+        
+        .game-links a:before {
+            content: "✏️ ";
+            opacity: 0.7;
         }
     </style>
 </head>
-<body>
-
-<header>
-    <div class="header-container">
-        <!-- Logo -->
-        <div class="logo" style="font-weight: normal;"><img src="../../../favicon.png" alt="Logo">小猫头鹰</div>
-        <!-- 导航栏 -->
-        <nav>
-            <ul>
-                <li><a style="color: #9dff00;" href="http://www.youngowl.asia/">首页</a></li>
-                <li><a style="color: #9dff00;" href="../../../htm/search.html">搜索</a></li>
-                <li>成果展示▼<div class="item-children">
-                        <ul class="children-list">
-                            <li><a href="../htm_index.html">常用页面索引</a></li>
-                            <li><a href="./原神立绘.html">原神立绘</a></li>
-                            <li><a href="../../../htm/genshin.html">原神单图</a></li>
-                            <li><a href="../../../htm/experiment/translate.html">实时翻译示例</a></li>
-                            <li><a href="../../../htm/games/贪吃蛇.html">贪吃蛇</a></li>
-                            <li><a href="../../../file/鸱鸺的原神笔记2.6.9-2.xlsx">原神百科</a></li>
-                            <li><a href="../../../file/ATM_tea.py">伪ATM程序</a></li>
-                            <li><a href="../../../htm/来玩原神.html">来玩原神源代码</a></li>
-                            <li><a href="../../../htm/各大软件激活办法.html">各大软件激活办法</a></li>
-                            <li><a href="../../../htm/Windows%20密钥.html">Windows 10 密钥大全</a></li>
-                        </ul>
-                    </div>
-                </li>
-              <li>图书馆电脑说明▼<div class="item-children">
-                  <ul class="children-list">
-                    <li><a href="../../../htm/图书馆电脑说明/二楼1号电脑.html">1号</a></li>
-                    <li><a href="../../../htm/图书馆电脑说明/二楼2号电脑.html">2号</a></li>
-                    <li><a href="../../../htm/图书馆电脑说明/二楼3号电脑.html">3号</a></li>
-                    <li><a href="../../../htm/图书馆电脑说明/二楼5号电脑.html">5号</a></li>
-                    <li><a href="../../../htm/图书馆电脑说明/二楼7号电脑.html">7号</a></li>
-                    （4、6、8、9-16暂无）
-                  </ul>
-                </div>
-              </li>
-                <li>意见反馈▼<div class="item-children">
-                        <ul class="children-list">
-                          <li><a href="../../experiment/submit/say.html">评论区</a></li>
-                          <li><a href="../../experiment/submit/say1.html">意见反馈</a></li>
-                          <li><a href="../../experiment/submit/say2.html">意见反馈之二</a></li>
-                          <li><a href="../../experiment/submit/forms.html">意见反馈?</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>预约▼<div class="item-children">
-                    <ul class="children-list">
-                      <li><a href="https://nte.perfectworld.com/cn/index.html"">异环</a></li>
-                      <li><a href="https://azurpromilia.manjuu.com/home/"">蓝色星原：旅遥</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li>实验▼<div class="item-children">
-                        <ul class="children-list">
-                          <li><a href="../../experiment/exp.html">实验主</a></li>|
-                          <li><a href="../../experiment/experiment.html">实验辅</a></li>
-                        </ul>
-                    </div>
-                <li><a style="color: #9dff00;" href="./htm/contact_information.html">联系方式</a></li>
-            </ul>
-        </nav>
-    </div>
-    <h1 style="color: #f9f9f9; margin: 0; font-size: 42px; text-shadow: 2px 2px 2px #444;">游戏链接索引</h1>
-    <nav id="main-nav"></nav>
-</header>
-
-<!-- 自动生成多个公司及其游戏 -->
-<div id="company-container"></div>
-
-<!-- 弹窗容器 -->
-<div id="popup-overlay" class="popup-overlay"></div>
-<div id="popup" class="popup">
-    <div class="popup-header">
-        <h2 id="popup-title"></h2> <!-- 添加标题元素 -->
-        <button id="close-popup" class="close-popup">╳</button>
-    </div>
-    <div id="popup-links" class="popup-links"></div>
-</div>
-
-<script>
+ 
+<body> 
+    <header> 
+        <div class="header-container"> 
+            <!-- Logo --> 
+            <div class="logo" style="font-weight: normal;"><img src="../../../favicon.png"  alt="Logo">小猫头鹰</div> 
+        </div> 
+        <h1 style="color: #f9f9f9; margin: 0; font-size: 42px; text-shadow: 2px 2px 2px #444;">游戏链接索引</h1> 
+    </header> 
+ 
+    <!-- 自动生成多个公司及其游戏 --> 
+    <div id="company-container"></div> 
+ 
+    <!-- 弹窗容器 --> 
+    <div id="popup-overlay" class="popup-overlay"></div> 
+    <div id="popup" class="popup"> 
+        <div class="popup-header"> 
+            <h2 id="popup-title"></h2> <!-- 添加标题元素 --> 
+            <button id="close-popup" class="close-popup">╳</button> 
+        </div> 
+        <div id="popup-links" class="popup-links"></div> 
+    </div> 
+ 
+    <script> 
 const companies = [
     {
         companyName: '米哈游',
@@ -381,6 +336,7 @@ const companies = [
                             { type: '《原神》官方社区内容展示页', url: 'https://act.mihoyo.com/ys/event/community-content-collection/index.html#/home', icon: '🔗' },
                             { type: '原神版本页（5.2版本）', url: 'https://webstatic.mihoyo.com/ys/event/blue-post/index.html?page_sn=d9458eba50ab41b4&bbs_presentation_style=fullscreen&utm_source=game&utm_medium=ys&utm_campaign=bt#/index', icon: '🔗' },
                             { type: '提瓦特大地图', url: 'https://act.mihoyo.com/ys/app/interactive-map/index.html', icon: '🔗' },
+                            { type: '活动祈愿一览-旅行者创作平台-观测枢-原神wiki', url: 'https://baike.mihoyo.com/ys/obc/content/6001/detail?visit_device=pc&bbs_presentation_style=no_header', icon: '🔗' },
                             { type: '【原神】「千音雅集」交流平台', url: 'https://act.miyoushe.com/ys/event/ugc-music-stable/index.html#/', icon: '🔗' },
                             { type: '原神WIKI_BWIKI_哔哩哔哩', url: 'https://wiki.biligame.com/ys/%E9%A6%96%E9%A1%B5', icon: '🔗' },
                             { type: 'Genshin Damage Calculator & Visualizer', url: 'https://genshin.yunlu18.net/#/', icon: '🔗' },
@@ -675,16 +631,33 @@ const companies = [
                             { type: '官网', url: 'https://www.mihoyogift.com/', icon: '🌐' }
                         ]
                     },{
-                        type: '部分商品',
+                        type: '重要页面',
                         icon: '📔',
                         isDropdown: false,
                         subLinks: [
-                            { type: '「崩坏3」崩坏3原画集Vol.2 月之始源与终焉', url: 'https://www.mihoyogift.com/goods/2024719078594831224832', icon: '📔' },
-                            { type: '「崩坏3」崩坏3原画集Vol.1 流星的旅途', url: 'https://www.mihoyogift.com/goods/2024459730069875628032', icon: '📔' },
-                            { type: '【原神】心有所喜系列周边 Genshin', url: 'https://www.mihoyogift.com/goods/2021796847125278240768', icon: '📔' },
-                            { type: '【原神】喜遇原神冰变真果杯套装 现货 Genshin', url: 'https://www.mihoyogift.com/goods/2021796876814323565568', icon: '📔' },
-                            { type: '【原神】异世寻味系列 人物徽章亚克力立牌 Genshin', url: 'https://www.mihoyogift.com/goods/202108021724', icon: '📔' },
-                            { type: '「崩坏学园2」崩坏学园2 游戏原设集', url: 'https://www.mihoyogift.com/goods/20231018530353310083472', icon: '📔' }
+                            { type: '购物车', url: 'https://www.mihoyogift.com/cart', icon: '📔' },
+                            { type: '优惠券', url: 'https://www.mihoyogift.com/user/coupon', icon: '📔' }
+                        ]
+                    },{
+                        type: '部分商品',
+                        icon: '🛒',
+                        isDropdown: false,
+                        subLinks: [
+                            { type: '「崩坏3」崩坏3原画集Vol.2 月之始源与终焉', url: 'https://www.mihoyogift.com/goods/2024719078594831224832', icon: '🛒' },
+                            { type: '「崩坏3」崩坏3原画集Vol.1 流星的旅途', url: 'https://www.mihoyogift.com/goods/2024459730069875628032', icon: '🛒' },
+                            { type: '「崩坏学园2」崩坏学园2 游戏原设集', url: 'https://www.mihoyogift.com/goods/20231018530353310083472', icon: '🛒' },
+                            { type: '【原神】心有所喜系列周边 Genshin', url: 'https://www.mihoyogift.com/goods/2021796847125278240768', icon: '🛒' },
+                            { type: '【原神】喜遇原神冰变真果杯套装 现货 Genshin', url: 'https://www.mihoyogift.com/goods/2021796876814323565568', icon: '🛒' },
+                            { type: '【原神】异世寻味系列 人物徽章亚克力立牌 Genshin', url: 'https://www.mihoyogift.com/goods/202108021724', icon: '🛒' },
+                            { type: '【原神】珊瑚宫心海·真珠之智机械键盘 现货 Genshin', url: 'https://www.mihoyogift.com/goods/2021746114587958480896', icon: '🛒' },
+                            { type: '【原神】璀夜华宴系列角色等身抱枕 Genshin', url: 'https://www.mihoyogift.com/goods/20211101111337192263092', icon: '🛒' },
+                            { type: '「崩坏：星穹铁道」青雀两变帝垣琼玉幺鱼抱枕', url: 'https://www.mihoyogift.com/goods/2028875795512517736922', icon: '🛒' },
+                            { type: '【原神】「轰轰火花！」小蹦蹦斜挎水杯 Genshin', url: 'https://www.mihoyogift.com/goods/20211068731183996616761', icon: '🛒' },
+                            { type: '「崩坏：星穹铁道」阮·梅造物 异宠拾遗系列毛绒纸抽盒', url: 'https://www.mihoyogift.com/goods/2028926538801088573506', icon: '🛒' },
+                            { type: '【原神】Redmi AirDots 3 Pro 原神定制版', url: 'https://www.mihoyogift.com/goods/202116482040543108', icon: '🛒' },
+                            { type: '【原神】犬坂吠吠小夜灯式充电宝 现货 Genshin', url: 'https://www.mihoyogift.com/goods/2021647342080930129920', icon: '🛒' },
+                            { type: '【原神】「影寂天下人」雷电将军充能礼盒 Genshin', url: 'https://www.mihoyogift.com/goods/2021921375777088354362', icon: '🛒' },
+                            { type: '【原神】纳塔多彩像素系列周边 玛拉妮款 Genshin', url: 'https://www.mihoyogift.com/goods/20211038860128096367763', icon: '🛒' }
                         ]}]
             }
         ]
@@ -1108,102 +1081,107 @@ const companies = [
     }
 ];
 
-// 生成公司及游戏索引
-const companyContainer = document.getElementById('company-container');
-let companyIndex = 0; // 用于生成唯一的公司 id
-
-// 生成公司索引
-const companyIndexContainer = document.createElement('div');
-companyIndexContainer.classList.add('company-index');
-
-companies.forEach(company => {
-    // 创建公司标题
-    const companySection = document.createElement('div');
-    companySection.classList.add('company-section');
-
-    const companyTitle = document.createElement('div');
-    companyTitle.classList.add('company-title');
-    companyTitle.textContent = company.companyName;
-    companySection.appendChild(companyTitle);
-
-    // 创建导航栏
-    const nav = document.createElement('nav');
-    company.games.forEach(game => {
-        const link = document.createElement('a');
-        link.href = `#${game.id}`;
-        link.textContent = game.name;
-        nav.appendChild(link);
-    });
-    companySection.appendChild(nav);
-
-    // 创建游戏列表
-    const gameIndex = document.createElement('section');
-    gameIndex.classList.add('game-index');
-    company.games.forEach(game => {
-        const gameItem = document.createElement('div');
-        gameItem.id = game.id;
-        gameItem.classList.add('game-item');
-
-        const gameTitle = document.createElement('h3');
-        gameTitle.textContent = game.name;
-        gameItem.appendChild(gameTitle);
-
-        const gameLinks = document.createElement('div');
-        gameLinks.classList.add('game-links');
-        game.links.forEach(link => {
-            const a = document.createElement('a');
-            a.href = link.url;
-            a.target = "_blank";
-            a.innerHTML = `<span class="link-icons">${link.icon}</span>${link.type}`;
-
-            // 处理层级跳转
-            if (link.subLinks && link.subLinks.length > 0) {
-                a.addEventListener('click', (event) => {
-                    event.preventDefault(); // 阻止默认跳转行为
-                    showPopup(link.subLinks, link.type); // 传递父链接的 type 值
-                });
-            }
-
-            gameLinks.appendChild(a);
-        });
-        gameItem.appendChild(gameLinks);
-        gameIndex.appendChild(gameItem);
-    });
-
-    companySection.appendChild(gameIndex);
-    companyContainer.appendChild(companySection);
-});
-
-// 显示弹窗
-function showPopup(links, title) {
-    const popup = document.getElementById('popup');
-    const popupLinks = document.getElementById('popup-links');
-    const popupTitle = document.getElementById('popup-title'); // 获取标题元素
-    
-    popupLinks.innerHTML = ''; // 清空现有内容
-
-    // 设置弹窗标题为父链接的 type 值
-    popupTitle.textContent = title;
-
-    // 添加子链接
-    links.forEach(subLink => {
-        const subLinkElement = document.createElement('a');
-        subLinkElement.href = subLink.url;
-        subLinkElement.target = "_blank";
-        subLinkElement.innerHTML = `<span class="link-icons">${subLink.icon}</span>${subLink.type}`;
-        popupLinks.appendChild(subLinkElement);
-    });
-
-    // 显示弹窗
-    document.getElementById('popup-overlay').style.display = 'block';
-    popup.style.display = 'block';
-}
-
-// 关闭弹窗
-document.getElementById('close-popup').addEventListener('click', () => {
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('popup-overlay').style.display = 'none';
-});
-</script>
-</body>
-</html>
+// 生成公司及游戏索引 
+        const companyContainer = document.getElementById('company-container');  
+        let companyIndex = 0; // 用于生成唯一的公司 id 
+ 
+        // 生成公司索引 
+        const companyIndexContainer = document.createElement('div');  
+        companyIndexContainer.classList.add('company-index');  
+ 
+        companies.forEach(company  => { 
+            // 创建公司标题 
+            const companySection = document.createElement('div');  
+            companySection.classList.add('company-section');  
+ 
+            const companyTitle = document.createElement('div');  
+            companyTitle.classList.add('company-title');  
+            companyTitle.textContent  = company.companyName  || company.name;  
+            companySection.appendChild(companyTitle);  
+ 
+            // 创建导航栏 
+            const nav = document.createElement('nav');  
+            if (company.games)  { 
+                company.games.forEach(game  => { 
+                    const link = document.createElement('a');  
+                    link.href  = `#${game.id}`;  
+                    link.textContent  = game.name;  
+                    nav.appendChild(link);  
+                }); 
+            } 
+            companySection.appendChild(nav);  
+ 
+            // 创建游戏列表 
+            const gameIndex = document.createElement('section');  
+            gameIndex.classList.add('game-index');  
+            if (company.games)  { 
+                company.games.forEach(game  => { 
+                    const gameItem = document.createElement('div');  
+                    gameItem.id  = game.id;  
+                    gameItem.classList.add('game-item');  
+ 
+                    const gameTitle = document.createElement('h3');  
+                    gameTitle.textContent  = game.name;  
+                    gameItem.appendChild(gameTitle);  
+ 
+                    const gameLinks = document.createElement('div');  
+                    gameLinks.classList.add('game-links');  
+                    game.links.forEach(link  => { 
+                        const a = document.createElement('a');  
+                        a.href  = link.url;  
+                        a.target  = "_blank"; 
+                        a.innerHTML  = `<span class="link-icons">${link.icon}</span>${link.type}`;  
+ 
+                        // 处理层级跳转 
+                        if (link.subLinks  && link.subLinks.length  > 0) { 
+                            a.addEventListener('click',  (event) => { 
+                                event.preventDefault();  // 阻止默认跳转行为 
+                                showPopup(link.subLinks,  link.type);  // 传递父链接的 type 值 
+                            }); 
+                        } 
+ 
+                        gameLinks.appendChild(a);  
+                    }); 
+                    gameItem.appendChild(gameLinks);  
+                    gameIndex.appendChild(gameItem);  
+                }); 
+            } 
+ 
+            companySection.appendChild(gameIndex);  
+            companyContainer.appendChild(companySection);  
+        }); 
+ 
+        // 显示弹窗 
+        function showPopup(links, title) { 
+            const popup = document.getElementById('popup');  
+            const popupLinks = document.getElementById('popup-links');  
+            const popupTitle = document.getElementById('popup-title');  // 获取标题元素 
+ 
+            popupLinks.innerHTML  = ''; // 清空现有内容 
+ 
+            // 设置弹窗标题为父链接的 type 值 
+            popupTitle.textContent  = title; 
+ 
+            // 添加子链接 
+            links.forEach(subLink  => { 
+                const subLinkElement = document.createElement('a');  
+                subLinkElement.href  = subLink.url;  
+                subLinkElement.target  = "_blank"; 
+                subLinkElement.innerHTML  = `<span class="link-icons">${subLink.icon}</span>${subLink.type}`;  
+                popupLinks.appendChild(subLinkElement);  
+            }); 
+ 
+            // 显示弹窗 
+            document.getElementById('popup-overlay').style.display  = 'block'; 
+            popup.style.display  = 'block'; 
+        } 
+ 
+        // 关闭弹窗 
+        document.getElementById('close-popup').addEventListener('click',  () => { 
+            document.getElementById('popup').style.display  = 'none'; 
+            document.getElementById('popup-overlay').style.display  = 'none'; 
+        }); 
+    </script> 
+</body> 
+ 
+</html> 
