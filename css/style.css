@@ -1,4 +1,4 @@
-/* Base Styles */
+/* 基本样式 */
 body {
     font-family: '微软雅黑', sans-serif;
     cursor: url('../cur_yo.cur'),  pointer;
@@ -6,8 +6,7 @@ body {
     margin: 0;
     background-color: #ebf4ea;
 }
- 
-/* Typography */
+/* 标题 */
 h1 {
     font-size: 55px;
     color: #ff00ff;
@@ -43,7 +42,7 @@ p {
     padding: 0.5em 0;
 }
  
-/* Horizontal Rules */
+/* 分隔线样式 */
 .hr, .red-hr {
     border: none;
     height: 2px;
